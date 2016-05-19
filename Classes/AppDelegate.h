@@ -39,8 +39,8 @@ public:
 	static void LoadAll();
 	static void SaveStatus();
 	static void SaveLevel(int _level);
-	static void SaveAchievement();
-	static void SaveAchievement(int _index);
+	//static void SaveAchievement();
+	//static void SaveAchievement(int _index);
 	static void SaveOnSale();
 	static void LoadOnSale();
 	static void SaveVIP();

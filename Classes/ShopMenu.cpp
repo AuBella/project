@@ -7,8 +7,8 @@
 #include "Flash.h"
 #include "CSArmatureDataManager.h"
 #include "Common.h"
-#include "LoginMenu.h"
-#include "FirstLogin.h"
+//#include "LoginMenu.h"
+//#include "FirstLogin.h"
 #include "PayService.h"
 
 extern CFlashControl* g_pHero;

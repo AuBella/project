@@ -200,17 +200,17 @@ void AppDelegate::SaveLevel( int _level )
 	common::SaveData("be", s_LevelHero3, _level);//s_LevelStar
 }
 
-void AppDelegate::SaveAchievement()
-{
-	SaveArray("n", s_AchieveNum, 63);//s_AchieveNum
-}
+//void AppDelegate::SaveAchievement()
+//{
+//	SaveArray("n", s_AchieveNum, 63);//s_AchieveNum
+//}
 
-void AppDelegate::SaveAchievement( int _index )
-{
-	common::SaveData("m", s_Achieve, _index);//s_LevelOpen
-	common::SaveData("n", s_AchieveNum, _index);//s_LevelStar
-	common::SaveData("b", s_Medal);//s_Medal
-}
+//void AppDelegate::SaveAchievement( int _index )
+//{
+//	common::SaveData("m", s_Achieve, _index);//s_LevelOpen
+//	common::SaveData("n", s_AchieveNum, _index);//s_LevelStar
+//	common::SaveData("b", s_Medal);//s_Medal
+//}
 
 void AppDelegate::SaveWeapon()
 {

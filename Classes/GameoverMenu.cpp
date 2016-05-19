@@ -170,7 +170,7 @@ void ccbGameoverMenu::Win(int _complate)
 	AppDelegate::m_Sell2 = m_pGameControler->m_iSkillCanUse;
 	AppDelegate::SaveStatus();
 	AppDelegate::SaveLevel(m_iLevel);
-	AppDelegate::SaveAchievement();
+	//AppDelegate::SaveAchievement();
 	//InitBtn();
 }
 
@@ -189,7 +189,7 @@ void ccbGameoverMenu::Lose(int _complate)
 	AppDelegate::m_Sell2 = m_pGameControler->m_iSkillCanUse;
 	AppDelegate::SaveStatus();
 	AppDelegate::SaveLevel(m_iLevel);
-	AppDelegate::SaveAchievement();
+	//AppDelegate::SaveAchievement();
 	//InitBtn();
 
 	m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline", 0.0f);

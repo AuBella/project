@@ -258,9 +258,6 @@
     <ClInclude Include="..\Classes\FirstLogin.h">
       <Filter>View\Login\Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GetPrize.h">
-      <Filter>View\Login\Include</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\HelpLayer.h">
       <Filter>View\Login\Include</Filter>
     </ClInclude>
@@ -296,6 +293,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Hero.h">
       <Filter>Sprite\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GetPrize.h">
+      <Filter>View\Login\Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -446,22 +446,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Main\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ChoseHero.cpp">
-      <Filter>View\Login\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\FirstLogin.cpp">
-      <Filter>View\Login\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\GetPrize.cpp">
-      <Filter>View\Login\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HelpLayer.cpp">
-      <Filter>View\Login\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LoginEDLayer.cpp">
-      <Filter>View\Login\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LoginMenu.cpp">
       <Filter>View\Login\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ccb.cpp">
@@ -493,6 +478,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\GameLoading.cpp">
       <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChoseHero.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FirstLogin.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelpLayer.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoginEDLayer.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoginMenu.cpp">
+      <Filter>View\Login\Include</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
