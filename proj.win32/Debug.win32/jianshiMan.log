@@ -1,0 +1,89 @@
+﻿生成启动时间为 2016/5/19 18:45:32。
+     1>项目“C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\jianshiMan.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\kazmath\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\win32" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\third_party\win32" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\third_party\win32\OGLES" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external\chipmunk\include\chipmunk" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\CocosDenshion\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\extensions" /I..\Classes /I.. /I..\Classes\CSArmature /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _USE_32BIT_TIME_T /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\ShopMenu.cpp ..\Classes\ccb.cpp
+         ccb.cpp
+         ShopMenu.cpp
+         正在生成代码...
+       PreLinkEvent:
+         if not exist "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\" mkdir "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external\libwebsockets\win32\lib\*.*" "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\"
+         :VCEnd
+         复制了 2 个文件
+       Link:
+         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\jianshiMan.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\\" libExtensions.lib libcocos2d.lib libCocosDenshion.lib opengl32.lib glew32.lib libBox2d.lib libchipmunk.lib libcurl_imp.lib pthreadVCE2.lib websockets.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\jianshiMan.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\jianshiMan.lib" /MACHINE:X86 /SAFESEH Debug.win32\AchieveAdd.obj
+         Debug.win32\AppDelegate.obj
+         Debug.win32\Background.obj
+         Debug.win32\BossBox.obj
+         Debug.win32\ccb.obj
+         Debug.win32\ChoseHero.obj
+         Debug.win32\ControlerMenu.obj
+         Debug.win32\CCTexture2DMutable.obj
+         Debug.win32\CSAnimation.obj
+         Debug.win32\CSArmature.obj
+         Debug.win32\CSArmatureDataManager.obj
+         Debug.win32\CSBatchNode.obj
+         Debug.win32\CSBone.obj
+         Debug.win32\CSColliderDetector.obj
+         Debug.win32\CSContentJsonDictionary.obj
+         Debug.win32\CSDataReaderHelper.obj
+         Debug.win32\CSDatas.obj
+         Debug.win32\CSDecorativeDisplay.obj
+         Debug.win32\CSDisplayFactory.obj
+         Debug.win32\CSDisplayManager.obj
+         Debug.win32\CSPhysicsWorld.obj
+         Debug.win32\CSProcessBase.obj
+         Debug.win32\CSShaderNode.obj
+         Debug.win32\CSSkin.obj
+         Debug.win32\CSSpriteFrameCacheHelper.obj
+         Debug.win32\CSTransformHelp.obj
+         Debug.win32\CSTween.obj
+         Debug.win32\CSTweenFunction.obj
+         Debug.win32\CSUtilMath.obj
+         "Debug.win32\GLES-Render.obj"
+         Debug.win32\json_reader.obj
+         Debug.win32\json_value.obj
+         Debug.win32\json_writer.obj
+         Debug.win32\tinystr.obj
+         Debug.win32\tinyxml.obj
+         Debug.win32\tinyxmlerror.obj
+         Debug.win32\tinyxmlparser.obj
+         Debug.win32\CSizeLayer.obj
+         Debug.win32\CTiledLayer.obj
+         Debug.win32\FirstLogin.obj
+         Debug.win32\Flash.obj
+         Debug.win32\Frontground.obj
+         Debug.win32\GameBossLoading.obj
+         Debug.win32\GameControler.obj
+         Debug.win32\GameLoading.obj
+         Debug.win32\GameLoadingMenu.obj
+         Debug.win32\GameoverBtnMenu.obj
+         Debug.win32\GameoverMenu.obj
+         Debug.win32\GameSkillLayer.obj
+         Debug.win32\GameStart.obj
+         Debug.win32\GameStartMenu.obj
+         Debug.win32\GetItemLayer.obj
+         Debug.win32\GetPrize.obj
+         Debug.win32\HelpLayer.obj
+         Debug.win32\Hero.obj
+         Debug.win32\HttpHandle.obj
+         Debug.win32\LevelMenu.obj
+         Debug.win32\LoginEDLayer.obj
+         Debug.win32\LoginMenu.obj
+         Debug.win32\MainMenu.obj
+         Debug.win32\MenuLoading.obj
+         Debug.win32\PauseMenu.obj
+         Debug.win32\PayService.obj
+         Debug.win32\ShopMenu.obj
+         Debug.win32\main.obj
+         "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libcocos2d.lib"
+         "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libCocosDenshion.lib"
+         "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libExtensions.lib"
+         "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libBox2D.lib"
+         "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libchipmunk.lib"
+         jianshiMan.vcxproj -> C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\jianshiMan.exe
+     1>已完成生成项目“C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\jianshiMan.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.07

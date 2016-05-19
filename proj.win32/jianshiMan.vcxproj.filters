@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Game">
+      <UniqueIdentifier>{198bf35b-8d6b-4661-9498-32fdfd1d73e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{91d13f06-21ad-4aca-a276-ba6c5b872e4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite">
+      <UniqueIdentifier>{7d007cdd-1148-4fd2-9ac9-fa3e5717dbff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{d1fb1a52-81ed-481f-891e-20b0083c5c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Include">
+      <UniqueIdentifier>{67e58c6b-7b32-4276-a28d-90cda02e2599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Source">
+      <UniqueIdentifier>{80f6711f-21c0-4fe1-a9b8-011ed8dc9372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Common">
+      <UniqueIdentifier>{0d2276d9-ec4b-4841-a5e1-fc25b512e4fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Flash">
+      <UniqueIdentifier>{abea8fd6-f9de-49d1-8481-03c6bec9ed19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Include">
+      <UniqueIdentifier>{bbb9f7d8-fb7c-4d9a-9959-e05050342bad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Source">
+      <UniqueIdentifier>{73fc0f06-e6ce-4728-9124-798f85b283bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite\Include">
+      <UniqueIdentifier>{6f91ecb0-b3e2-44ee-856f-6259886127d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite\Source">
+      <UniqueIdentifier>{3f5b4063-2fd3-472a-9841-a4e3914c36fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Login">
+      <UniqueIdentifier>{ba52ce29-4e0b-4888-ae14-d048c56dacb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Menu">
+      <UniqueIdentifier>{6a6a6087-2a5f-4f05-9201-4b495a2d772a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Login\Include">
+      <UniqueIdentifier>{73c7d9c4-8600-4dbc-9d7b-fd748ac9b7bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Login\Source">
+      <UniqueIdentifier>{4dbd7218-1b7d-4246-96dd-6a9bbfdf8a97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Menu\Include">
+      <UniqueIdentifier>{9784d93a-b557-442a-a6dd-041d0fcff07c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Menu\Source">
+      <UniqueIdentifier>{8cf8a3e2-9447-4b6f-8f90-438300fd5ab7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\BossBox.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ControlerMenu.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameBossLoading.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLoading.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameoverMenu.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameSkillLayer.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStart.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStartMenu.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GetItemLayer.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PauseMenu.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameoverBtnMenu.h">
+      <Filter>Game\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameControler.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\baseRes.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSizeLayer.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CTiledLayer.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FileCommon.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Filterword.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MonsterInfo.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\QuestionInfo.h">
+      <Filter>Main\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\autolink.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CCTexture2DMutable.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\config.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSAnimation.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSArmature.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSArmatureDataManager.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSArmatureDefine.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSBatchNode.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSBone.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSColliderDetector.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSConstValue.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSContentJsonDictionary.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSDataReaderHelper.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSDatas.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSDecorativeDisplay.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSDisplayFactory.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSDisplayManager.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSPhysicsWorld.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSProcessBase.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSShaderNode.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSSkin.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSSpriteFrameCacheHelper.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSTransformHelp.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSTween.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSTweenFunction.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\CSUtilMath.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\features.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\forwards.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\GLES-Render.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\json_batchallocator.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\json_lib.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\json_tool.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\reader.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\sigslot.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\tinystr.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\tinyxml.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\value.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CSArmature\writer.h">
+      <Filter>Main\Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AchieveAdd.h">
+      <Filter>Main\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Main\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLoadingMenu.h">
+      <Filter>Main\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HttpHandle.h">
+      <Filter>Main\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PayService.h">
+      <Filter>Main\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\resource.h">
+      <Filter>Main\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Main\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChoseHero.h">
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FirstLogin.h">
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GetPrize.h">
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelpLayer.h">
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoginEDLayer.h">
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoginMenu.h">
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ccb.h">
+      <Filter>View\Menu\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LevelMenu.h">
+      <Filter>View\Menu\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainMenu.h">
+      <Filter>View\Menu\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuLoading.h">
+      <Filter>View\Menu\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ShopMenu.h">
+      <Filter>View\Menu\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Background.h">
+      <Filter>Sprite\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Flash.h">
+      <Filter>Sprite\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Frontground.h">
+      <Filter>Sprite\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>Sprite\Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\BossBox.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ControlerMenu.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameBossLoading.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLoadingMenu.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameoverBtnMenu.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameoverMenu.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameSkillLayer.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStart.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStartMenu.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GetItemLayer.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PauseMenu.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameControler.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSizeLayer.cpp">
+      <Filter>Main\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CTiledLayer.cpp">
+      <Filter>Main\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CCTexture2DMutable.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSAnimation.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSArmature.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSArmatureDataManager.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSBatchNode.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSBone.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSColliderDetector.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSContentJsonDictionary.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSDataReaderHelper.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSDatas.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSDecorativeDisplay.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSDisplayFactory.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSDisplayManager.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSPhysicsWorld.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSProcessBase.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSShaderNode.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSSkin.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSSpriteFrameCacheHelper.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSTransformHelp.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSTween.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSTweenFunction.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\CSUtilMath.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\GLES-Render.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\json_reader.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\json_value.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\json_writer.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\tinystr.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\tinyxml.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\tinyxmlerror.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CSArmature\tinyxmlparser.cpp">
+      <Filter>Main\Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AchieveAdd.cpp">
+      <Filter>Main\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Main\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HttpHandle.cpp">
+      <Filter>Main\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PayService.cpp">
+      <Filter>Main\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChoseHero.cpp">
+      <Filter>View\Login\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FirstLogin.cpp">
+      <Filter>View\Login\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GetPrize.cpp">
+      <Filter>View\Login\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelpLayer.cpp">
+      <Filter>View\Login\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoginEDLayer.cpp">
+      <Filter>View\Login\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoginMenu.cpp">
+      <Filter>View\Login\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ccb.cpp">
+      <Filter>View\Menu\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LevelMenu.cpp">
+      <Filter>View\Menu\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainMenu.cpp">
+      <Filter>View\Menu\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MenuLoading.cpp">
+      <Filter>View\Menu\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ShopMenu.cpp">
+      <Filter>View\Menu\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Background.cpp">
+      <Filter>Sprite\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Flash.cpp">
+      <Filter>Sprite\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Frontground.cpp">
+      <Filter>Sprite\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Hero.cpp">
+      <Filter>Sprite\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLoading.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
