@@ -34,7 +34,6 @@ public:
 
 	void MusicShow();
 	void BackTime(float _t);
-
 	virtual void ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
 
 private:

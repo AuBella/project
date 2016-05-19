@@ -19,7 +19,7 @@
 #include "GetItemLayer.h"
 #include "ChoseHero.h"
 #include "ShopMenu.h"
-#include "PayService.h"
+//#include "PayService.h"
 
 extern CFlashControl* g_pHero;
 using namespace cocos2d;
@@ -849,7 +849,7 @@ void CGameControler::GameLoadingSecond()
 		}
 	}
 
-	{
+	{//战斗购买
 		CCMenuItem* pItem = CCMenuItemImage::create("tu4/buyboard.png", "tu4/buyboard.png", this, menu_selector(CGameControler::Sell4_1));
 		pItem->setPosition(ccp(747, 270));
 		m_pSullpyBtn = CCMenu::create(pItem, NULL);
@@ -857,20 +857,20 @@ void CGameControler::GameLoadingSecond()
 		m_pSullpyBtn->setVisible(false);
 		addChild(m_pSullpyBtn, 5);
 
-		m_pSullpyHealbox = CCSprite::create("tu3/qiang/0.png");
+		m_pSullpyHealbox = CCSprite::create("tu3/qiang/0.png");//药水
 		m_pSullpyHealbox->setPosition(ccp(770, 281));
 		m_pSullpyHealbox->setVisible(false);
 		addChild(m_pSullpyHealbox, 6);
 
 		char buffer[255];
-		sprintf(buffer, "tu3/bullet/%d.png", AppDelegate::s_WeaponUse[1]);
+		sprintf(buffer, "tu3/bullet/%d.png", AppDelegate::s_WeaponUse[1]);//子弹
 		m_pSullpyBullet = CCSprite::create(buffer);
 		m_pSullpyBullet->setPosition(ccp(770, 275));
 		m_pSullpyBullet->setScale(0.60f);
 		m_pSullpyBullet->setVisible(false);
 		addChild(m_pSullpyBullet, 7);
 
-		m_pSullpyBoard = CCSprite::create("tu4/goumai.png");
+		m_pSullpyBoard = CCSprite::create("tu4/goumai.png");//购买
 		m_pSullpyBoard->setPosition(ccp(737,246));
 		m_pSullpyBoard->setVisible(false);
 		addChild(m_pSullpyBoard, 8);
@@ -7784,8 +7784,8 @@ bool CGameControler::MonsterBeAttack(MonsterInfomation* _pMonster, int _damage ,
 				m_bComboShow = false;
 				//AchieveAdd::Add(1);
 			}
-			else if ( 1 == _type )
-				//AchieveAdd::Add(5);
+			//else if ( 1 == _type ){}
+			//	//AchieveAdd::Add(5);
 			m_iStateNumKill++;
 			if ( m_iNeedKill >0 )
 			{
@@ -9479,14 +9479,14 @@ void CGameControler::BossMovie( float _t )
 
 void CGameControler::Win(float _dt)
 {
-	if ( 6 == m_iLevelType )
-	{
-		AppDelegate::s_FirstLogin = 2;
-		AppDelegate::SaveGuide();
-		AppDelegate::SaveStatus();
-		//AppDelegate::ChangeScene( ccbChoseHero::CreateScene() );
-		return;
-	}
+	//if ( 6 == m_iLevelType )
+	//{
+	//	AppDelegate::s_FirstLogin = 2;
+	//	AppDelegate::SaveGuide();
+	//	AppDelegate::SaveStatus();
+	//	//AppDelegate::ChangeScene( ccbChoseHero::CreateScene() );
+	//	return;
+	//}
 
 	//if ( m_bPerfect )
 	//	//AchieveAdd::Add(17, 0, m_unLevel);
@@ -10908,10 +10908,10 @@ void CGameControler::CreateInPrisonPlist()
 
 void CGameControler::GetMoney( int _num )
 {
-	m_iMoneyTo += _num*(1+AppDelegate::s_VIP);
+	m_iMoneyTo += _num;
 	if ( m_structQuestion.type[4] )
 	{
-		m_structQuestion.num[4] -= _num*(1+AppDelegate::s_VIP);
+		m_structQuestion.num[4] -= _num;
 		if ( m_structQuestion.num[4] <= 0 )
 			m_structQuestion.complate[4] = 1;
 	}
@@ -11181,7 +11181,7 @@ void CGameControler::ExitYes( cocos2d::CCObject* sender )
 {
 	AppDelegate::SaveAll();
 #ifdef Plat_Telecom
-	PayService::exitGame();
+	//PayService::exitGame();
 #endif
 	exit(0);
 }
@@ -11594,7 +11594,7 @@ void CGameControler::GuideBuy( cocos2d::CCObject *pSender /*= NULL*/ )
 {
 	if ( pSender )
 	{
-		PayService::pay(1);
+		//PayService::pay(1);
 	}
 	else
 	{
@@ -11707,7 +11707,7 @@ void CGameControler::Sell2Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 {
 	if ( pSender )
 	{
-		PayService::pay(2);
+		//PayService::pay(2);
 	}
 	else
 	{
@@ -11815,8 +11815,6 @@ void CGameControler::Sell3()
 #endif
 	{
 		CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-		//pCCLayerColor->setPosition(ccp(0,0));
-		//SetScale(pCCLayerColor);
 		addChild(pCCLayerColor, 29, 194);
 
 		CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::Sell3Back));
@@ -11833,11 +11831,11 @@ void CGameControler::Sell3()
 		pSprite2->setPosition(ccp(400, 240));
 		addChild(pSprite2, 31, 198);
 
-		CCMenuItem* pItem1 = CCMenuItemImage::create("sell/8/chongsheng.png", "sell/8/chongsheng2.png", this, menu_selector(CGameControler::Sell3Resume2));
-		CCMenuItem* pItem3 = CCMenuItemImage::create("sell/8/fuhuo.png", "sell/8/fuhuo2.png", this, menu_selector(CGameControler::Sell3Resume1));
+		CCMenuItem* pItem3 = CCMenuItemImage::create("sell/8/chongsheng.png", "sell/8/chongsheng2.png", this, menu_selector(CGameControler::Sell3Resume1));
+		CCMenuItem* pItem1 = CCMenuItemImage::create("sell/8/fuhuo.png", "sell/8/fuhuo2.png", this, menu_selector(CGameControler::Sell3Resume2));
 		pItem1->setPosition(ccp(250,94));
 		pItem3->setPosition(ccp(560,94));
-		CCMenu* pMenu = CCMenu::create(pItem1, pItem3, NULL);
+		CCMenu* pMenu = CCMenu::create(pItem1,pItem3, NULL);
 		pMenu->setPosition(ccp(0,0));
 		addChild(pMenu, 32, 197);
 	}
@@ -11853,7 +11851,7 @@ void CGameControler::Sell3Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 {
 	if ( pSender )
 	{
-		PayService::pay(3);
+		//PayService::pay(3);
 	}
 	else
 	{
@@ -11895,21 +11893,10 @@ void CGameControler::Sell3Back( cocos2d::CCObject *pSender /*= NULL*/ )
 	m_pHero->PauseMonster();
 	scheduleOnce(schedule_selector(CGameControler::Lose), 0);
 }
-
-void CGameControler::Sell3Resume1( cocos2d::CCObject *pSender /*= NULL*/ )
-{
-#ifndef Plat_Telecom_Demo
-	if ( pSender )
-	{
-		PayService::pay(10);
-	}
-	else
-#endif
-	{
-#ifdef Plat_Telecom_Demo
+//复活
+void CGameControler::Sell3Resume1( cocos2d::CCObject *pSender){
 		AppDelegate::s_GrenadeNum = 10;
 		AppDelegate::s_Healbox = 3;
-#endif
 		m_iBulletNum[0] += 10*g_iWeaponBulletOnce[AppDelegate::s_WeaponUse[1]];
 		if ( m_iBulletNum[0] > 999 )
 			m_iBulletNum[0] = 999;
@@ -11919,20 +11906,14 @@ void CGameControler::Sell3Resume1( cocos2d::CCObject *pSender /*= NULL*/ )
 		ShowHealBox();
 		ShowScore();
 		DeadCheck();
+		Sell2Back();	
+}
+//重生
+void CGameControler::Sell3Resume2( cocos2d::CCObject *pSender){
+	if ( AppDelegate::s_Medal < 20 ){
 		Sell2Back();
 	}
-}
-
-void CGameControler::Sell3Resume2( cocos2d::CCObject *pSender /*= NULL*/ )
-{
-	if ( AppDelegate::s_Medal < 20 )
-	{
-#ifndef NoGetMoney
-		GetMedal();
-#endif
-	}
-	else
-	{
+	else{
 		AppDelegate::s_Medal -= 20;
 		AppDelegate::SaveMedal();
 		Relife();
@@ -12056,7 +12037,7 @@ void CGameControler::Sell4Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 {
 	if ( pSender )
 	{
-		PayService::pay(8);
+		//PayService::pay(8);
 	}
 	else
 	{
@@ -12119,7 +12100,7 @@ void CGameControler::Sell5Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 {
 	if ( pSender )
 	{
-		PayService::pay(9);
+		//PayService::pay(9);
 	}
 	else
 	{
@@ -12138,19 +12119,19 @@ void CGameControler::Sell5Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 
 void CGameControler::GuideGoToChoseHero(float _t)
 {
-	if ( 6 == m_iLevelType )
-	{
-		if ( AppDelegate::m_Sell1 )
-			AppDelegate::s_GrenadeNum = 10;
-		else
-			AppDelegate::s_GrenadeNum = 0;
-		AppDelegate::s_BulletNum[3] = 140;
-		AppDelegate::s_FirstLogin = 2;
-		AppDelegate::SaveGuide();
-		AppDelegate::SaveStatus();
-		//AppDelegate::ChangeScene( ccbChoseHero::CreateScene() );
-		return;
-	}
+	//if ( 6 == m_iLevelType )
+	//{
+	//	if ( AppDelegate::m_Sell1 )
+	//		AppDelegate::s_GrenadeNum = 10;
+	//	else
+	//		AppDelegate::s_GrenadeNum = 0;
+	//	AppDelegate::s_BulletNum[3] = 140;
+	//	AppDelegate::s_FirstLogin = 2;
+	//	//AppDelegate::SaveGuide();
+	//	AppDelegate::SaveStatus();
+	//	//AppDelegate::ChangeScene( ccbChoseHero::CreateScene() );
+	//	return;
+	//}
 }
 
 CGameControler* CGameControler::GetGameControler()
@@ -12237,7 +12218,7 @@ void CGameControler::GetMedalBtn( cocos2d::CCObject* _pNode )
 		int numAdd = 0;
 		int numMid = 0;
 		int index = ((CCNode*)_pNode)->getTag();
-		PayService::pay(11+index);
+		//PayService::pay(11+index);
 
 		//switch ( index )
 		//{

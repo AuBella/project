@@ -5,7 +5,7 @@
 #include "ChoseMenu.h"
 #include "AppDelegate.h"
 #include "Common.h"
-#include "PayService.h"
+//#include "PayService.h"
 #include "ShopMenu.h"
 
 using namespace cocos2d;
@@ -232,18 +232,18 @@ void ccbLevelMenu::Appear()
 
 		if ( AppDelegate::s_LevelOpen[i+m_iLevel*6] && i < 5 )
 		{
-			if ( AppDelegate::s_LevelPerfect[i+m_iLevel*6] )
+			/*if ( AppDelegate::s_LevelPerfect[i+m_iLevel*6] )
 			{
 				CCSprite* pMark = CCSprite::create("tu2/1.png");
 				pMark->setPosition(ccp(-70,-6));
 				m_pNode[i]->addChild(pMark, 2, 8);
 			}
-			if ( AppDelegate::s_LevelUnfire[i+m_iLevel*6] )
-			{
+			if ( AppDelegate::s_LevelUnfire[i+m_iLevel*6] )*/
+			/*{
 				CCSprite* pMark = CCSprite::create("tu2/2.png");
 				pMark->setPosition(ccp(-37,-26));
 				m_pNode[i]->addChild(pMark, 2, 7);
-			}
+			}*/
 			for ( int j = 0; j < AppDelegate::s_LevelStar[i+m_iLevel*6]; j++ )
 			{
 				m_pNode[i]->removeChildByTag(11+j);
@@ -325,7 +325,7 @@ void ccbLevelMenu::Sell1Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 {
 	if ( pSender )
 	{
-		PayService::pay(4);
+		//PayService::pay(4);
 	}
 	else
 	{

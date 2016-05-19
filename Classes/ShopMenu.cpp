@@ -9,7 +9,7 @@
 #include "Common.h"
 //#include "LoginMenu.h"
 //#include "FirstLogin.h"
-#include "PayService.h"
+//#include "PayService.h"
 
 extern CFlashControl* g_pHero;
 
@@ -2873,7 +2873,7 @@ void ccbShopMenu::GetMoneyBtn( cocos2d::CCObject* _pNode )
 		int numAdd = 0;
 		int numMid = 0;
 		int index = ((CCNode*)_pNode)->getTag();
-		PayService::pay(14+index);
+		//PayService::pay(14+index);
 
 		//switch ( index )
 		//{
@@ -2915,7 +2915,7 @@ void ccbShopMenu::GetMedalBtn( cocos2d::CCObject* _pNode )
 		int numAdd = 0;
 		int numMid = 0;
 		int index = ((CCNode*)_pNode)->getTag();
-		PayService::pay(11+index);
+		//PayService::pay(11+index);
 
 		//switch ( index )
 		//{

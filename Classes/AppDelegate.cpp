@@ -1,24 +1,16 @@
 #include "cocos2d.h"
 #include "CCEGLView.h"
 #include "AppDelegate.h"
-//#include "FirstLogin.h"
 #include "Flash.h"
 #include "baseRes.h"
 #include "FileCommon.h"
-//#include "ComicPlay.h"
-#include "PayService.h"
-
-//#define TEST
-//#define ShowFrame true
 #define ShowFrame false
 
 #include "ChoseHero.h"
 #include "LevelMenu.h"
 #include "GameControler.h"
-#include "HttpHandle.h"
 #include "GetItemLayer.h"
 #include "ShopMenu.h"
-//#include "LoginEDLayer.h"
 #include "GameoverBtnMenu.h"
 #include "MainMenu.h"
 
@@ -28,35 +20,21 @@ CFlashControl* g_pHero = new CFlashControl;
 
 int AppDelegate::s_LevelOpen[36]= {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int AppDelegate::s_LevelStar[36]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-int AppDelegate::s_LevelPerfect[36]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-int AppDelegate::s_LevelUnfire[36]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int AppDelegate::s_LevelHero2[36]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int AppDelegate::s_LevelHero3[36]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int AppDelegate::s_LevelKey[36]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-int AppDelegate::s_BulletNum[18]= {0,0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+int AppDelegate::s_BulletNum[18]= {0,0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};//子弹数
 int AppDelegate::s_WeaponLevel[18]	= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int AppDelegate::s_WeaponOwn[18]	= {0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-int AppDelegate::s_WeaponUse[3]		=  {2,3,0};
-int AppDelegate::s_Achieve[63]		= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-										0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-										0,0,0};
-int AppDelegate::s_AchieveNum[63]	= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-										0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-										0,0,0};
+int AppDelegate::s_WeaponUse[3]		=  {2,3,0};//正在使用的子弹，购买时子弹
+
 int AppDelegate::s_Money		= 2000;
-int AppDelegate::s_Medal = 0;
+int AppDelegate::s_Medal = 0; //勋章
 int AppDelegate::s_GrenadeNum	= 0;
 int AppDelegate::s_VoiceOpen	= 1;
 int AppDelegate::s_Healbox		= 3;
 int AppDelegate::s_FirstLogin	= 0;
 int AppDelegate::s_SkillEnergy[2]= {0, 0};
-int AppDelegate::s_DateYear	= 0;
-int AppDelegate::s_DateMonth= 0;
-int AppDelegate::s_DateDay	= 0;
-int AppDelegate::s_PrizeSave[10] = {0,0,0,0,0,0,0,0,0,0};
-//static std::string m_sLastBgPath= "";
-int AppDelegate::s_PrizeFree = 0;
-int AppDelegate::s_PrizeDayNum = 0;
 int AppDelegate::s_ShopOnSell[4] = {0,0,0,0};
 int AppDelegate::s_KillMonster = 0;
 long AppDelegate::s_imei	= 0;
@@ -65,10 +43,7 @@ int AppDelegate::s_OnSaleNum = 0;
 int AppDelegate::s_OnSaleTimes = 0;
 int AppDelegate::s_OnSaleDay = 0;
 int AppDelegate::s_OnSaleHour = 0;
-
-int AppDelegate::s_VIP = 0;
-int AppDelegate::s_HelpMark = 0;
-int AppDelegate::s_HeroType = 0;
+int AppDelegate::s_HeroType = 0;//英雄选择
 
 int AppDelegate::s_Hero2 = 3;
 int AppDelegate::s_Hero3 = 6;
@@ -78,15 +53,6 @@ int AppDelegate::m_voice = 50;
 int AppDelegate::m_canVoiceResume = 0;
 int AppDelegate::m_Sell1 = 0;
 int AppDelegate::m_Sell2 = 0;
-
-int AppDelegate::m_Share = 0;
-
-int AppDelegate::m_bCanStartGame = 0;
-
-int AppDelegate::m_iPayInfoIndex = 0;
-int AppDelegate::m_iPayInfoMax = 0;
-
-int AppDelegate::s_Tencent = 0;
 
 using namespace CocosDenshion;
 USING_NS_CC;
@@ -101,39 +67,36 @@ AppDelegate::AppDelegate()
 	s_WeaponOwn[3] = 1;
 	s_BulletNum[2] = 100;
 	s_BulletNum[3] = 100;
-#ifdef All_Level_Open
+#ifdef All_Level_Open//全关开启
 	for ( int i = 0; i < LevelLimit*6; i++ )
 #else
 	for ( int i = 0; i < 1; i++ )
 #endif
 	{
-		s_LevelOpen[i] = 1;
-		s_LevelStar[i] = 0;
+		s_LevelOpen[i] = 1;//每一关关卡是否开启
+		s_LevelStar[i] = 0;//每一关获得星星数
 	}
 #ifdef Plat_Telecom_Demo
-	s_Money = 4999999;
-	s_Medal = 89999;
+	s_Money = 100;
+	s_Medal = 30;
 #endif
 }
 
-AppDelegate::~AppDelegate()
-{
-	CHttpHandle::DestroyInstance();
+AppDelegate::~AppDelegate(){
 	SimpleAudioEngine::end();
 }
 
-void AppDelegate::SaveTencent()
-{
-	common::SaveData("_st", 1);
-}
+//void AppDelegate::SaveTencent()
+//{
+//	common::SaveData("_st", 1);
+//}
+//
+//void AppDelegate::LoadTencent()
+//{
+//	common::LoadData("_st", s_Tencent);
+//}
 
-void AppDelegate::LoadTencent()
-{
-	common::LoadData("_st", s_Tencent);
-}
-
-void AppDelegate::SaveOnSale()
-{
+void AppDelegate::SaveOnSale(){
 	common::SaveData("_a", s_OnSaleNum);//s_Money
 	common::SaveData("_b", s_OnSaleTimes);//s_GrenadeNum
 	common::SaveData("_c", s_OnSaleDay);//s_VoiceOpen
@@ -182,8 +145,7 @@ void AppDelegate::SaveStatus()
 	common::SaveData("_s2", m_Sell2);//s_Money
 }
 
-void AppDelegate::SaveBody()
-{
+void AppDelegate::SaveBody(){
 	common::SaveData("bb", s_Hero3);//s_Healbox
 	SaveArray("bc", s_Hero3Array, 6);//s_LevelStar
 }
@@ -193,47 +155,30 @@ void AppDelegate::SaveLevel( int _level )
 	common::SaveData("g", s_LevelOpen, _level);//s_LevelOpen
 	common::SaveData("g", s_LevelOpen, _level+1);//s_LevelOpen
 	common::SaveData("h", s_LevelStar, _level);//s_LevelStar
-	common::SaveData("v", s_LevelPerfect, _level);//s_LevelOpen
-	common::SaveData("w", s_LevelUnfire, _level);//s_LevelStar
 	common::SaveData("x", s_LevelKey, _level);//s_LevelStar
 	common::SaveData("bd", s_LevelHero2, _level);//s_LevelOpen
 	common::SaveData("be", s_LevelHero3, _level);//s_LevelStar
 }
 
-//void AppDelegate::SaveAchievement()
-//{
-//	SaveArray("n", s_AchieveNum, 63);//s_AchieveNum
-//}
-
-//void AppDelegate::SaveAchievement( int _index )
-//{
-//	common::SaveData("m", s_Achieve, _index);//s_LevelOpen
-//	common::SaveData("n", s_AchieveNum, _index);//s_LevelStar
-//	common::SaveData("b", s_Medal);//s_Medal
-//}
-
 void AppDelegate::SaveWeapon()
 {
 	SaveArray("i", s_BulletNum, 18);//s_BulletNum
-	SaveArray("j", s_WeaponLevel, 18);//s_WeaponLevel
+	SaveArray("j", s_WeaponLevel, 18);//s_WeaponLevel 
 	SaveArray("k", s_WeaponOwn, 18);//s_WeaponOwn
 }
 
-void AppDelegate::SaveWeapon( int _index )
-{
+void AppDelegate::SaveWeapon( int _index ){
 	common::SaveData("j", s_WeaponLevel, _index);//s_WeaponLevel
 	common::SaveData("k", s_WeaponOwn, _index);//s_WeaponOwn
 	common::SaveData("a", s_Money);//s_Money
 }
 
-void AppDelegate::SaveBullet( int _index )
-{
+void AppDelegate::SaveBullet( int _index ){
 	common::SaveData("i", s_BulletNum, _index);//s_LevelOpen
 	common::SaveData("a", s_Money);//s_Money
 }
 
-void AppDelegate::SaveInit()
-{
+void AppDelegate::SaveInit(){
 	SaveArray("l", s_WeaponUse, 2);//s_WeaponUse
 	AppDelegate::SaveStatus();
 #ifdef All_Level_Open
@@ -246,18 +191,7 @@ void AppDelegate::SaveInit()
 	}
 }
 
-void AppDelegate::SaveEveryDayItem()
-{
-	common::SaveData("p", s_DateYear);//
-	common::SaveData("q", s_DateMonth);//
-	common::SaveData("r", s_DateDay);//
-	SaveArray("s", s_PrizeSave, 10);//
-	common::SaveData("t", s_PrizeFree);//
-	common::SaveData("u", s_PrizeDayNum);//
-}
-
-void AppDelegate::SaveAll()
-{
+void AppDelegate::SaveAll(){
 	common::SaveData("a", s_Money);//s_Money
 	common::SaveData("b", s_Medal);//s_Medal
 	common::SaveData("c", s_GrenadeNum);//s_GrenadeNum
@@ -269,17 +203,8 @@ void AppDelegate::SaveAll()
 	SaveArray("j", s_WeaponLevel, 18);//s_WeaponLevel
 	SaveArray("k", s_WeaponOwn, 18);//s_WeaponOwn
 	SaveArray("l", s_WeaponUse, 3);//s_WeaponUse
-	SaveArray("m", s_Achieve, 63);//s_Achieve
-	SaveArray("n", s_AchieveNum, 63);//s_AchieveNum
 	SaveArray("o", s_SkillEnergy, 2);//s_SkillEnergy
-	common::SaveData("p", s_DateYear);//
-	common::SaveData("q", s_DateMonth);//
-	common::SaveData("r", s_DateDay);//
-	SaveArray("s", s_PrizeSave, 10);//
-	common::SaveData("t", s_PrizeFree);//
-	common::SaveData("u", s_PrizeDayNum);//
-	SaveArray("v", s_LevelPerfect, LevelOpenNum);//s_LevelOpen
-	SaveArray("w", s_LevelUnfire, LevelOpenNum);//s_LevelStar
+
 	SaveArray("x", s_LevelKey, LevelOpenNum);//s_LevelStar
 	common::SaveData("z", s_KillMonster);//s_Healbox
 	common::SaveData("aa", s_imei);//s_Healbox
@@ -293,19 +218,8 @@ void AppDelegate::SaveAll()
 	common::SaveData("_s2", m_Sell2);//s_Money
 }
 
-void AppDelegate::SaveGuide()
-{
+void AppDelegate::SaveGuide(){
 	common::SaveData("f", s_FirstLogin);//s_FirstLogin
-}
-
-void AppDelegate::SaveShare()
-{
-	common::SaveData("_s3", m_Share);//s_Money
-}
-
-void AppDelegate::SaveGetPrize()
-{
-	common::SaveData("t", s_PrizeFree);//
 }
 
 void AppDelegate::LoadAll()
@@ -321,33 +235,27 @@ void AppDelegate::LoadAll()
 	LoadArray("j", s_WeaponLevel, 18);
 	LoadArray("k", s_WeaponOwn, 18);
 	LoadArray("l", s_WeaponUse, 3);
-	LoadArray("m", s_Achieve, 63);
-	LoadArray("n", s_AchieveNum, 63);
 	LoadArray("o", s_SkillEnergy, 1);
-	common::LoadData("p", s_DateYear);//
-	common::LoadData("q", s_DateMonth);//
-	common::LoadData("r", s_DateDay);//
-	LoadArray("s", s_PrizeSave, 10);//
-	common::LoadData("t", s_PrizeFree);//
-	common::LoadData("u", s_PrizeDayNum);//
-	LoadArray("v", s_LevelPerfect, LevelOpenNum);//s_LevelOpen
-	LoadArray("w", s_LevelUnfire, LevelOpenNum);//s_LevelStar
+	//common::LoadData("p", s_DateYear);//
+	//common::LoadData("q", s_DateMonth);//
+	//common::LoadData("r", s_DateDay);//
+	//LoadArray("s", s_PrizeSave, 10);//
+	//common::LoadData("t", s_PrizeFree);//
+	//common::LoadData("u", s_PrizeDayNum);//
 	LoadArray("x", s_LevelKey, LevelOpenNum);//s_LevelStar
 	common::LoadData("z", s_KillMonster);//s_Healbox
 	common::SaveData("aa", s_imei);//s_Healbox
-	common::LoadData("_e", s_VIP);//s_Healbox
-	common::LoadData("_f", s_HelpMark);//s_Healbox
 	common::LoadData("_g", s_HeroType);//s_Healbox
-	common::LoadData("ba", s_Hero2);//s_Healbox
+	common::LoadData("ba", s_Hero2);//s_Healbox太阳之子
 	common::LoadData("bb", s_Hero3);//s_Healbox
 	LoadArray("bc", s_Hero3Array, 6);//s_LevelStar
 	LoadArray("bd", s_LevelHero2, LevelOpenNum);//s_LevelOpen
 	LoadArray("be", s_LevelHero3, LevelOpenNum);//s_LevelStar
 	common::LoadData("_s1", m_Sell1);//s_Money
 	common::LoadData("_s2", m_Sell2);//s_Money
-	common::LoadData("_s3", m_Share);//s_Money
-	common::LoadData("_fa", m_iPayInfoIndex);//s_Money
-	common::LoadData("_fb", m_iPayInfoMax);//s_Money
+	//common::LoadData("_s3", m_Share);//s_Money
+	//common::LoadData("_fa", m_iPayInfoIndex);//s_Money
+	//common::LoadData("_fb", m_iPayInfoMax);//s_Money
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
@@ -364,12 +272,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	eglView->setDesignResolutionSize(frameSize.width, frameSize.height, kResolutionNoBorder);
 
     // create a scene. it's an autorelease object
-
-//#ifdef TEST
-	//LoadAll();
 	common::LoadData("f", s_FirstLogin);
-	//CCScene *pScene = CFirstLogin::CreateScene();
-	//CCScene* pScene = CMainMenu::StartGame(0, 0);
 	CCScene* pScene = CMainMenu::StartMenu();
 	pDirector->runWithScene(pScene);
 
@@ -430,7 +333,7 @@ void AppDelegate::AudioBackResume()
 void AppDelegate::AudioBackPause()
 {
 	CCTextureCache::sharedTextureCache()->removeAllTextures();
-	PayService::getInstance()->setCheckTrue();
+	//PayService::getInstance()->setCheckTrue();
 	SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 	SimpleAudioEngine::sharedEngine()->pauseAllEffects();
 	m_voice = SimpleAudioEngine::sharedEngine()->getEffectsVolume();
@@ -603,7 +506,7 @@ int AppDelegate::WeaponDamage( int _num )
 
 void AppDelegate::DataInit()
 {
-	PayService::getInstance();
+	//PayService::getInstance();
 	if ( AppDelegate::s_FirstLogin == 0 )
 	{
 		AppDelegate::SaveInit();
@@ -616,7 +519,7 @@ void AppDelegate::DataInit()
 
 void AppDelegate::DataInit2()
 {
-	PayService::getInstance();
+	//PayService::getInstance();
 	if ( AppDelegate::s_FirstLogin == 0 ){
 		AppDelegate::SaveInit();
 		char buffer[255];
@@ -624,18 +527,9 @@ void AppDelegate::DataInit2()
 		cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey("name", buffer);
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
+
 	else
 		AppDelegate::LoadAll();
-}
-
-void AppDelegate::SaveVIP()
-{
-	common::SaveData("_e", s_VIP);//s_Healbox
-}
-
-void AppDelegate::SaveHelpMark()
-{
-	common::SaveData("_f", s_HelpMark);//s_Healbox
 }
 
 void AppDelegate::AudioSwitch()
@@ -654,56 +548,6 @@ void AppDelegate::AudioSetVoice()
 	else
 	{
 		SimpleAudioEngine::sharedEngine()->setEffectsVolume(m_voice);
-	}
-}
-
-void AppDelegate::SavePayInfo( const char* _tempPayId, int _tempPayType )
-{
-	if ( m_iPayInfoIndex > m_iPayInfoMax )
-		m_iPayInfoIndex = m_iPayInfoMax;
-	common::SaveData("_fc", _tempPayId, m_iPayInfoIndex);
-	common::SaveData("_fd", _tempPayType, m_iPayInfoIndex);
-
-	if ( m_iPayInfoIndex >= m_iPayInfoMax )
-	{
-		m_iPayInfoIndex++;
-		m_iPayInfoMax++;
-	}
-
-	common::SaveData("_fa", m_iPayInfoIndex);//s_Money
-	common::SaveData("_fb", m_iPayInfoMax);//s_Money
-}
-
-void AppDelegate::DeletePayInfo( const char* _tempPayId, int _tempPayIdKey )
-{
-	int index = -1;
-	for ( int i = 0; i < m_iPayInfoMax; i++ )
-	{
-		std::string getPayID;
-		common::LoadData("_fc", getPayID, i);
-		std::string nowPayID = _tempPayId;
-		if ( getPayID == "" )
-		{
-			m_iPayInfoIndex = i;
-		}
-		else if ( strcmp(getPayID.c_str(), nowPayID.c_str()) )
-		{
-			m_iPayInfoIndex = i;
-			index = i;
-			break;
-		}
-	}
-	if ( m_iPayInfoIndex + 1 == m_iPayInfoMax )
-	{
-		m_iPayInfoMax = m_iPayInfoIndex;
-	}
-	if ( index >= 0 )
-	{
-		int type = 0;
-		common::LoadData("_fd", type, m_iPayInfoIndex);
-		GetPayContent(type);
-		common::SaveData("_fc", "", index);
-		common::SaveData("_fd", -1, index);
 	}
 }
 
@@ -794,12 +638,7 @@ void AppDelegate::GetPayContent( int _type )
 				ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->Sell1Resume();
 		}
 		break;
-	case 5:
-		{
-			/*if ( ccbChoseHero::s_pccbChoseHero )
-				ccbChoseHero::s_pccbChoseHero->OnBuy3Start();*/
-		}
-		break;
+	case 5:{}break;
 	case 6:
 		{
 			AppDelegate::s_Hero3 = 0;
@@ -816,8 +655,6 @@ void AppDelegate::GetPayContent( int _type )
 			AppDelegate::SaveWeapon(15);
 			AppDelegate::SaveWeapon(8);
 			AppDelegate::SaveBullet(8);
-		/*	if ( ccbChoseHero::s_pccbChoseHero )
-				ccbChoseHero::s_pccbChoseHero->OnBuy3PaySwitch();*/
 		}
 		break;
 	case 7:
@@ -831,8 +668,6 @@ void AppDelegate::GetPayContent( int _type )
 			AppDelegate::SaveWeapon(14);
 			AppDelegate::SaveWeapon(17);
 			AppDelegate::SaveLevel(30);
-		/*	if ( ccbChoseHero::s_pccbChoseHero )
-				ccbChoseHero::s_pccbChoseHero->OnBuy2Buy();*/
 		}
 		break;
 	case 8:
@@ -875,14 +710,7 @@ void AppDelegate::GetPayContent( int _type )
 				CGameControler::GetGameControler()->Sell3Resume1();
 		}
 		break;
-	case 11:
-		{
-			AppDelegate::s_VIP = 1;
-			AppDelegate::SaveVIP();
-			if ( ccbGetItemLayer::s_pccbGetItemLayer )
-				ccbGetItemLayer::s_pccbGetItemLayer->OnBuy1();
-		}
-		break;
+	case 11:{}		break;
 	case 12:
 		{
 			AppDelegate::s_Medal += 100;
@@ -920,26 +748,6 @@ void AppDelegate::GetPayContent( int _type )
 		}
 		break;
 	}
-	if ( _type > 11 )
-	{
-		if ( ccbGetItemLayer::s_pccbGetItemLayer )
-			ccbGetItemLayer::s_pccbGetItemLayer->GetRemove();
-		/*else if ( ccbLoginEDLayer::s_pccbLoginEDLayer )
-		{
-			ccbLoginEDLayer::s_pccbLoginEDLayer->GetRemove();
-		}*/
-		else if ( ccbShopMenu::s_pccbShopMenu )
-		{
-			ccbShopMenu::s_pccbShopMenu->MoneyShow();
-			ccbShopMenu::s_pccbShopMenu->GetRemove();
-		}
-		else if ( CGameControler::GetGameControler() )
-			CGameControler::GetGameControler()->GetRemove();
-	}
-	PayService::m_bIsPay = false;
 }
-
-void AppDelegate::CanclePay( int _type )
-{
-	PayService::m_bIsPay = false;
-}
+//
+//void AppDelegate::CanclePay( int _type ){}

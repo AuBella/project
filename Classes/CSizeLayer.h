@@ -10,6 +10,7 @@
 /* use createWithSize(CCSize) to create your Layer with custom visible rect
 /* 可以在任何时间使用initSize(CCSize)来改变可视范围大小
 /* use initSize(CCSize) to change visible rect in anytime
+适配
 /************************************************************************/
 
 #ifndef _CSIZELAYER_H_

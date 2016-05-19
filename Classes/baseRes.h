@@ -12,11 +12,6 @@
 //#define Plat_Unicom	//适合三网
 //#define Plat_MM
 
-//暴力版
-//#define ViolentVersion
-
-//付费直接通过
-//#define Pay_Test
 
 #define Pay_GOC_Can
 
@@ -43,21 +38,6 @@
 
 //BOSS关全卡
 #define Boss_Level_Open
-
-//LOGO为动画LOGO
-//#define Movie_Logo
-
-
-
-////////////
-//**分享**//
-////////////
-//#define Share_Open
-//#define Share_Test
-//#define Share_WX
-//#define Share_Sina
-//#define Share_Tencent
-
 
 
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
@@ -560,13 +540,7 @@ static int g_iWeaponUpgradeS[] =
 	0, 0,
 	0, 0, 0, 0,
 };
-//static const int g_iWeaponUpgradeS[] =
-//{
-//	0, 0,
-//	10, 10, 5,
-//	10, 10, 5,
-//	20, 10, 15, 25,
-//};
+
 static float g_fWeaponStartLength[] =
 {
 	52.0,52.0,

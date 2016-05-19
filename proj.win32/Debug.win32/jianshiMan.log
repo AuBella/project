@@ -1,43 +1,10 @@
-﻿生成启动时间为 2016/5/19 20:28:12。
+﻿生成启动时间为 2016/5/20 1:35:35。
      1>项目“C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\jianshiMan.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\kazmath\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\win32" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\third_party\win32" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\third_party\win32\OGLES" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external\chipmunk\include\chipmunk" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\CocosDenshion\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\extensions" /I..\Classes /I.. /I..\Classes\CSArmature /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _USE_32BIT_TIME_T /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\AchieveAdd.cpp ..\Classes\AppDelegate.cpp ..\Classes\BossBox.cpp ..\Classes\ChoseHero.cpp ..\Classes\ControlerMenu.cpp ..\Classes\FirstLogin.cpp ..\Classes\GameBossLoading.cpp ..\Classes\GameControler.cpp ..\Classes\GameLoading.cpp ..\Classes\GameStart.cpp ..\Classes\GameStartMenu.cpp ..\Classes\GameoverBtnMenu.cpp ..\Classes\GameoverMenu.cpp ..\Classes\GetItemLayer.cpp ..\Classes\GetPrize.cpp ..\Classes\HelpLayer.cpp ..\Classes\Hero.cpp ..\Classes\HttpHandle.cpp ..\Classes\LevelMenu.cpp ..\Classes\LoginEDLayer.cpp ..\Classes\LoginMenu.cpp ..\Classes\MainMenu.cpp ..\Classes\MenuLoading.cpp ..\Classes\PauseMenu.cpp ..\Classes\PayService.cpp ..\Classes\ShopMenu.cpp ..\Classes\ccb.cpp main.cpp
-         ShopMenu.cpp
-         LevelMenu.cpp
-         正在生成代码...
-         正在编译...
-         main.cpp
-         ccb.cpp
-         PayService.cpp
-         PauseMenu.cpp
-         MenuLoading.cpp
-         MainMenu.cpp
-         HttpHandle.cpp
-     1>c:\users\bo-jwolf\desktop\cocos2d-x-2.2.6\projects\graduation\classes\httphandle.cpp(29): warning C4996: 'cocos2d::extension::CCHttpRequest::setResponseCallback': 被声明为已否决
-                 c:\users\bo-jwolf\desktop\cocos2d-x-2.2.6\extensions\network\httprequest.h(168) : 参见“cocos2d::extension::CCHttpRequest::setResponseCallback”的声明
-     1>c:\users\bo-jwolf\desktop\cocos2d-x-2.2.6\projects\graduation\classes\httphandle.cpp(59): warning C4996: 'cocos2d::extension::CCHttpRequest::setResponseCallback': 被声明为已否决
-                 c:\users\bo-jwolf\desktop\cocos2d-x-2.2.6\extensions\network\httprequest.h(168) : 参见“cocos2d::extension::CCHttpRequest::setResponseCallback”的声明
-         Hero.cpp
-         GetPrize.cpp
-         GetItemLayer.cpp
+         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\kazmath\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\win32" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\third_party\win32" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\cocos2dx\platform\third_party\win32\OGLES" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external\chipmunk\include\chipmunk" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\CocosDenshion\include" /I"C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\extensions" /I..\Classes /I.. /I..\Classes\CSArmature /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _USE_32BIT_TIME_T /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\GameoverBtnMenu.cpp ..\Classes\GameoverMenu.cpp
          GameoverMenu.cpp
          GameoverBtnMenu.cpp
-         GameStartMenu.cpp
-         GameStart.cpp
-         GameLoading.cpp
-         GameControler.cpp
-         GameBossLoading.cpp
-         ControlerMenu.cpp
-         BossBox.cpp
-         AppDelegate.cpp
          正在生成代码...
-         正在跳过...(未检测到相关更改)
-         LoginMenu.cpp
-         LoginEDLayer.cpp
-         HelpLayer.cpp
-         FirstLogin.cpp
-         ChoseHero.cpp
-         AchieveAdd.cpp
        PreLinkEvent:
          if not exist "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\" mkdir "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\"
          xcopy /Y /Q "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\..\..\..\external\libwebsockets\win32\lib\*.*" "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\"
@@ -114,9 +81,10 @@
          "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libExtensions.lib"
          "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libBox2D.lib"
          "C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\libchipmunk.lib"
+     1>AchieveAdd.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
          jianshiMan.vcxproj -> C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\Debug.win32\jianshiMan.exe
      1>已完成生成项目“C:\Users\bo-jwolf\Desktop\cocos2d-x-2.2.6\projects\graduation\proj.win32\jianshiMan.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:01:04.47
+已用时间 00:00:06.18

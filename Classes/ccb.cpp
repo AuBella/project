@@ -8,7 +8,6 @@
 #include "FirstLogin.h"
 #include "Common.h"
 #include "CSArmatureDataManager.h"
-#include "PayService.h"
 
 using namespace cocos2d;
 using namespace cocos2d::extension;
@@ -70,17 +69,11 @@ ccbLayer::ccbLayer()
 	m_pFSprite		= NULL;
 	m_pSSprite		= NULL;
 	m_pName			= NULL;
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-//	this->setKeypadEnabled(true);
-//#endif
 }
 
 ccbLayer::~ccbLayer()
 {
 	s_pccbLayer = NULL;
-	//SAFEDELETEARRAY(m_pFSprite);
-	//SAFEDELETEARRAY(m_pSSprite);
-	//SAFEDELETEARRAY(m_pName);
 #ifdef GameTypeA
 	for ( int i = 0; i < 6; i++ )
 	{
@@ -455,16 +448,12 @@ void ccbLayer::OnReturn(cocos2d::CCObject *pSender)
 	case 0:
 		{
 			m_bReturn = true;
-			//CCScene* pScene = CFirstLogin::CreateScene(false);
-			//ccbLoginMenu::LoginScene(pScene);
-			//AppDelegate::ChangeScene( pScene );
 		}
 		break;
 	case 2:
 		m_bReturn = true;
 		m_bLevel = false;
 		SetTouch();
-		//CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 		((ccbLevelMenu*)CMainMenu::GetMenuLevel())->Return();
 		break;
 	}
@@ -482,7 +471,6 @@ void ccbLayer::OnShop( cocos2d::CCObject *pSender )
 	{
 	case 0:
 		SetDistouch();
-		//CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
 		if ( getChildByTag(TAG_LIGHT) )
 		{
 			getChildByTag(TAG_LIGHT)->stopAllActions();
@@ -498,7 +486,6 @@ void ccbLayer::OnShop( cocos2d::CCObject *pSender )
 		break;
 	case 2:
 		SetDistouch();
-		//CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
 		((ccbLevelMenu*)CMainMenu::GetMenuLevel())->ShopReturn();
 		AllMove();
 		scheduleOnce(schedule_selector(ccbLayer::GoToShop), 0.6f);
@@ -526,13 +513,8 @@ void ccbLayer::ccTouchesBegan( cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
 			return;
 		if ( m_iPress || m_iStartTime < NeedTime || -1 == CMainMenu::GetStatus() )
 			return;
-
-		//m_pHideLevel->setVisible(false);
-		//m_pSSprite[m_iLevel].setZOrder(1);
-		//m_pFSprite[m_iLevel].setZOrder(3);
 		m_ccPoint = ((CCTouch*)*(pTouches->begin()))->getLocation();
 		m_iPress = (*pTouches->begin())->m_uID;
-		//m_ccPoint = touch->getLocation();
 		m_ccPointDown = m_ccPoint;
 		return;
 	}
@@ -567,10 +549,7 @@ void ccbLayer::ccTouchesMoved( cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
 	}
 
 	m_pHideLevel->setVisible(false);
-	//m_pSSprite[m_iLevel].setZOrder(1);
-	//m_pFSprite[m_iLevel].setZOrder(3);
 	CCPoint point1 = ((CCTouch*)*(pTouches->begin()))->getLocation();
-	//CCPoint point1 = touch->getLocation();
 	CCPoint point2 = m_pFSprite[m_iLevel].getPosition();
 
 	m_iLocation = point2.x+point1.x-m_ccPoint.x;
@@ -635,11 +614,11 @@ void ccbLayer::ccTouchesEnded( cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
 			return;
 		}
 
-		if ( AppDelegate::s_FirstLogin == 4 )
+		/*if ( AppDelegate::s_FirstLogin == 4 )
 		{
 			GuideFingerClear();
 			GuideFingerCreate(138, 295);
-		}
+		}*/
 
 		m_bLevel = true;
 		CMainMenu::SetStatus(2);
@@ -652,15 +631,11 @@ void ccbLayer::ccTouchesEnded( cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
 
 void ccbLayer::SetSpriteDisable(bool m_bVisible){
 	for ( int i = 0; i < d_iLevelNum+1; i++ ){
-		//if ( abs( i - m_iLevel ) < 2 )
-		//{
-			m_pFSprite[i].setVisible(m_bVisible);
-			m_pSSprite[i].setVisible(m_bVisible);
-		//}
+		m_pFSprite[i].setVisible(m_bVisible);
+		m_pSSprite[i].setVisible(m_bVisible);
 	}
 	m_bEnd = !m_bVisible;
 	m_iPress = m_bVisible - 1;
-	//setTouchEnabled(m_bVisible);
 }
 
 void ccbLayer::SetPosition( cocos2d::CCNode* _pNode, float _x, bool _bCheck)
@@ -725,16 +700,13 @@ void ccbLayer::FixLocation( float _dt )
 		bool setvisible = false;
 		if ( m_iStartTime == NeedTime )
 		{
-			//m_pFSprite[m_iLevel].setZOrder(6);
-			//m_pSSprite[m_iLevel].setZOrder(5);
-			//int limit = LevelLimit;
 #ifdef GameTypeC
 			limit = 2;
 #endif
 			if ( AppDelegate::s_LevelOpen[m_iLevel*6] && m_iLevel < 5 )
 			{
 				m_pHideLevel->setVisible(true);
-				GuideInit();
+				//GuideInit();
 			}
 			setvisible = true;
 		}
@@ -795,17 +767,9 @@ void ccbLayer::ObjectShow()
 {
 	if ( m_iShowMode )
 		return;
-	//for ( int i = 0; i < 6; i++ )
-	//{
-	//	m_pSSprite[i].setZOrder(2);
-	//	m_pFSprite[i].setZOrder(3);
-	//}
-	//m_pSSprite[m_iLevel].setZOrder(5);
-	//m_pFSprite[m_iLevel].setZOrder(6);
 	if ( abs(m_iLocation - 800/2.0) < 10.0 )
 	{
 		m_iLocation = 800/2.0;
-		//int limit = LevelLimit;
 #ifdef GameTypeC
 		limit = 2;
 #endif
@@ -837,7 +801,6 @@ void ccbLayer::ObjectShow()
 	}
 	else
 	{
-		//m_pNodeLight->setVisible(false);
 #ifndef GameTypeC
 		m_pNameChange->setVisible(true);
 		m_pNameEffect->setVisible(true);
@@ -847,23 +810,10 @@ void ccbLayer::ObjectShow()
 
 void ccbLayer::ShowDifficultName()
 {
-	//for ( int i = 0; i < d_iLevelNum; i++ )
-	//{
-	//	m_pName[i].setPositionX(800/2+d_fLevelNameDifficultX);
-	//}
-	//m_pDifficult[CMainMenu::GetDifficult()].setVisible(true);
 }
 
 void ccbLayer::ShowName()
 {
-	//for ( int i = 0; i < d_iLevelNum; i++ )
-	//{
-	//	m_pName[i].setPositionX(800/2+d_fLevelNameXFix);
-	//}
-	//for ( int i = 0; i < 3; i++ )
-	//{
-	//	m_pDifficult[i].setVisible(false);
-	//}
 }
 
 void ccbLayer::Back()
@@ -880,7 +830,6 @@ void ccbLayer::Back()
 			SetPosition(&m_pSSprite[i], m_iLocation + 800/2.0*(i-m_iLevel), bCheck);
 		}
 		SetTouch();
-		//CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 	}
 	ObjectShow();
 }
@@ -904,7 +853,6 @@ void ccbLayer::BottomBack()
 	m_iPress	= 0;
 	m_iToward	= 0;
 	m_iStartTime= 0;
-	//ShowName();
 	m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("dizuoshou hui", 0.0f);
 }
 
@@ -995,7 +943,6 @@ cocos2d::SEL_CallFuncN ccbLayer::onResolveCCBCCCallFuncSelector( CCObject * pTar
 
 void ccbLayer::Effect( CCNode* sender /*= NULL*/ )
 {
-	//AppDelegate::AudioPlayEffect("MS/Sound/EfCCBNew.mp3");
 }
 
 void ccbLayer::HideLevel( cocos2d::CCObject* sender )
@@ -1043,15 +990,6 @@ void ccbLayer::HideShow()
 	{
 		m_iAllStar += AppDelegate::s_LevelStar[m_iLevel*6+i];
 	}
-	//int t = 0;
-	//if ( m_iAllStar < 10 )
-	//	t = 1;
-	//else if ( m_iAllStar < 100 )
-	//	t = 2;
-	//common::ShowNumber(m_pHideLevel, m_iAllStar, 12, 15, 43, 19, "tu/suzi.png", 100);
-	//m_pHideLevel->getChildByTag(5)->setPositionX(43+12*t);
-	//t++;
-	//common::ShowNumber(m_pHideLevel, 18, 12, 15, 43+12*t, 19, "tu/suzi.png", 101);
 }
 
 void ccbLayer::disappear()
@@ -1082,7 +1020,7 @@ void ccbLayer::ShowBoss( int _index, bool _show )
 	{
 		m_pNameChange->setVisible(false);
 		m_pNameEffect->setVisible(false);
-#ifdef Boss_Level_Open
+#ifdef Boss_Level_Open//boss¹ØÈ«¿ª
 		if ( 1 == 1 )
 #else
 		if ( AppDelegate::s_LevelOpen[_index*6+5] == 2 )
@@ -1239,18 +1177,6 @@ void ccbLayer::BossEnter( cocos2d::CCObject *pSender /*= NULL*/ )
 	{
 		AppDelegate::ChangeScene( CMainMenu::StartGame(55 + m_iBossIndex, CMainMenu::GetDifficult()) );
 	}
-
-	//if ( getChildByTag(410) )
-	//{
-	//	getChildByTag(410)->stopAllActions();
-	//	removeChildByTag(410);
-	//}
-	//CCSprite* pSprite = CCSprite::create("tu14/qidai.png");
-	//pSprite->setPosition(ccp(400, 240));
-	//CCFadeOut* pAction = CCFadeOut::create(1.0f);
-	//pSprite->runAction(CCSequence::create(pAction,
-	//	CCCallFunc::create(this, callfunc_selector(ccbLayer::tipdisappear)), NULL));
-	//addChild(pSprite, 25, 410);
 }
 
 void ccbLayer::tipdisappear()
@@ -1259,15 +1185,15 @@ void ccbLayer::tipdisappear()
 	removeChildByTag(410);
 }
 
-void ccbLayer::GuideInit()
-{
-	if ( AppDelegate::s_FirstLogin == 4 && m_iGuideIndex == 0 )
-	{
-		m_iGuideIndex = 1;
-		GuideFingerCreate(400, 240);
-	}
-}
-
+//void ccbLayer::GuideInit()
+//{
+//	//if ( AppDelegate::s_FirstLogin == 4 && m_iGuideIndex == 0 )
+//	//{
+//	//	m_iGuideIndex = 1;
+//	//	GuideFingerCreate(400, 240);
+//	//}
+//}
+/*
 void ccbLayer::GuideFingerCreate( int _x, int _y )
 {
 	if ( CMainMenu::m_pScene->getChildByTag(493) )
@@ -1281,117 +1207,112 @@ void ccbLayer::GuideFingerCreate( int _x, int _y )
 void ccbLayer::GuideFingerClear()
 {
 	if ( CMainMenu::m_pScene->getChildByTag(493) )
-		CMainMenu::m_pScene->getChildByTag(493)->removeFromParentAndCleanup(true);
-}
-
-void ccbLayer::ShareShow( cocos2d::CCObject *pSender )
-{
-	if ( m_bShare || AppDelegate::s_FirstLogin == 4 )
-		return;
-	m_bShare = true;
-
-	if ( CMainMenu::GetStatus() == 0 )
-		m_iPress = 0;
-
-	CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	pCCLayerColor->setPosition(ccp(0,0));
-	SetScale(pCCLayerColor);
-	CMainMenu::m_pScene->addChild(pCCLayerColor, 19, 687);
-
-
-	CCLayer* pLayer = CCLayer::create();
-	CCSprite* pSprite = CCSprite::create("share/di.png");
-	pSprite->setPosition(ccp(400, 240));
-	pLayer->addChild(pSprite, 20, 688);
-	CMainMenu::m_pScene->addChild(pLayer, 20, 688);
-	SetScale(pLayer);
-
-	if ( m_iShare > AppDelegate::m_Share+1 )
-		AppDelegate::m_Share = m_iShare-1;
-	m_iShareLevel = AppDelegate::m_Share+1;
-	char buffer[255];
-	sprintf(buffer, "share/%d.png", m_iShareLevel);
-	CCSprite* pSprite1 = CCSprite::create(buffer);
-	pSprite1->setPosition(ccp(215, 262));
-	pSprite->addChild(pSprite1);
-
-	CCMenuItemImage* pItem1 = CCMenuItemImage::create("share/teng1.png", "share/teng2.png", this, menu_selector(ccbLayer::Share1));
-	CCMenuItemImage* pItem2 = CCMenuItemImage::create("share/wei1.png", "share/wei2.png", this, menu_selector(ccbLayer::Share2));
-	CCMenuItemImage* pItem3 = CCMenuItemImage::create("share/xing1.png", "share/xing2.png", this, menu_selector(ccbLayer::Share3));
-	pItem1->setPosition(ccp(93, 50));
-	pItem2->setPosition(ccp(245, 50));
-	pItem3->setPosition(ccp(400, 50));
-	CCMenu* pMenu1 = CCMenu::create(pItem1, pItem2, pItem3, NULL);
-	pMenu1->setPosition(ccp(0,0));
-	pSprite->addChild(pMenu1);
-
-	CCMenuItemImage* pItem4 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbLayer::ShareDisappear));
-	pItem4->setPosition(ccp(510, 333));
-	CCMenu* pMenu2 = CCMenu::create(pItem4, NULL);
-	pMenu2->setPosition(ccp(0,0));
-	pSprite->addChild(pMenu2, -1);
-}
-
-void ccbLayer::ShareDisappear( cocos2d::CCObject *pSender )
-{
-	m_bShare = false;
-	CMainMenu::m_pScene->removeChildByTag(687);
-	CMainMenu::m_pScene->removeChildByTag(688);
-	if ( AppDelegate::m_Share > 5 )
-	{
-		m_pShareMain->setVisible(false);
-	}
-}
-
-void ccbLayer::ShareOK( cocos2d::CCObject *pSender )
-{
-	AppDelegate::m_Share = m_iShare;
-	ShareCancle();
-	ShareDisappear();
-}
-
-void ccbLayer::ShareCancle()
-{
-	m_bShareWait = false;
-}
-
-void ccbLayer::Share1( cocos2d::CCObject *pSender )
-{
-#ifndef Share_Test
-	if ( AppDelegate::m_Share == m_iShare || m_bShareWait )
-		return;
-#endif
-	m_bShareWait = true;
-#ifdef Share_Tencent
-	PayService::ShareSend(1, m_iShareLevel);
-#endif
-}
-
-void ccbLayer::Share2( cocos2d::CCObject *pSender )
-{
-#ifndef Share_Test
-	if ( AppDelegate::m_Share == m_iShare || m_bShareWait )
-		return;
-#endif
-	m_bShareWait = true;
-#ifdef Share_WX
-	PayService::ShareSend(2, m_iShareLevel);
-#endif
-}
-
-void ccbLayer::Share3( cocos2d::CCObject *pSender )
-{
-#ifndef Share_Test
-	if ( AppDelegate::m_Share == m_iShare || m_bShareWait )
-		return;
-#endif
-	m_bShareWait = true;
-#ifdef Share_Sina
-	PayService::ShareSend(3, m_iShareLevel);
-#endif
-}
-
-//void ccbLayer::keyBackClicked()
+		CMainMenu::m_*//*pScene->getChildByTag(493)->removeFromParentAndCleanup(true);
+}*/
+//
+//void ccbLayer::ShareShow( cocos2d::CCObject *pSender )
 //{
-//	OnReturn(NULL);
+//	if ( m_bShare || AppDelegate::s_FirstLogin == 4 )
+//		return;
+//	m_bShare = true;
+//
+//	if ( CMainMenu::GetStatus() == 0 )
+//		m_iPress = 0;
+//
+//	CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
+//	pCCLayerColor->setPosition(ccp(0,0));
+//	SetScale(pCCLayerColor);
+//	CMainMenu::m_pScene->addChild(pCCLayerColor, 19, 687);
+//
+//
+//	CCLayer* pLayer = CCLayer::create();
+//	CCSprite* pSprite = CCSprite::create("share/di.png");
+//	pSprite->setPosition(ccp(400, 240));
+//	pLayer->addChild(pSprite, 20, 688);
+//	CMainMenu::m_pScene->addChild(pLayer, 20, 688);
+//	SetScale(pLayer);
+//
+//	if ( m_iShare > AppDelegate::m_Share+1 )
+//		AppDelegate::m_Share = m_iShare-1;
+//	m_iShareLevel = AppDelegate::m_Share+1;
+//	char buffer[255];
+//	sprintf(buffer, "share/%d.png", m_iShareLevel);
+//	CCSprite* pSprite1 = CCSprite::create(buffer);
+//	pSprite1->setPosition(ccp(215, 262));
+//	pSprite->addChild(pSprite1);
+//
+//	CCMenuItemImage* pItem1 = CCMenuItemImage::create("share/teng1.png", "share/teng2.png", this, menu_selector(ccbLayer::Share1));
+//	CCMenuItemImage* pItem2 = CCMenuItemImage::create("share/wei1.png", "share/wei2.png", this, menu_selector(ccbLayer::Share2));
+//	CCMenuItemImage* pItem3 = CCMenuItemImage::create("share/xing1.png", "share/xing2.png", this, menu_selector(ccbLayer::Share3));
+//	pItem1->setPosition(ccp(93, 50));
+//	pItem2->setPosition(ccp(245, 50));
+//	pItem3->setPosition(ccp(400, 50));
+//	CCMenu* pMenu1 = CCMenu::create(pItem1, pItem2, pItem3, NULL);
+//	pMenu1->setPosition(ccp(0,0));
+//	pSprite->addChild(pMenu1);
+//
+//	CCMenuItemImage* pItem4 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbLayer::ShareDisappear));
+//	pItem4->setPosition(ccp(510, 333));
+//	CCMenu* pMenu2 = CCMenu::create(pItem4, NULL);
+//	pMenu2->setPosition(ccp(0,0));
+//	pSprite->addChild(pMenu2, -1);
+//}
+//
+//void ccbLayer::ShareDisappear( cocos2d::CCObject *pSender )
+//{
+//	m_bShare = false;
+//	CMainMenu::m_pScene->removeChildByTag(687);
+//	CMainMenu::m_pScene->removeChildByTag(688);
+//	if ( AppDelegate::m_Share > 5 )
+//	{
+//		m_pShareMain->setVisible(false);
+//	}
+//}
+//
+//void ccbLayer::ShareOK( cocos2d::CCObject *pSender )
+//{
+//	AppDelegate::m_Share = m_iShare;
+//	ShareCancle();
+//	ShareDisappear();
+//}
+//
+//void ccbLayer::ShareCancle()
+//{
+//	m_bShareWait = false;
+//}
+//
+//void ccbLayer::Share1( cocos2d::CCObject *pSender )
+//{
+//#ifndef Share_Test
+//	if ( AppDelegate::m_Share == m_iShare || m_bShareWait )
+//		return;
+//#endif
+//	m_bShareWait = true;
+//#ifdef Share_Tencent
+//	PayService::ShareSend(1, m_iShareLevel);
+//#endif
+//}
+//
+//void ccbLayer::Share2( cocos2d::CCObject *pSender )
+//{
+//#ifndef Share_Test
+//	if ( AppDelegate::m_Share == m_iShare || m_bShareWait )
+//		return;
+//#endif
+//	m_bShareWait = true;
+//#ifdef Share_WX
+//	PayService::ShareSend(2, m_iShareLevel);
+//#endif
+//}
+//
+//void ccbLayer::Share3( cocos2d::CCObject *pSender )
+//{
+//#ifndef Share_Test
+//	if ( AppDelegate::m_Share == m_iShare || m_bShareWait )
+//		return;
+//#endif
+//	m_bShareWait = true;
+//#ifdef Share_Sina
+//	PayService::ShareSend(3, m_iShareLevel);
+//#endif
 //}

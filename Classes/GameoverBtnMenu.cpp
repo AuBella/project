@@ -5,7 +5,7 @@
 //#include "AchieveAdd.h"
 #include "ChoseHero.h"
 //#include "FirstLogin.h"
-#include "PayService.h"
+//#include "PayService.h"
 
 using namespace cocos2d;
 using namespace cocos2d::extension;
@@ -27,31 +27,6 @@ ccbGameoverBtnMenu::~ccbGameoverBtnMenu()
 
 void ccbGameoverBtnMenu::onNodeLoaded(cocos2d::CCNode * _pNode,  cocos2d::extension::CCNodeLoader * pNodeLoader) 
 {
-	//bool bAchieve = false;
-	CCNode* pNode = _pNode->getChildByTag(1);
-	//for ( int i = 0; i < 59; i++ )
-	//{
-	//	if ( AchieveAdd::GetNumNow(i) == AchieveAdd::GetNumNeed(i) && !AppDelegate::s_Achieve[i] )
-	//	{
-	//		bAchieve = true;
-	//		break;
-	//	}
-	//}
-	//if ( bAchieve )
-	//{
-	//	CCMenuItemImage* pBtn = CCMenuItemImage::create( 
-	//		"tu7/jiangli/di.png", "tu7/jiangli/di.png", this, menu_selector(ccbGameoverBtnMenu::OnGetAchieve));
-	//	pBtn->setPosition(ccp(0,0));
-	//	CCMenu* pMenu = CCMenu::create(pBtn, NULL);
-	//	pMenu->setPosition(ccp(0,0));
-	//	pNode->addChild(pMenu);
-
-		/*CCSprite* pSprite = CCSprite::create("tu7/jiangli/1.png");
-		pSprite->setPosition(ccp(0,0));
-		CCAnimate* pAction = CCAnimate::create(common::CreateAnimationFrame("tu5/anniu/", 3, CCRect(0,0,115,85)));
-		pSprite->runAction(CCRepeatForever::create(CCSequence::create(pAction, CCDelayTime::create(2.0f), NULL)));
-		pNode->addChild(pSprite);*/
-	//}
 }
 
 SEL_MenuHandler ccbGameoverBtnMenu::onResolveCCBCCMenuItemSelector(CCObject * pTarget, const char * pSelectorName) 
@@ -105,11 +80,6 @@ void ccbGameoverBtnMenu::OnContinue( cocos2d::CCObject *pSender )
 		return;
 	if ( m_bOnSell )
 		return;
-	//int level = 0;
-	//if ( m_pGameControler->m_unLevel < 49 )
-	//	level = m_pGameControler->m_unLevel/6;
-	//else
-	//	level = m_pGameControler->m_unLevel-49;
 #ifdef GameTypeA
 #ifdef Plat_MM
 	if ( AppDelegate::m_Sell1 == 0 && m_pGameControler->m_unLevel > 4 )
@@ -169,30 +139,17 @@ void ccbGameoverBtnMenu::OnReturn(cocos2d::CCObject *pSender)
 
 void ccbGameoverBtnMenu::OnRechoseHero( cocos2d::CCObject *pSender /*= NULL*/ )
 {
-	if ( m_pGameControler->m_bEndPress && pSender )
-		return;
-	if ( m_bOnSell )
-		return;
-	m_bOnSell = true;
-	//AppDelegate::ChangeScene( ccbChoseHero::CreateScene() );
 }
 
 void ccbGameoverBtnMenu::OnGetAchieve( cocos2d::CCObject *pSender /*= NULL*/ )
 {
-	if ( m_pGameControler->m_bEndPress && pSender )
-		return;
-	if ( m_bOnSell )
-		return;
-	m_bOnSell = true;
-	//AppDelegate::ChangeScene(CFirstLogin::CreateScene(true, 1));
 }
 
 void ccbGameoverBtnMenu::ReturnCallBack( float _t )
 {
 }
 
-void ccbGameoverBtnMenu::Sell1()
-{
+void ccbGameoverBtnMenu::Sell1(){/*
 #ifdef Plat_Telecom_Demo
 	Sell1Resume();
 	return;
@@ -202,8 +159,6 @@ void ccbGameoverBtnMenu::Sell1()
 	m_bOnSell = true;
 
 	CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	//pCCLayerColor->setPosition(ccp(0,0));
-	//SetScale(pCCLayerColor);
 	m_pGameControler->addChild(pCCLayerColor, 49, 694);
 	CCMenuItem* pItem1 = CCMenuItemImage::create("sell/huode2-1.png", "sell/huode2-2.png", this, menu_selector(ccbGameoverBtnMenu::Sell1Resume));
 	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbGameoverBtnMenu::Sell1Back));
@@ -224,14 +179,13 @@ void ccbGameoverBtnMenu::Sell1()
 	m_pGameControler->addChild(pSprite2, 51, 696);
 	CCSprite* pSprite3 = CCSprite::create("sell/vip/dang.png");
 	pSprite3->setPosition(ccp(265, 50));
-	m_pGameControler->addChild(pSprite3, 51, 695);
+	m_pGameControler->addChild(pSprite3, 51, 695);*/
 }
 
-void ccbGameoverBtnMenu::Sell1Resume( cocos2d::CCObject *pSender /*= NULL*/ )
+void ccbGameoverBtnMenu::Sell1Resume( cocos2d::CCObject *pSender)
 {
 	if ( pSender )
 	{
-		PayService::pay(4);
 	}
 	else
 	{

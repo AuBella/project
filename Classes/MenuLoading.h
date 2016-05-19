@@ -14,7 +14,6 @@ public:
 
 	void Loading(float _t);
 	void Loading1(float _t);
-	//void Loading2(float _t);
 	void LoadingOver(float _t);
 	void Start(float _t);
 

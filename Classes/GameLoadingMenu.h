@@ -33,6 +33,7 @@ private:
 	cocos2d::extension::CCBAnimationManager* m_AnimationManager;
 };
 
+//CCBReader,¶Áµµ
 class CCBReader;
 class ccbGameLoadingMenuLoader : public cocos2d::extension::CCLayerLoader 
 {

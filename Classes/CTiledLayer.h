@@ -7,6 +7,7 @@
 /* use namespace common
 /* 建立Tiled地图对象时用CTiledLayer来代替CCTMXTiledMap
 /* use CTiledLayer to replace CCTMXTiledMap
+地图
 /************************************************************************/
 
 #ifndef _CTILEDLAYER_H_

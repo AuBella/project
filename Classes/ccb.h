@@ -28,13 +28,10 @@ public:
 	void OnShop(cocos2d::CCObject *pSender);
 	void OnReturn(cocos2d::CCObject *pSender);
 
-	//virtual bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
-	//virtual void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
-	//virtual void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
 	virtual void ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
 	virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
 	virtual void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
-	//virtual void keyBackClicked();
+
 	void SetSpriteDisable(bool m_bVisible);
 
 	void SetTouch(cocos2d::CCNode* sender = NULL);
@@ -71,17 +68,17 @@ public:
 	void BossEnter(cocos2d::CCObject *pSender = NULL);
 	void tipdisappear();
 
-	void GuideInit();
-	void GuideFingerCreate(int _x, int _y);
-	void GuideFingerClear();
+	//void GuideInit();
+	//void GuideFingerCreate(int _x, int _y);
+	//void GuideFingerClear();
 
-	void ShareShow(cocos2d::CCObject *pSender);
+	/*void ShareShow(cocos2d::CCObject *pSender);
 	void ShareDisappear(cocos2d::CCObject *pSender = NULL);
 	void ShareOK(cocos2d::CCObject *pSender = NULL);
 	void ShareCancle();
 	void Share1(cocos2d::CCObject *pSender);
 	void Share2(cocos2d::CCObject *pSender);
-	void Share3(cocos2d::CCObject *pSender);
+	void Share3(cocos2d::CCObject *pSender);*/
 
 	static ccbLayer* s_pccbLayer;
 	bool	m_bShare;

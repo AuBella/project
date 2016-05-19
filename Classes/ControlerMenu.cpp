@@ -18,7 +18,6 @@ ccbControlMenu::ccbControlMenu()
 	m_pBloodGrid2->setVisible(false);
 	addChild(m_pBloodGrid1 ,4);
 	addChild(m_pBloodGrid2 ,4);
-	//schedule(schedule_selector(ccbControlMenu::ShowBloodGrid), 0.5f);
 }
 
 ccbControlMenu::~ccbControlMenu()

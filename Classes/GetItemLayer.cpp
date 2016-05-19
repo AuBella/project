@@ -1,4 +1,3 @@
-
 #include "GetItemLayer.h"
 #include "AppDelegate.h"
 #include "Common.h"
@@ -6,7 +5,7 @@
 #include "baseRes.h"
 #include "GameControler.h"
 #include "GameoverBtnMenu.h"
-//#include "AchieveAdd.h"
+#include "AchieveAdd.h"
 #include "PayService.h"
 
 using namespace cocos2d;
@@ -50,7 +49,6 @@ ccbGetItemLayer::ccbGetItemLayer()
 	m_bWin			= false;
 	m_iWeapon		= 0;
 	m_pSprite		= NULL;
-	m_pGetPrize		= NULL;
 	m_bCanPress		= false;
 	m_bIsWeapon		= true;
 	s_pccbGetItemLayer = this;
@@ -65,40 +63,8 @@ ccbGetItemLayer::~ccbGetItemLayer()
 void ccbGetItemLayer::onNodeLoaded(cocos2d::CCNode * _pNode,  cocos2d::extension::CCNodeLoader * pNodeLoader) 
 {	
 	m_pNode = _pNode;
-	//bool bAchieve = false;
+	bool bAchieve = false;
 	CCNode* pNode = _pNode->getChildByTag(7);
-	/*for ( int i = 0; i < 59; i++ )
-	{
-		if ( AchieveAdd::GetNumNow(i) == AchieveAdd::GetNumNeed(i) && !AppDelegate::s_Achieve[i] )
-		{
-			bAchieve = true;
-			break;
-		}
-	}
-	if ( bAchieve )
-	{*/
-	//	/*CCMenuItemImage* pBtn = CCMenuItemImage::create( 
-	//		"tu7/jiangli/di.png", "tu7/jiangli/di.png", this, menu_selector(ccbGetItemLayer::OnGetAchieve));
-	//	pBtn->setPosition(ccp(0,0));
-	//	CCMenu* pMenu = CCMenu::create(pBtn, NULL);
-	//	pMenu->setPosition(ccp(0,0));
-	//	pNode->addChild(pMenu);
-		CCSprite* pSprite = CCSprite::create("tu5/anniu/1.png");
-		pSprite->setPosition(ccp(0,0));
-		CCAnimate* pAction = CCAnimate::create(common::CreateAnimationFrame("tu5/anniu/", 3, CCRect(0,0,115,85)));
-		pSprite->runAction(CCRepeatForever::create(CCSequence::create(pAction, CCDelayTime::create(2.0f), NULL)));
-		pNode->addChild(pSprite);
-	//}
-
-	CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
-	ccNodeLoaderLibrary->registerCCNodeLoader("ccbGetPrizeLayer", ccbGetPrizeLayerLoader::loader());
-	cocos2d::extension::CCBReader* ccbReader = new cocos2d::extension::CCBReader(ccNodeLoaderLibrary);
-	m_pGetPrize = (ccbGetPrizeLayer*)ccbReader->readNodeGraphFromFile("23.ccbi"/*, this*/);
-	m_pGetPrize->setAnimationManager(ccbReader->getAnimationManager());
-	m_pGetPrize->setPosition(ccp(0,0));
-	addChild(m_pGetPrize, 5);
-	ccbReader->release();
-	m_pGetPrize->m_bOver = true;
 }
 
 SEL_MenuHandler ccbGetItemLayer::onResolveCCBCCMenuItemSelector(CCObject * pTarget, const char * pSelectorName) 
@@ -112,7 +78,7 @@ SEL_MenuHandler ccbGetItemLayer::onResolveCCBCCMenuItemSelector(CCObject * pTarg
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "On7", ccbGetItemLayer::OnContinue );
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "On8", ccbGetItemLayer::OnReturn );
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "On9", ccbGetItemLayer::OnReplay );
-	//CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "On10", ccbGetItemLayer::OnRechoseHero );
+	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "On10", ccbGetItemLayer::OnRechoseHero );
 	return NULL;    
 }
 
@@ -154,8 +120,8 @@ void ccbGetItemLayer::OnBuy1( cocos2d::CCObject *pSender )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	//if ( m_bOnSell || !m_pGetPrize->m_bOver )
-	//	return;
+	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
+		return;*/
 	if ( !m_bCanPress )
 		return;
 	if ( m_iWeapon == 0 && !m_bIsWeapon )
@@ -183,7 +149,7 @@ void ccbGetItemLayer::OnBuy1( cocos2d::CCObject *pSender )
 		}
 		/*m_pGetPrize->initPrize(m_iGetPrize);
 		m_pGetPrize->Appear();*/
-		//schedule(schedule_selector(ccbGetItemLayer::GetPrizeCheck), 0.02f);
+		schedule(schedule_selector(ccbGetItemLayer::GetPrizeCheck), 0.02f);
 	}
 	else if ( m_iWeapon )
 	{
@@ -191,8 +157,8 @@ void ccbGetItemLayer::OnBuy1( cocos2d::CCObject *pSender )
 		if ( m_iType == 0 )
 		{
 #ifdef Plat_Telecom_Demo
-			AppDelegate::s_VIP = 1;
-			AppDelegate::SaveVIP();
+		/*	AppDelegate::s_VIP = 1;
+			AppDelegate::SaveVIP();*/
 			successd = true;
 #else
 			if ( pSender )
@@ -250,9 +216,9 @@ void ccbGetItemLayer::OnBuy1( cocos2d::CCObject *pSender )
 				AppDelegate::AudioPlayEffect("MS2/buy.mp3");
 				AppDelegate::s_WeaponOwn[m_iWeapon] = 1;
 				CCNode* pSprite = m_pNode->getChildByTag(1)->getChildByTag(1);
-				//pSprite->removeFromParentAndCleanup(true);
-				//pSprite->stopAllActions();
-				//pSprite->setScale(1.5f);
+				pSprite->removeFromParentAndCleanup(true);
+				pSprite->stopAllActions();
+				pSprite->setScale(1.5f);
 				m_iWeapon = 0;
 			}
 			else
@@ -272,8 +238,8 @@ void ccbGetItemLayer::OnBuy2( cocos2d::CCObject *pSender )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	//if ( m_bOnSell || !m_pGetPrize->m_bOver )
-	//	return;
+	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
+		return;*/
 	if ( AppDelegate::s_Healbox > 2 || !m_bCanPress )
 		return;
 	if ( AppDelegate::s_Money < 300 )
@@ -342,151 +308,24 @@ void ccbGetItemLayer::OnBuy4( cocos2d::CCObject *pSender )
 	pNode->runAction( pAction2 );
 }
 
-void ccbGetItemLayer::InitBtn(int _type)
-{
+void ccbGetItemLayer::InitBtn(int _type){
 	setVisible(true);
 	m_bCanPress = true;
 	if ( _type )
 		m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline", 0.0f);
 	else
 		m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline3", 0.0f);
-	/*CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	addChild(pCCLayerColor, -1, 10);*/
-
-	//{//×ó±ß
-	//	CCNode* pNode = m_pNode->getChildByTag(2);
-	//	common::ShowNumber(pNode, AppDelegate::s_Healbox, 19, 24, 94, 59, "tu3/zidansuzi.png", 888, 0, 0.8f);
-	//	common::ShowNumber(pNode, 300, 19, 24, 70, 24, "tu3/zidansuzi.png", 889, 0, 0.8f);
-
-	//	pNode = m_pNode->getChildByTag(3);
-	//	common::ShowNumber(pNode, AppDelegate::s_BulletNum[AppDelegate::s_WeaponUse[1]], 19, 24, 78, 57, "tu3/zidansuzi.png", 888, 0, 0.7f);
-	//	common::ShowNumber(pNode, g_priceBullet[AppDelegate::s_WeaponUse[1]], 19, 24, 70, 24, "tu3/zidansuzi.png", 889, 0, 0.8f);
-
-	//	pNode = m_pNode->getChildByTag(4);
-	//	common::ShowNumber(pNode, AppDelegate::s_GrenadeNum, 19, 24, 83, 57, "tu3/zidansuzi.png", 888, 0, 0.8f);
-	//	common::ShowNumber(pNode, 260, 19, 24, 70, 24, "tu3/zidansuzi.png", 889, 0, 0.8f);
-	//}
 }
 
 void ccbGetItemLayer::Appear1(int _type)
 {
-	//Ò»¼ü²¹¸ø
-	if ( AppDelegate::s_VIP )
-	{
-		Appear2(1);
-		return;
-	}
 	m_iType = 0;
 	m_iWeapon = 1;
 	CCNode* pNode = m_pNode->getChildByTag(1);
-
-	/*CCSprite* pSpriteBoard = CCSprite::create("tu18/shang2.png");
-	pNode->addChild(pSpriteBoard);
-
-	{
-		CCSprite* pMovie1 = CCSprite::create("tu18/te.png");
-		pMovie1->setPosition(ccp(245, 95));
-		pSpriteBoard->addChild(pMovie1);
-		CCDelayTime* pDelay1 = CCDelayTime::create(0.4f);
-		CCScaleTo* pAction1 = CCScaleTo::create(0.1f, 1.5f);
-		CCScaleTo* pAction2 = CCScaleTo::create(0.3f, 1.0f);
-		CCDelayTime* pDelay2 = CCDelayTime::create(1.2f);
-		pMovie1->runAction(CCRepeatForever::create(CCSequence::create(pDelay1, pAction1, pAction2, pDelay2, NULL)));
-	}
-	{
-		CCSprite* pMovie1 = CCSprite::create("tu18/vip.png");
-		pMovie1->setPosition(ccp(168, 98));
-		pSpriteBoard->addChild(pMovie1);
-		CCScaleTo* pAction1 = CCScaleTo::create(0.1f, 1.5f);
-		CCScaleTo* pAction2 = CCScaleTo::create(0.3f, 1.0f);
-		CCDelayTime* pDelay1 = CCDelayTime::create(1.6f);
-		pMovie1->runAction(CCRepeatForever::create(CCSequence::create(pAction1, pAction2, pDelay1, NULL)));
-	}
-	{
-		CCSprite* pSprite1 = CCSprite::create("tu18/x2.png");
-		pSprite1->setPosition(ccp(261, 51));
-		pSpriteBoard->addChild(pSprite1);
-
-		CCSprite* pSprite2 = CCSprite::create("tu18/yongyou1.png");
-		pSprite2->setPosition(ccp(388, 42));
-		pSpriteBoard->addChild(pSprite2);
-	}*/
 	InitBtn(_type);
 }
 
-void ccbGetItemLayer::Appear2(int _type)
-{//Ç¹
-	m_iType = 1;
-	m_iWeapon = 0;
-	CCNode* pNode = m_pNode->getChildByTag(1);
-	for ( int i = 12; i > 4; i-- )
-	{
-		if ( i == 6 || i == 7 )
-			continue;
-		if ( AppDelegate::s_HeroType != ccbShopMenu::Exclusive(i) && -1 != ccbShopMenu::Exclusive(i) )
-			continue;
-		if ( AppDelegate::s_WeaponOwn[i] == 0 )
-			m_iWeapon = i;
-		if ( AppDelegate::s_WeaponOwn[i] == 1 && m_iWeapon )
-			break;
-	}
-
-	if ( m_iWeapon )
-	{
-	/*	CCSprite* pSpriteBoard = CCSprite::create("tu18/shang.png");
-		pNode->addChild(pSpriteBoard);
-
-		CCSprite* pSprite2 = CCSprite::create("tu18/yongyou1.png");
-		pSprite2->setPosition(ccp(388, 42));
-		pSpriteBoard->addChild(pSprite2);*/
-
-		//char buffer[50];
-		//sprintf(buffer, "tu3/qiang/%d.png", m_iWeapon);
-		//CCSprite* pSprite = CCSprite::create(buffer);
-		//pSprite->setScale(0.7f);
-		//pSprite->setPosition(ccp(-50, 0));
-		//pNode->addChild(pSprite, 1, 1);
-		//CCScaleTo* pAction1 = CCScaleTo::create(0.1f, 1.1f);
-		//CCScaleTo* pAction2 = CCScaleTo::create(0.3f, 0.7f);
-		//pSprite->runAction(CCRepeatForever::create(CCSequence::create(pAction1, pAction2, CCDelayTime::create(1.0f), NULL)));
-
-		//sprintf(buffer, "tu5/name/%d.png", m_iWeapon);
-		//pSprite = CCSprite::create(buffer);
-		//pSprite->setPosition(ccp(-108, 52));
-		//pNode->addChild(pSprite);
-
-		//int sell1 = 1;
-		//int sell2 = 1;
-		//if ( ccbShopMenu::WeaponOnSell(m_iWeapon) )
-		//{
-		//	sell1 = 5;
-		//	sell2 = 4;
-		//}
-		//if ( g_weaponUseMedal[m_iWeapon] )
-		//	pSprite = CCSprite::create("tu3/qian.png");
-		//else
-		//	pSprite = CCSprite::create("tu3/xunzhang.png");
-		//pSprite->setAnchorPoint(ccp(0.5f, 0.25f));
-		//pSprite->setPosition(ccp(98,48));
-		//pNode->addChild(pSprite, 2, 2);
-		//common::ShowNumber(pSprite, g_priceUpgrade[m_iWeapon]*sell2/sell1, 19, 24, 41, 5, "tu3/zidansuzi2.png", 888, 0, 0.8f);
-
-		////pSprite = CCSprite::create("tu3/weili.png");
-		////pSprite->setPosition(ccp(84,115));
-		////pSprite->setRotation(6);
-		////pNode->addChild(pSprite, 2, 3);
-		//int d = AppDelegate::WeaponDamage(m_iWeapon);
-		//int sp = AppDelegate::WeaponSpeed(m_iWeapon);
-		//if ( sp == 0 )
-		//	sp = 100;
-		//common::ShowNumber(pSprite, d*100/sp, 19, 24, 79, -33, "tu3/zidansuzi.png", 889, 0, 0.8f);
-	}
-	else
-	{
-		m_bIsWeapon = false;
-		/*CCSprite* pSpriteBoard = CCSprite::create("tu18/shang3.png");
-		pNode->addChild(pSpriteBoard);*/
-	}
+void ccbGetItemLayer::Appear2(int _type){
 	InitBtn(_type);
 }
 
@@ -494,8 +333,6 @@ void ccbGetItemLayer::DisAppear(cocos2d::CCObject *pSender)
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
 	if ( !m_bCanPress )
 		return;
 	((CGameControler*)m_pGameControler)->m_bEndPress = false;
@@ -508,8 +345,6 @@ void ccbGetItemLayer::OnShop( cocos2d::CCObject *pSender )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	//if ( m_bOnSell || !m_pGetPrize->m_bOver )
-	//	return;
 	((ccbGameoverBtnMenu*)((CGameControler*)m_pGameControler)->m_pGameoverBtnNode)->OnShop(NULL);
 }
 
@@ -517,8 +352,6 @@ void ccbGetItemLayer::OnContinue( cocos2d::CCObject *pSender )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
 	((ccbGameoverBtnMenu*)((CGameControler*)m_pGameControler)->m_pGameoverBtnNode)->OnContinue(NULL);
 }
 
@@ -526,8 +359,6 @@ void ccbGetItemLayer::OnReturn( cocos2d::CCObject *pSender )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
 	unschedule(schedule_selector(ccbGetItemLayer::Timer));
 	((ccbGameoverBtnMenu*)((CGameControler*)m_pGameControler)->m_pGameoverBtnNode)->OnReturn(NULL);
 }
@@ -536,8 +367,6 @@ void ccbGetItemLayer::OnReplay( cocos2d::CCObject *pSender )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
 	((ccbGameoverBtnMenu*)((CGameControler*)m_pGameControler)->m_pGameoverBtnNode)->OnReplay(NULL);
 }
 
@@ -550,9 +379,7 @@ void ccbGetItemLayer::OnRechoseHero( cocos2d::CCObject *pSender )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
-	//m_bOnSell = true;
+	m_bOnSell = true;
 	((ccbGameoverBtnMenu*)((CGameControler*)m_pGameControler)->m_pGameoverBtnNode)->OnRechoseHero(NULL);
 }
 
@@ -560,9 +387,7 @@ void ccbGetItemLayer::OnGetAchieve( cocos2d::CCObject *pSender /*= NULL*/ )
 {
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
-	//m_bOnSell = true;
+	m_bOnSell = true;
 	((ccbGameoverBtnMenu*)((CGameControler*)m_pGameControler)->m_pGameoverBtnNode)->OnGetAchieve(NULL);
 }
 
@@ -573,13 +398,6 @@ void ccbGetItemLayer::GetMoney( cocos2d::CCObject* sender )
 #endif
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
-	//m_bOnSell = true;
-
-	/*CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	addChild(pCCLayerColor, 29, 1195);*/
-
 	CCMenuItem* pItem = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbGetItemLayer::GetRemove));
 	pItem->setPosition(ccp(723,351));
 	CCMenu* pMenu = CCMenu::create(pItem, NULL);
@@ -593,71 +411,19 @@ void ccbGetItemLayer::GetMoney( cocos2d::CCObject* sender )
 	pSprite2->setPosition(ccp(400, 240));
 	addChild(pSprite2, 33, 1198);
 
-	//CCMenuItem* pItem1 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
-	//pItem1->setPosition(ccp(219,282));
-	//pItem1->setTag(1);
 	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
 	pItem2->setPosition(ccp(243,199));
 	pItem2->setTag(2);
 	CCMenuItem* pItem3 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
 	pItem3->setPosition(ccp(556,199));
 	pItem3->setTag(3);
-	//CCMenuItem* pItem4 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
-	//pItem4->setPosition(ccp(286,96));
-	//pItem4->setTag(4);
-	//CCMenuItem* pItem5 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
-	//pItem5->setPosition(ccp(512,96));
-	//pItem5->setTag(5);
+
 	CCMenu* pMenu1 = CCMenu::create(/*pItem1, */pItem2, pItem3, /*pItem4, pItem5, */NULL);
 	pMenu1->setPosition(ccp(0,0));
 	addChild(pMenu1, 32, 1197);
 }
 
-void ccbGetItemLayer::GetMedal( cocos2d::CCObject* sender )
-{
-#ifdef NoGetMoney
-	return;
-#endif
-	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
-		return;
-	/*if ( m_bOnSell || !m_pGetPrize->m_bOver )
-		return;*/
-	//m_bOnSell = true;
-
-	/*CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	addChild(pCCLayerColor, 29, 1195);*/
-
-	/*CCMenuItem* pItem = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbGetItemLayer::GetRemove));
-	pItem->setPosition(ccp(723,351));
-	CCMenu* pMenu = CCMenu::create(pItem, NULL);
-	pMenu->setPosition(ccp(0,0));
-	addChild(pMenu, 31, 1196);
-
-	CCSprite* pSprite1 = CCSprite::create("sell/money/di.png");
-	pSprite1->setPosition(ccp(400, 240));
-	addChild(pSprite1, 31, 1199);
-	CCSprite* pSprite2 = CCSprite::create("sell/money/1.png");
-	pSprite2->setPosition(ccp(400, 240));
-	addChild(pSprite2, 33, 1198);*/
-
-	//CCMenuItem* pItem1 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMedalBtn));
-	//pItem1->setPosition(ccp(219,282));
-	//pItem1->setTag(1);
-	/*CCMenuItem* pItem2 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMedalBtn));
-	pItem2->setPosition(ccp(243,199));
-	pItem2->setTag(2);
-	CCMenuItem* pItem3 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMedalBtn));
-	pItem3->setPosition(ccp(556,199));
-	pItem3->setTag(3);*/
-	//CCMenuItem* pItem4 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMedalBtn));
-	//pItem4->setPosition(ccp(283,96));
-	//pItem4->setTag(4);
-	//CCMenuItem* pItem5 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMedalBtn));
-	//pItem5->setPosition(ccp(512,96));
-	//pItem5->setTag(5);
-	//CCMenu* pMenu1 = CCMenu::create(/*pItem1, */pItem2, pItem3, /*pItem4, pItem5, */NULL);
-	//pMenu1->setPosition(ccp(0,0));
-	//addChild(pMenu1, 32, 1197);
+void ccbGetItemLayer::GetMedal( cocos2d::CCObject* sender ){
 }
 
 void ccbGetItemLayer::GetMoneyBtn( cocos2d::CCObject* _pNode )
@@ -667,33 +433,31 @@ void ccbGetItemLayer::GetMoneyBtn( cocos2d::CCObject* _pNode )
 		int numAdd = 0;
 		int numMid = 0;
 		int index = ((CCNode*)_pNode)->getTag();
-		PayService::pay(14+index);
-
-		//switch ( index )
-		//{
-		//case 1:
-		//	numAdd = 1080;
-		//	numMid = 2;
-		//	break;
-		//case 2:
-		//	numAdd = 6480;
-		//	numMid = 14;
-		//	break;
-		//case 3:
-		//	numAdd = 35280;
-		//	numMid = 49;
-		//	break;
-		//case 4:
-		//	numAdd = 80190;
-		//	numMid = 99;
-		//	break;
-		//case 5:
-		//	numAdd = 181440;
-		//	numMid = 168;
-		//	break;
-		//}
-		//AppDelegate::s_Money += numAdd;
-		//AppDelegate::SaveMoney();
+		switch ( index )
+		{
+		case 1:
+			numAdd = 1080;
+			numMid = 2;
+			break;
+		case 2:
+			numAdd = 6480;
+			numMid = 14;
+			break;
+		case 3:
+			numAdd = 35280;
+			numMid = 49;
+			break;
+		case 4:
+			numAdd = 80190;
+			numMid = 99;
+			break;
+		case 5:
+			numAdd = 181440;
+			numMid = 168;
+			break;
+		}
+		AppDelegate::s_Money += numAdd;
+		AppDelegate::SaveMoney();
 	}
 	else
 		GetRemove();
@@ -706,33 +470,32 @@ void ccbGetItemLayer::GetMedalBtn( cocos2d::CCObject* _pNode )
 		int numAdd = 0;
 		int numMid = 0;
 		int index = ((CCNode*)_pNode)->getTag();
-		PayService::pay(11+index);
 
-		//switch ( index )
-		//{
-		//case 1:
-		//	numAdd = 108;
-		//	numMid = 2;
-		//	break;
-		//case 2:
-		//	numAdd = 648;
-		//	numMid = 14;
-		//	break;
-		//case 3:
-		//	numAdd = 3528;
-		//	numMid = 49;
-		//	break;
-		//case 4:
-		//	numAdd = 8019;
-		//	numMid = 99;
-		//	break;
-		//case 5:
-		//	numAdd = 18144;
-		//	numMid = 168;
-		//	break;
-		//}
-		//AppDelegate::s_Medal += numAdd;
-		//AppDelegate::SaveMedal();
+		switch ( index )
+		{
+		case 1:
+			numAdd = 108;
+			numMid = 2;
+			break;
+		case 2:
+			numAdd = 648;
+			numMid = 14;
+			break;
+		case 3:
+			numAdd = 3528;
+			numMid = 49;
+			break;
+		case 4:
+			numAdd = 8019;
+			numMid = 99;
+			break;
+		case 5:
+			numAdd = 18144;
+			numMid = 168;
+			break;
+		}
+		AppDelegate::s_Medal += numAdd;
+		AppDelegate::SaveMedal();
 	}
 	else
 		GetRemove();
@@ -750,17 +513,11 @@ void ccbGetItemLayer::GetRemove(cocos2d::CCObject* _pNode)
 	}
 }
 
-void ccbGetItemLayer::GetPrizeCheck( float _t )
-{
-	if ( m_pGetPrize->m_bOver )
-	{
-
+void ccbGetItemLayer::GetPrizeCheck( float _t ){
 		switch ( _Type[m_iGetPrize] )
 		{
 		case 1:
 			AppDelegate::s_Money += _Num[m_iGetPrize];
-			//if ( AppDelegate::s_Money > 99999 )
-			//	AppDelegate::s_Money = 99999;
 			break;
 		case 2:
 			AppDelegate::s_Medal += _Num[m_iGetPrize];
@@ -792,14 +549,9 @@ void ccbGetItemLayer::GetPrizeCheck( float _t )
 			break;
 		case 11:
 			break;
-		}
 		AppDelegate::SaveStatus();
 		unschedule(schedule_selector(ccbGetItemLayer::GetPrizeCheck));
 	}
 }
 
-//void ccbGetItemLayer::LosePlay( float _t )
-//{
-//	m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline copy", 0.0f);
-//}
 

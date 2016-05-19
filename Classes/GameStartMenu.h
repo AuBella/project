@@ -28,10 +28,8 @@ public:
 	void Appear();
 	void Wave(int _num);
 	void Start(float _t);
-
-	//static ccbGameStart* m_this;
 private:
-	/*static*/ cocos2d::CCNode*	m_pNode;
+	cocos2d::CCNode*	m_pNode;
 	CGameControler*	m_pGameControler;
 	cocos2d::extension::CCBAnimationManager* m_AnimationManager;
 };

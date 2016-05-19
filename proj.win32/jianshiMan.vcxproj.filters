@@ -7,9 +7,6 @@
     <Filter Include="Main">
       <UniqueIdentifier>{91d13f06-21ad-4aca-a276-ba6c5b872e4d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sprite">
-      <UniqueIdentifier>{7d007cdd-1148-4fd2-9ac9-fa3e5717dbff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="View">
       <UniqueIdentifier>{d1fb1a52-81ed-481f-891e-20b0083c5c0b}</UniqueIdentifier>
     </Filter>
@@ -31,12 +28,6 @@
     <Filter Include="Main\Source">
       <UniqueIdentifier>{73fc0f06-e6ce-4728-9124-798f85b283bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sprite\Include">
-      <UniqueIdentifier>{6f91ecb0-b3e2-44ee-856f-6259886127d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sprite\Source">
-      <UniqueIdentifier>{3f5b4063-2fd3-472a-9841-a4e3914c36fd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="View\Login">
       <UniqueIdentifier>{ba52ce29-4e0b-4888-ae14-d048c56dacb6}</UniqueIdentifier>
     </Filter>
@@ -54,6 +45,15 @@
     </Filter>
     <Filter Include="View\Menu\Source">
       <UniqueIdentifier>{8cf8a3e2-9447-4b6f-8f90-438300fd5ab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Login\Sprite">
+      <UniqueIdentifier>{7d007cdd-1148-4fd2-9ac9-fa3e5717dbff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Login\Sprite\Include">
+      <UniqueIdentifier>{6f91ecb0-b3e2-44ee-856f-6259886127d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Login\Sprite\Source">
+      <UniqueIdentifier>{3f5b4063-2fd3-472a-9841-a4e3914c36fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -231,19 +231,10 @@
     <ClInclude Include="..\Classes\CSArmature\writer.h">
       <Filter>Main\Flash</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AchieveAdd.h">
-      <Filter>Main\Include</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>Main\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameLoadingMenu.h">
-      <Filter>Main\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HttpHandle.h">
-      <Filter>Main\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\PayService.h">
       <Filter>Main\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\resource.h">
@@ -283,19 +274,28 @@
       <Filter>View\Menu\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Background.h">
-      <Filter>Sprite\Include</Filter>
+      <Filter>View\Login\Sprite\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Flash.h">
-      <Filter>Sprite\Include</Filter>
+      <Filter>View\Login\Sprite\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Frontground.h">
-      <Filter>Sprite\Include</Filter>
+      <Filter>View\Login\Sprite\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Hero.h">
-      <Filter>Sprite\Include</Filter>
+      <Filter>View\Login\Sprite\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AchieveAdd.h">
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PayService.h">
+      <Filter>View\Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GetPrize.h">
-      <Filter>View\Login\Source</Filter>
+      <Filter>View\Login\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HttpHandle.h">
+      <Filter>View\Login\Include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -431,23 +431,11 @@
     <ClCompile Include="..\Classes\CSArmature\tinyxmlparser.cpp">
       <Filter>Main\Flash</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AchieveAdd.cpp">
-      <Filter>Main\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Main\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HttpHandle.cpp">
-      <Filter>Main\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\PayService.cpp">
       <Filter>Main\Source</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Main\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GetPrize.cpp">
-      <Filter>View\Login\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ccb.cpp">
       <Filter>View\Menu\Source</Filter>
@@ -465,16 +453,16 @@
       <Filter>View\Menu\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Background.cpp">
-      <Filter>Sprite\Source</Filter>
+      <Filter>View\Login\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Flash.cpp">
-      <Filter>Sprite\Source</Filter>
+      <Filter>View\Login\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Frontground.cpp">
-      <Filter>Sprite\Source</Filter>
+      <Filter>View\Login\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Hero.cpp">
-      <Filter>Sprite\Source</Filter>
+      <Filter>View\Login\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameLoading.cpp">
       <Filter>Game\Source</Filter>
@@ -492,6 +480,18 @@
       <Filter>View\Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LoginMenu.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AchieveAdd.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PayService.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GetPrize.cpp">
+      <Filter>View\Login\Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HttpHandle.cpp">
       <Filter>View\Login\Include</Filter>
     </ClCompile>
   </ItemGroup>

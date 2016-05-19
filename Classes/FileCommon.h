@@ -104,8 +104,6 @@ namespace common
 		char tempString[50] = {0};
 		sprintf(tempString, "%d", status);
 		std::string sValue = tempString;
-		//std::string sKey = himiSaveData(reinterpret_cast<const unsigned char*>(sValue.c_str()), sValue.length());
-		//cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(key, sKey);
 		cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(key, sValue);
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
@@ -113,8 +111,6 @@ namespace common
 	void SaveData(const char* key, const char* status)
 	{
 		std::string sValue = status;
-		//std::string sKey = himiSaveData(reinterpret_cast<const unsigned char*>(sValue.c_str()), sValue.length());
-		//cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(key, sKey);
 		cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(key, sValue);
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
@@ -129,8 +125,6 @@ namespace common
 		char tempString[50] = {0};
 		sprintf(tempString, "%d", status[num]);
 		std::string sValue = tempString;
-		//std::string sKey = himiSaveData(reinterpret_cast<const unsigned char*>(sValue.c_str()), sValue.length());
-		//cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(str.c_str(), sKey);
 		cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(str.c_str(), sValue);
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
@@ -145,8 +139,6 @@ namespace common
 		char tempString[50] = {0};
 		sprintf(tempString, "%d", status);
 		std::string sValue = tempString;
-		//std::string sKey = himiSaveData(reinterpret_cast<const unsigned char*>(sValue.c_str()), sValue.length());
-		//cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(str.c_str(), sKey);
 		cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(str.c_str(), sValue);
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
@@ -159,8 +151,6 @@ namespace common
 		str += buffer;
 
 		std::string sValue = status;
-		//std::string sKey = himiSaveData(reinterpret_cast<const unsigned char*>(sValue.c_str()), sValue.length());
-		//cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(str.c_str(), sKey);
 		cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(str.c_str(), sValue);
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
@@ -175,8 +165,6 @@ namespace common
 		std::string s = cocos2d::CCUserDefault::sharedUserDefault()->getStringForKey(key);
 		if ( s != "" )
 		{
-			//std::string parseKey = himiParseData(s);
-			//status = atoi(parseKey.c_str());
 			status = atoi(s.c_str());
 		}
 		else
@@ -193,8 +181,6 @@ namespace common
 		std::string s = cocos2d::CCUserDefault::sharedUserDefault()->getStringForKey(key);
 		if ( s != "" )
 		{
-			//std::string parseKey = himiParseData(s);
-			//status = atoi(parseKey.c_str());
 			status = atoi(s.c_str());
 		}
 		else
@@ -220,12 +206,7 @@ namespace common
 	{
 		int _FIRST_TIME_;
 		LoadData("f", _FIRST_TIME_);
-		//if ( !_FIRST_TIME_ )
-		//{
-		//	SaveData("f", !_FIRST_TIME_);
-		//}
 		return !_FIRST_TIME_;
-		//return cocos2d::CCUserDefault::sharedUserDefault()->isXMLFileExist();
 	}
 }
 

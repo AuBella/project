@@ -25,7 +25,6 @@ public:
 	virtual void onNodeLoaded(cocos2d::CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 
 	void setAnimationManager(cocos2d::extension::CCBAnimationManager *pAnimationManager, cocos2d::CCNode* _pNode);
-	//void SetGame(CGameControler* p);	
 	void InitBtn(int _type);
 	void OnBuy1(cocos2d::CCObject *pSender = NULL);
 	void OnBuy2(cocos2d::CCObject *pSender);
@@ -57,7 +56,6 @@ public:
 	static ccbGetItemLayer* s_pccbGetItemLayer;
 private:
 	bool	m_bCanPress;
-	//int		m_iLevel;
 	int		m_iWeapon;
 	int		m_iType;
 	int		m_iPressType;
@@ -70,7 +68,6 @@ private:
 
 	bool m_bIsWeapon;
 	int m_iGetPrize;
-	ccbGetPrizeLayer* m_pGetPrize;
 };
 
 class CCBReader;
