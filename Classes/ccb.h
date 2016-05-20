@@ -122,7 +122,7 @@ private:
 	cocos2d::CCSprite*	m_pBossInfo[6];
 	cocos2d::CCMenu*	m_pMenuChoseBoss;
 
-	int m_iGuideIndex;
+	//int m_iGuideIndex;
 
 	int m_iShare;
 	int m_iShareLevel;

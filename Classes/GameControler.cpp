@@ -17,7 +17,7 @@
 //#include "AchieveAdd.h"
 #include "BossBox.h"
 #include "GetItemLayer.h"
-#include "ChoseHero.h"
+//#include "ChoseHero.h"
 #include "ShopMenu.h"
 //#include "PayService.h"
 
@@ -1143,12 +1143,12 @@ void CGameControler::GameStart()
 	//	pTipBoard->addChild(pSprite);
 	//}
 
-#ifndef PayGOCTwo
-	if ( AppDelegate::m_Sell1 == 0 )
-	{
-		Sell2();
-	}
-#endif
+//#ifndef PayGOCTwo
+//	if ( AppDelegate::m_Sell1 == 0 )
+//	{
+//		Sell2();
+//	}
+//#endif
 }
 
 bool CGameControler::init()
@@ -1220,7 +1220,7 @@ void CGameControler::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 				m_iGuideMap = guideMap[m_iGuideAction]+800;
 				CCLog("%d",m_iGuideMap);
 				m_iGuideAction = m_iGuideNow+1;
-				GuideResume();
+				//GuideResume();
 			}
 			if ( !m_iHeroJumps )
 			{
@@ -1251,7 +1251,7 @@ void CGameControler::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 				if ( 4 == m_iGuideNow )
 					m_iGuideMap = guideMap[5]+800;
 				m_iGuideAction = m_iGuideNow+1;
-				GuideResume();
+				//GuideResume();
 			}
 			if ( m_bAttack || m_iGrenadeTime > 0 )
 				break;
@@ -1372,7 +1372,7 @@ void CGameControler::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 			if ( m_iGuideTalk == 10 && getChildByTag(196) )
 			{
 				m_iGuideAction = 9;
-				GuideResume();
+				//GuideResume();
 			}
 			m_iGrenadeNum--;
 			if ( m_iGrenadeNum == 0 )
@@ -1425,7 +1425,7 @@ void CGameControler::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 		case eAT_SKILL1:
 			if ( m_iStateSkill[0] < 100 )
 			{
-				Sell5();
+				//Sell5();
 			}
 		case eAT_SKILL:
 			if ( m_iHoldTime > 0 )
@@ -1436,7 +1436,7 @@ void CGameControler::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 				if ( m_iGuideTalk == 11 && getChildByTag(196) )
 				{
 					m_iGuideMap = guideMap[9]+800;
-					GuideResume();
+					//GuideResume();
 				}
 				if ( getChildByTag(39) )
 					getChildByTag(39)->removeFromParentAndCleanup(true);
@@ -1523,8 +1523,8 @@ void CGameControler::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 						if ( m_iGuideTalk == 8 && getChildByTag(196) )
 						{
 							removeChildByTag(193);
-							GuideResume();
-							GuideTalk(9);
+							//GuideResume();
+							//GuideTalk(9);
 						}
 					}
 				}
@@ -2009,7 +2009,7 @@ void CGameControler::MoveCheck(int _un, int _digit)
 	{
 		m_iGuideMap = guideMap[1]+800;
 		m_iGuideAction = m_iGuideNow+1;
-		GuideResume();
+		//GuideResume();
 	}
 }
 
@@ -2224,7 +2224,7 @@ void CGameControler::Timer(float _dt)
 		m_iHeroJumps	= 0;
 		m_fHeroSpeedY	= 0.0;
 		WinCheck();
-		GuideCheck();
+		//GuideCheck();
 	}
 
 	//////////////////////
@@ -4178,7 +4178,7 @@ void CGameControler::ItemCheck()
 					break;
 				case 11://蓝技能
 					{
-						GuideTalk(8);
+						//GuideTalk(8);
 						m_bGuideWeaponGet = true;
 					}
 					pAction = CCMoveTo::create(0.5, CCPoint(50, 440));
@@ -4195,7 +4195,7 @@ void CGameControler::ItemCheck()
 						AppDelegate::s_Hero3 --;
 					}
 					pAction = CCScaleTo::create(0.5, 10.0f);
-					scheduleOnce(schedule_selector(CGameControler::GuideGoToChoseHero), 0.6f);
+					//scheduleOnce(schedule_selector(CGameControler::GuideGoToChoseHero), 0.6f);
 					break;
 				default:
 					break;
@@ -9472,7 +9472,7 @@ void CGameControler::BossMovie( float _t )
 	m_pHero->ResumeAction();
 	if ( m_iGuideNow == 11 )
 	{
-		GuideTalk(12, 1);
+		//GuideTalk(12, 1);
 		m_iGuideNow = 12;
 	}
 }
@@ -11053,9 +11053,9 @@ void CGameControler::NPCTalk(float _t)
 	{
 		if ( getChildByTag(198) )
 			getChildByTag(198)->removeFromParentAndCleanup(true);
-		CCSprite* pNPC = common::CreateAnimation("guide/zhihui1.png", ccp(660, 250), ccp(0.0f, 0.0f),
+		/*CCSprite* pNPC = common::CreateAnimation("guide/zhihui1.png", ccp(660, 250), ccp(0.0f, 0.0f),
 			"guide/zhihui", 4, CCRect(0,0,138,158), false);
-		addChild(pNPC, 11, 198);
+		addChild(pNPC, 11, 198);*/
 	}
 }
 
@@ -11066,7 +11066,7 @@ void CGameControler::NPCTalkStart()
 		return;
 
 	//CCSprite* pTipBoard = CCSprite::create("Tile/tishi/meizi.png");
-	CCSprite* pTipBoard = CCSprite::create("guide/dikuang.png");
+	/*CCSprite* pTipBoard = CCSprite::create("guide/dikuang.png");
 	pTipBoard->setAnchorPoint(ccp(0,0));
 	pTipBoard->setPosition(ccp(400, 240));
 	addChild(pTipBoard, 10, 197);
@@ -11110,7 +11110,7 @@ void CGameControler::NPCTalkStart()
 	CCDelayTime* pAction2 = CCDelayTime::create(3.0f);
 	CCCallFunc* pAction3 = CCCallFunc::create(this, callfunc_selector(CGameControler::TipOver));
 	pSprite->runAction(CCSequence::create(pAction1, pAction2, pAction3, NULL));
-	pTipBoard->addChild(pSprite);
+	pTipBoard->addChild(pSprite);*/
 }
 
 void CGameControler::PauseGame(int _type)
@@ -11121,7 +11121,7 @@ void CGameControler::PauseGame(int _type)
 	if ( m_iGuideTalk == 12 && getChildByTag(196) )
 	{
 		m_iGuideAction = 13;
-		GuideResume();
+		//GuideResume();
 	}
 	else if ( m_iLevelType == 6 && m_iGuideAction < 14 )
 	{
@@ -11195,501 +11195,501 @@ void CGameControler::ExitNo( cocos2d::CCObject* sender )
 	m_pHero->ResumeAction();
 }
 
-void CGameControler::GuideTalk( int _index ,int _type)
-{
-	int yfix = 0;
-	if ( _type == 1 )
-	{
-		yfix = -100;
-	}
-	if ( getChildByTag(197) )
-		getChildByTag(197)->removeFromParentAndCleanup(true);
-	m_iGuideTalk = _index;
-	CCSprite* pTipBoard = CCSprite::create("guide/dikuang.png");
-	pTipBoard->setAnchorPoint(ccp(0,0));
-	pTipBoard->setPosition(ccp(400, 240+yfix));
-	addChild(pTipBoard, 30, 197);
+//void CGameControler::GuideTalk( int _index ,int _type)
+//{
+//	int yfix = 0;
+//	if ( _type == 1 )
+//	{
+//		yfix = -100;
+//	}
+//	/*if ( getChildByTag(197) )
+//		getChildByTag(197)->removeFromParentAndCleanup(true);
+//	m_iGuideTalk = _index;
+//	CCSprite* pTipBoard = CCSprite::create("guide/dikuang.png");
+//	pTipBoard->setAnchorPoint(ccp(0,0));
+//	pTipBoard->setPosition(ccp(400, 240+yfix));
+//	addChild(pTipBoard, 30, 197);
+//
+//	if ( getChildByTag(198) )
+//		getChildByTag(198)->removeFromParentAndCleanup(true);
+//	CCSprite* pNPC = common::CreateAnimation("guide/zhihui1.png", ccp(660, 250+yfix), ccp(0.0f, 0.0f),
+//		"guide/zhihui", 4, CCRect(0,0,138,158), false);
+//	addChild(pNPC, 30, 198);
+//
+//	CCSprite* pSprite = common::CreateAnimation("Tile/tishi/1.png", ccp(444, 302+yfix), ccp(0.5f, 0.5f),
+//		"Tile/tishi/", 4, CCRect(0,0,32,32), true, false, 0.1f);
+//	addChild(pSprite, 30, 195);
+//
+//	if ( getChildByTag(199) )
+//		getChildByTag(199)->removeFromParentAndCleanup(true);
+//	char buffer[255];
+//	sprintf(buffer, "guide/%d.png", _index);
+//	CCSprite* pTip = CCSprite::create(buffer);
+//	pTip->setAnchorPoint(ccp(0,0));
+//	pTip->setPosition(ccp(420, 257+yfix));
+//	addChild(pTip, 30, 199);*/
+//
+//	schedule(schedule_selector(CGameControler::GuideTalkLogic), 2.0f);
+//
+//	/*if ( m_iGuideTalk == 3 )
+//	{
+//		CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(700, 120), ccp(0.5f, 0.8f),
+//			"guide/san", 6, CCRect(0,0,179,80), true);
+//		m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 194);
+//		CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(700, 120), ccp(0.5f, 0.0f),
+//			"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
+//		m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 193);
+//	}
+//	else if ( m_iGuideTalk == 4 )
+//	{
+//		CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(1080, 210), ccp(0.5f, 0.8f),
+//			"guide/san", 6, CCRect(0,0,179,80), true);
+//		m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 194);
+//		CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(1080, 210), ccp(0.5f, 0.0f),
+//			"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
+//		m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 193);
+//	}
+//	else if ( m_iGuideTalk == 5 )
+//	{
+//		CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(1250, 370), ccp(0.5f, 0.8f),
+//			"guide/san", 6, CCRect(0,0,179,80), true);
+//		m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 194);
+//		CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(1250, 370), ccp(0.5f, 0.0f),
+//			"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
+//		m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 193);
+//	}*/
+//}
 
-	if ( getChildByTag(198) )
-		getChildByTag(198)->removeFromParentAndCleanup(true);
-	CCSprite* pNPC = common::CreateAnimation("guide/zhihui1.png", ccp(660, 250+yfix), ccp(0.0f, 0.0f),
-		"guide/zhihui", 4, CCRect(0,0,138,158), false);
-	addChild(pNPC, 30, 198);
+//void CGameControler::GuideCheck()
+//{
+//	if ( 6 != m_iLevelType )
+//		return;
+//	if ( m_iGuideNow != m_iGuideAction )
+//	{
+//		switch( m_iGuideNow )
+//		{
+//		case 0:
+//			GuideTalk(1);
+//			m_iGuideNow = m_iGuideAction;
+//			break;
+//		case 1:
+//			if ( m_pCFrontgroud->GetTileMap()->getChildByTag(194) )
+//			{
+//				if ( m_fHeroLocateX >= 700 )
+//				{
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(193)->removeFromParentAndCleanup(true);
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(194)->removeFromParentAndCleanup(true);
+//					/*CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(920, 120), ccp(0.5f, 0.8f),
+//						"guide/san", 6, CCRect(0,0,179,80), true);
+//					m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 191);
+//					CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(920, 120), ccp(0.5f, 0.0f),
+//						"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
+//					m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 192);*/
+//				}
+//			}
+//			if ( m_fHeroLocateX >= 920 )
+//			{
+//				if ( m_pCFrontgroud->GetTileMap()->getChildByTag(192) )
+//				{
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(192)->removeFromParentAndCleanup(true);
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(191)->removeFromParentAndCleanup(true);
+//				}
+//				GuideTalk(m_iGuideNow+3);
+//				m_iGuideBtn = 2;
+//				ButtonPressCheck();
+//				GuideShield(2);
+//				m_iGuideNow = m_iGuideAction;
+//			}
+//			break;
+//		case 2:
+//			if ( m_fHeroLocateX >= 1080 )
+//			{
+//				if ( m_pCFrontgroud->GetTileMap()->getChildByTag(194) )
+//				{
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(193)->removeFromParentAndCleanup(true);
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(194)->removeFromParentAndCleanup(true);
+//				}
+//				GuideTalk(m_iGuideNow+3);
+//				m_iGuideBtn = 2;
+//				ButtonPressCheck();
+//				GuideShield(2);
+//				m_iGuideNow = m_iGuideAction;
+//			}
+//			break;
+//		case 3:
+//			if ( m_pCFrontgroud->GetTileMap()->getChildByTag(194) )
+//			{
+//				if ( m_fHeroLocateX >= 1200 )
+//				{
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(193)->removeFromParentAndCleanup(true);
+//					m_pCFrontgroud->GetTileMap()->getChildByTag(194)->removeFromParentAndCleanup(true);
+//				}
+//			}
+//			if ( m_fHeroLocateX >= m_iGuideMap-700 )
+//			{
+//				GuideTalk(m_iGuideNow+3);
+//				m_iGuideBtn = 3;
+//				ButtonPressCheck();
+//				GuideShield(3);
+//				m_iGuideNow = 4;
+//			}
+//			break;
+//		case 4:
+//			m_iGuideNow = 5;
+//			break;
+//		case 5:
+//			if ( !m_vecMonsterArray.size() && m_iGuideAction == 6 && m_fHeroLocateX >= m_iGuideMap-520 )
+//			{
+//				m_iGuideMap = guideMap[6]+800;
+//				m_iGuideNow = 6;
+//				m_iGuideAction = 7;
+//			}
+//			break;
+//		case 6:
+//			if ( m_iGuideAction == 7 && m_iGrenadeNum > 0 && m_bGuideWeaponGet )
+//			{
+//				m_iGuideMap = guideMap[7]+800;
+//				m_iGuideNow = 7;
+//				m_iGuideAction = 8;
+//			}
+//			break;
+//		case 7:
+//			if ( m_fHeroLocateX >= m_iGuideMap-490 && m_vecMonsterArray.size() )
+//			{
+//				GuideTalk(10);
+//				m_iGuideBtn = 5;
+//				ButtonPressCheck();
+//				GuideShield(5);
+//				m_iGuideNow = 8;
+//			}
+//			break;
+//		case 8:
+//			if ( !m_vecMonsterArray.size() )
+//			{
+//				m_iGuideMap = guideMap[8]+800;
+//				m_iGuideNow = 9;
+//				m_iGuideAction = 10;
+//			}
+//			break;
+//		case 9:
+//			if ( m_iStateSkill[0] >= 100 )
+//			{
+//				m_iGuideNow = 10;
+//				m_iGuideAction = 12;
+//			}
+//			break;
+//		case 10:
+//			if ( m_vecMonsterArray.size() > 7 )
+//			{
+//				GuideTalk(11);
+//				m_iGuideBtn = 6;
+//				ButtonPressCheck();
+//				GuideShield(6);
+//				m_iGuideNow = 11;
+//			}
+//			break;
+//		case 11:
+//			//if ( m_fHeroLocateX >= m_iGuideMap-400 )
+//			//{
+//			//	GuideTalk(12, 1);
+//			//	m_iGuideNow = 12;
+//			//}
+//			break;
+//		case 12:
+//			if ( m_iHealBox < 3 )
+//			{
+//				GuideTalk(13);
+//				m_iGuideNow = 13;
+//			}
+//			break;
+//		}
+//	}
+//	else if ( m_iGuideNow == 5 && m_iGuideAction == 5 )
+//	{
+//		if ( m_fHeroLocateX >= m_iGuideMap-800 )
+//		{
+//			GuideTalk(7);
+//			GuideShield(3);
+//		}
+//	}
+//}
+//
+//void CGameControler::GuideTalkLogic( float _t )
+//{
+//	unschedule(schedule_selector(CGameControler::GuideTalkLogic));
+//	switch ( m_iGuideTalk )
+//	{
+//	case 9:
+//	case 15:
+//		if ( getChildByTag(195) )
+//			getChildByTag(195)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(197) )
+//			getChildByTag(197)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(198) )
+//			getChildByTag(198)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(199) )
+//			getChildByTag(199)->removeFromParentAndCleanup(true);
+//		break;
+//	case 1:
+//	case 2:
+//	case 14:
+//		if ( getChildByTag(195) )
+//			getChildByTag(195)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(197) )
+//			getChildByTag(197)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(198) )
+//			getChildByTag(198)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(199) )
+//			getChildByTag(199)->removeFromParentAndCleanup(true);
+//		GuideTalk(m_iGuideTalk+1);
+//		break;
+//	case 3:
+//		m_iGuideBtn = 1;
+//		ButtonPressCheck();
+//		GuideShield(1);
+//		break;
+//	case 4:
+//	case 5:
+//		//m_iGuideBtn = 2;
+//		//ButtonPressCheck();
+//		//GuideShield(2);
+//		break;
+//	case 6:
+//		//m_iGuideBtn = 3;
+//		//ButtonPressCheck();
+//		//GuideShield(3);
+//		break;
+//	case 8:
+//		{
+//			/*CCSprite* pTipBoard = common::CreateAnimation("guide/xia1.png", ccp(652,93), ccp(0.5f, 0.5f),
+//				"guide/xia", 2, CCRect(0,0,118,177), true, false, 0.3f);
+//			addChild(pTipBoard, 31, 193);*/
+//		}
+//		m_iGuideBtn = 4;
+//		m_pWeaponMark1->setVisible(true);
+//		ButtonPressCheck();
+//		GuideShield(4);
+//		break;
+//	case 10:
+//		//m_iGuideBtn = 5;
+//		//ButtonPressCheck();
+//		//GuideShield(5);
+//		break;
+//	case 11:
+//		//m_iGuideBtn = 6;
+//		//ButtonPressCheck();
+//		//GuideShield(6);
+//		break;
+//	case 12:
+//		{/*
+//			CCSprite* pTipBoard = common::CreateAnimation("guide/a1.png", ccp(670,380), ccp(0.5f, 0.5f),
+//				"guide/a", 2, CCRect(0,0,60,60), true, false, 0.3f);
+//			addChild(pTipBoard, 31, 193);*/
+//		}
+//		m_iGuideBtn = 7;
+//		ButtonPressCheck();
+//		GuideShield(7);
+//		break;
+//	case 13:
+//		{
+//			CCNodeLoaderLibrary* ccNodeLoaderLibrary6 = CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
+//			ccNodeLoaderLibrary6->registerCCNodeLoader("ccbStartGame", ccbStartGameLoader::loader());
+//			cocos2d::extension::CCBReader* ccbReader6 = new cocos2d::extension::CCBReader(ccNodeLoaderLibrary6);
+//			ccbStartGame* pStartGame = (ccbStartGame*)ccbReader6->readNodeGraphFromFile("24.ccbi"/*, this*/);
+//			pStartGame->setAnimationManager(ccbReader6->getAnimationManager(), this);
+//			ccbReader6->release();
+//			m_pCFrontgroud->addChild(pStartGame, -1, 56);
+//
+//			pStartGame->Appear(CCPoint(4910, 70), CCPoint(400, 300), 1);
+//		}
+//		break;
+//	}
+//}
 
-	CCSprite* pSprite = common::CreateAnimation("Tile/tishi/1.png", ccp(444, 302+yfix), ccp(0.5f, 0.5f),
-		"Tile/tishi/", 4, CCRect(0,0,32,32), true, false, 0.1f);
-	addChild(pSprite, 30, 195);
+//void CGameControler::GuideShield( int _index )
+//{
+//	/*m_bGuidePause = true;
+//	pauseSchedulerAndActions();
+//	m_pHero->PauseAction();
+//	char buffer[255];
+//	sprintf(buffer, "guide/t%d.png", _index);
+//	CCSprite* pTipBoard = CCSprite::create(buffer);
+//	pTipBoard->setAnchorPoint(ccp(0,0));
+//	pTipBoard->setPosition(ccp(0,0));
+//	addChild(pTipBoard, 29, 196);*/
+//}
+//
+//void CGameControler::GuideResume(cocos2d::CCObject *pSender)
+//{
+//	m_bGuidePause = false;
+//	removeChildByTag(196);
+//	if ( getChildByTag(193) )
+//		getChildByTag(193)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(194) )
+//		getChildByTag(194)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(195) )
+//		getChildByTag(195)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(197) )
+//		getChildByTag(197)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(198) )
+//		getChildByTag(198)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(199) )
+//		getChildByTag(199)->removeFromParentAndCleanup(true);
+//	resumeSchedulerAndActions();
+//	m_pHero->ResumeAction();
+//}
 
-	if ( getChildByTag(199) )
-		getChildByTag(199)->removeFromParentAndCleanup(true);
-	char buffer[255];
-	sprintf(buffer, "guide/%d.png", _index);
-	CCSprite* pTip = CCSprite::create(buffer);
-	pTip->setAnchorPoint(ccp(0,0));
-	pTip->setPosition(ccp(420, 257+yfix));
-	addChild(pTip, 30, 199);
+//void CGameControler::GuideVIP()
+//{
+//	if ( getChildByTag(195) )
+//		getChildByTag(195)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(197) )
+//		getChildByTag(197)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(198) )
+//		getChildByTag(198)->removeFromParentAndCleanup(true);
+//	if ( getChildByTag(199) )
+//		getChildByTag(199)->removeFromParentAndCleanup(true);
+////
+////#ifdef Plat_MM
+////	GuideBack();
+////	return;
+////#else
+////#ifdef Plat_Telecom_Demo
+////	//GuideBuy();
+////	//return;
+////#endif
+//	{
+//		m_bGuidePause = true;
+//		m_bSellOpen = true;
+//
+//		CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
+//		//pCCLayerColor->setPosition(ccp(0,0));
+//		//SetScale(pCCLayerColor);
+//		addChild(pCCLayerColor, 29, 195);
+//
+//	/*	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::GuideBack));
+//		pItem2->setPosition(ccp(673,411));
+//		pItem2->setScale(0.8f);
+//		CCMenu* pMenu1 = CCMenu::create(pItem2, NULL);
+//		pMenu1->setPosition(ccp(0,0));
+//		addChild(pMenu1, 31, 196);
+//
+//		CCSprite* pSprite1 = CCSprite::create("sell/di2.png");
+//		pSprite1->setPosition(ccp(400, 240));
+//		addChild(pSprite1, 31, 199);
+//		CCSprite* pSprite2 = CCSprite::create("sell/guide/tu.png");
+//		pSprite2->setPosition(ccp(400, 240));
+//		addChild(pSprite2, 31, 198);
+//
+//		CCMenuItem* pItem1 = CCMenuItemImage::create("sell/huode3-1.png", "sell/huode3-2.png", this, menu_selector(CGameControler::GuideBuy));
+//		pItem1->setPosition(ccp(400,64));
+//		CCMenu* pMenu = CCMenu::create(pItem1, NULL);
+//		pMenu->setPosition(ccp(0,0));
+//		addChild(pMenu, 32, 197);*/
+//	}
+//#endif
+//}
+//
+//void CGameControler::GuideBuy( cocos2d::CCObject *pSender /*= NULL*/ )
+//{
+//	if ( pSender )
+//	{
+//		//PayService::pay(1);
+//	}
+//	else
+//	{
+//#ifdef Plat_Telecom_Demo
+//		AppDelegate::m_Sell1		= 1;
+//		AppDelegate::s_WeaponOwn[6] = 1;
+//		AppDelegate::s_WeaponOwn[9] = 1;
+//		if ( AppDelegate::s_HeroType == 0 )
+//		{
+//			AppDelegate::s_WeaponUse[0] = 6;
+//			AppDelegate::s_WeaponUse[1] = 9;
+//		}
+//		AppDelegate::s_BulletNum[9] += 100;
+//		if ( AppDelegate::s_BulletNum[9] > 999 )
+//			AppDelegate::s_BulletNum[9] = 999;
+//		AppDelegate::s_Healbox = 3;
+//		AppDelegate::s_GrenadeNum = 10;
+//		AppDelegate::s_Money += 1000;
+//		AppDelegate::SaveStatus();
+//#endif
+//		GuideBack();
+//	}
+//}
 
-	schedule(schedule_selector(CGameControler::GuideTalkLogic), 2.0f);
+//void CGameControler::GuideBack( cocos2d::CCObject *pSender /*= NULL*/ )
+//{
+//	m_bSellOpen = false;
+//	m_iWeaponDamage[0] = 500;
+//	m_iWeaponDamage[1] = 200;
+//	m_iWeaponUse[0] = 6;
+//	m_iWeaponUse[1] = 9;
+//	m_sCutSound = "MS4/5Cut.mp3";
+//	m_iWeaponSpeed[1] = AppDelegate::WeaponSpeed(9);
+//	m_iFireIndex[0] = 1;
+//	m_iFireX[0] = g_fFireX[9];
+//	m_iFireY[0] = g_fFireY[9];
+//	m_iActionType1[0] = 19;
+//	m_iActionType2[0] = 21;
+//	for ( int i = 0; i < 7; i++ )
+//	{
+//		m_iKnifeAction[i] = 22 + i;
+//	}
+//	//m_ptBullet[0]->release();
+//	char bulletName[255];
+//	sprintf(bulletName, "bullet/%d/3.png", 9);
+//	//m_ptBullet[0] = CCTextureCache::sharedTextureCache()->addImage(bulletName);
+//	//m_ptBullet[0]->retain();
+//	m_sBulletPath = bulletName;
+//	if ( m_ewtNowWeapon != eWT_Knife && ( m_iHeroJumps < 2 || m_fHeroSpeedY < 2.0f ))
+//	{
+//		m_pHero->ChangeWeapon(m_iWeaponUse[0]);
+//		m_pHero->ChangeWeapon(m_iWeaponUse[1]);
+//		if ( m_iWeaponUse[1] == 12 && !m_bBossWin )
+//			m_iFireTime = 1;
+//	}
+//	{
+//		//GuideResume();
+//
+//		m_bGuidePause = false;
+//		removeChildByTag(196);
+//		if ( getChildByTag(193) )
+//			getChildByTag(193)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(194) )
+//			getChildByTag(194)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(195) )
+//			getChildByTag(195)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(197) )
+//			getChildByTag(197)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(198) )
+//			getChildByTag(198)->removeFromParentAndCleanup(true);
+//		if ( getChildByTag(199) )
+//			getChildByTag(199)->removeFromParentAndCleanup(true);
+//	}
+//}
 
-	if ( m_iGuideTalk == 3 )
-	{
-		CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(700, 120), ccp(0.5f, 0.8f),
-			"guide/san", 6, CCRect(0,0,179,80), true);
-		m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 194);
-		CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(700, 120), ccp(0.5f, 0.0f),
-			"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
-		m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 193);
-	}
-	else if ( m_iGuideTalk == 4 )
-	{
-		CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(1080, 210), ccp(0.5f, 0.8f),
-			"guide/san", 6, CCRect(0,0,179,80), true);
-		m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 194);
-		CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(1080, 210), ccp(0.5f, 0.0f),
-			"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
-		m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 193);
-	}
-	else if ( m_iGuideTalk == 5 )
-	{
-		CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(1250, 370), ccp(0.5f, 0.8f),
-			"guide/san", 6, CCRect(0,0,179,80), true);
-		m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 194);
-		CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(1250, 370), ccp(0.5f, 0.0f),
-			"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
-		m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 193);
-	}
-}
+//void CGameControler::Sell2()
+//{
+//#ifdef Plat_Telecom_Demo
+//	return;
+//#endif
+//	m_bSellOpen = true;
 
-void CGameControler::GuideCheck()
-{
-	if ( 6 != m_iLevelType )
-		return;
-	if ( m_iGuideNow != m_iGuideAction )
-	{
-		switch( m_iGuideNow )
-		{
-		case 0:
-			GuideTalk(1);
-			m_iGuideNow = m_iGuideAction;
-			break;
-		case 1:
-			if ( m_pCFrontgroud->GetTileMap()->getChildByTag(194) )
-			{
-				if ( m_fHeroLocateX >= 700 )
-				{
-					m_pCFrontgroud->GetTileMap()->getChildByTag(193)->removeFromParentAndCleanup(true);
-					m_pCFrontgroud->GetTileMap()->getChildByTag(194)->removeFromParentAndCleanup(true);
-					CCSprite* pSprite = common::CreateAnimation("guide/san1.png", ccp(920, 120), ccp(0.5f, 0.8f),
-						"guide/san", 6, CCRect(0,0,179,80), true);
-					m_pCFrontgroud->GetTileMap()->addChild(pSprite, 30, 191);
-					CCSprite* pSprite1 = common::CreateAnimation("guide/fangxiang1.png", ccp(920, 120), ccp(0.5f, 0.0f),
-						"guide/fangxiang", 2, CCRect(0,0,51,99), true, false, 0.5f);
-					m_pCFrontgroud->GetTileMap()->addChild(pSprite1, 30, 192);
-				}
-			}
-			if ( m_fHeroLocateX >= 920 )
-			{
-				if ( m_pCFrontgroud->GetTileMap()->getChildByTag(192) )
-				{
-					m_pCFrontgroud->GetTileMap()->getChildByTag(192)->removeFromParentAndCleanup(true);
-					m_pCFrontgroud->GetTileMap()->getChildByTag(191)->removeFromParentAndCleanup(true);
-				}
-				GuideTalk(m_iGuideNow+3);
-				m_iGuideBtn = 2;
-				ButtonPressCheck();
-				GuideShield(2);
-				m_iGuideNow = m_iGuideAction;
-			}
-			break;
-		case 2:
-			if ( m_fHeroLocateX >= 1080 )
-			{
-				if ( m_pCFrontgroud->GetTileMap()->getChildByTag(194) )
-				{
-					m_pCFrontgroud->GetTileMap()->getChildByTag(193)->removeFromParentAndCleanup(true);
-					m_pCFrontgroud->GetTileMap()->getChildByTag(194)->removeFromParentAndCleanup(true);
-				}
-				GuideTalk(m_iGuideNow+3);
-				m_iGuideBtn = 2;
-				ButtonPressCheck();
-				GuideShield(2);
-				m_iGuideNow = m_iGuideAction;
-			}
-			break;
-		case 3:
-			if ( m_pCFrontgroud->GetTileMap()->getChildByTag(194) )
-			{
-				if ( m_fHeroLocateX >= 1200 )
-				{
-					m_pCFrontgroud->GetTileMap()->getChildByTag(193)->removeFromParentAndCleanup(true);
-					m_pCFrontgroud->GetTileMap()->getChildByTag(194)->removeFromParentAndCleanup(true);
-				}
-			}
-			if ( m_fHeroLocateX >= m_iGuideMap-700 )
-			{
-				GuideTalk(m_iGuideNow+3);
-				m_iGuideBtn = 3;
-				ButtonPressCheck();
-				GuideShield(3);
-				m_iGuideNow = 4;
-			}
-			break;
-		case 4:
-			m_iGuideNow = 5;
-			break;
-		case 5:
-			if ( !m_vecMonsterArray.size() && m_iGuideAction == 6 && m_fHeroLocateX >= m_iGuideMap-520 )
-			{
-				m_iGuideMap = guideMap[6]+800;
-				m_iGuideNow = 6;
-				m_iGuideAction = 7;
-			}
-			break;
-		case 6:
-			if ( m_iGuideAction == 7 && m_iGrenadeNum > 0 && m_bGuideWeaponGet )
-			{
-				m_iGuideMap = guideMap[7]+800;
-				m_iGuideNow = 7;
-				m_iGuideAction = 8;
-			}
-			break;
-		case 7:
-			if ( m_fHeroLocateX >= m_iGuideMap-490 && m_vecMonsterArray.size() )
-			{
-				GuideTalk(10);
-				m_iGuideBtn = 5;
-				ButtonPressCheck();
-				GuideShield(5);
-				m_iGuideNow = 8;
-			}
-			break;
-		case 8:
-			if ( !m_vecMonsterArray.size() )
-			{
-				m_iGuideMap = guideMap[8]+800;
-				m_iGuideNow = 9;
-				m_iGuideAction = 10;
-			}
-			break;
-		case 9:
-			if ( m_iStateSkill[0] >= 100 )
-			{
-				m_iGuideNow = 10;
-				m_iGuideAction = 12;
-			}
-			break;
-		case 10:
-			if ( m_vecMonsterArray.size() > 7 )
-			{
-				GuideTalk(11);
-				m_iGuideBtn = 6;
-				ButtonPressCheck();
-				GuideShield(6);
-				m_iGuideNow = 11;
-			}
-			break;
-		case 11:
-			//if ( m_fHeroLocateX >= m_iGuideMap-400 )
-			//{
-			//	GuideTalk(12, 1);
-			//	m_iGuideNow = 12;
-			//}
-			break;
-		case 12:
-			if ( m_iHealBox < 3 )
-			{
-				GuideTalk(13);
-				m_iGuideNow = 13;
-			}
-			break;
-		}
-	}
-	else if ( m_iGuideNow == 5 && m_iGuideAction == 5 )
-	{
-		if ( m_fHeroLocateX >= m_iGuideMap-800 )
-		{
-			GuideTalk(7);
-			GuideShield(3);
-		}
-	}
-}
+	//CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
+	////pCCLayerColor->setPosition(ccp(0,0));
+	////SetScale(pCCLayerColor);
+	//addChild(pCCLayerColor, 29, 194);
 
-void CGameControler::GuideTalkLogic( float _t )
-{
-	unschedule(schedule_selector(CGameControler::GuideTalkLogic));
-	switch ( m_iGuideTalk )
-	{
-	case 9:
-	case 15:
-		if ( getChildByTag(195) )
-			getChildByTag(195)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(197) )
-			getChildByTag(197)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(198) )
-			getChildByTag(198)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(199) )
-			getChildByTag(199)->removeFromParentAndCleanup(true);
-		break;
-	case 1:
-	case 2:
-	case 14:
-		if ( getChildByTag(195) )
-			getChildByTag(195)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(197) )
-			getChildByTag(197)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(198) )
-			getChildByTag(198)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(199) )
-			getChildByTag(199)->removeFromParentAndCleanup(true);
-		GuideTalk(m_iGuideTalk+1);
-		break;
-	case 3:
-		m_iGuideBtn = 1;
-		ButtonPressCheck();
-		GuideShield(1);
-		break;
-	case 4:
-	case 5:
-		//m_iGuideBtn = 2;
-		//ButtonPressCheck();
-		//GuideShield(2);
-		break;
-	case 6:
-		//m_iGuideBtn = 3;
-		//ButtonPressCheck();
-		//GuideShield(3);
-		break;
-	case 8:
-		{
-			CCSprite* pTipBoard = common::CreateAnimation("guide/xia1.png", ccp(652,93), ccp(0.5f, 0.5f),
-				"guide/xia", 2, CCRect(0,0,118,177), true, false, 0.3f);
-			addChild(pTipBoard, 31, 193);
-		}
-		m_iGuideBtn = 4;
-		m_pWeaponMark1->setVisible(true);
-		ButtonPressCheck();
-		GuideShield(4);
-		break;
-	case 10:
-		//m_iGuideBtn = 5;
-		//ButtonPressCheck();
-		//GuideShield(5);
-		break;
-	case 11:
-		//m_iGuideBtn = 6;
-		//ButtonPressCheck();
-		//GuideShield(6);
-		break;
-	case 12:
-		{
-			CCSprite* pTipBoard = common::CreateAnimation("guide/a1.png", ccp(670,380), ccp(0.5f, 0.5f),
-				"guide/a", 2, CCRect(0,0,60,60), true, false, 0.3f);
-			addChild(pTipBoard, 31, 193);
-		}
-		m_iGuideBtn = 7;
-		ButtonPressCheck();
-		GuideShield(7);
-		break;
-	case 13:
-		{
-			CCNodeLoaderLibrary* ccNodeLoaderLibrary6 = CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
-			ccNodeLoaderLibrary6->registerCCNodeLoader("ccbStartGame", ccbStartGameLoader::loader());
-			cocos2d::extension::CCBReader* ccbReader6 = new cocos2d::extension::CCBReader(ccNodeLoaderLibrary6);
-			ccbStartGame* pStartGame = (ccbStartGame*)ccbReader6->readNodeGraphFromFile("24.ccbi"/*, this*/);
-			pStartGame->setAnimationManager(ccbReader6->getAnimationManager(), this);
-			ccbReader6->release();
-			m_pCFrontgroud->addChild(pStartGame, -1, 56);
+	//CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::Sell2Back));
+	//pItem2->setPosition(ccp(680,411));
+	//pItem2->setScale(0.8f);
+	//CCMenu* pMenu1 = CCMenu::create(pItem2, NULL);
+	//pMenu1->setPosition(ccp(0,0));
+	//addChild(pMenu1, 31, 196);
 
-			pStartGame->Appear(CCPoint(4910, 70), CCPoint(400, 300), 1);
-		}
-		break;
-	}
-}
-
-void CGameControler::GuideShield( int _index )
-{
-	m_bGuidePause = true;
-	pauseSchedulerAndActions();
-	m_pHero->PauseAction();
-	char buffer[255];
-	sprintf(buffer, "guide/t%d.png", _index);
-	CCSprite* pTipBoard = CCSprite::create(buffer);
-	pTipBoard->setAnchorPoint(ccp(0,0));
-	pTipBoard->setPosition(ccp(0,0));
-	addChild(pTipBoard, 29, 196);
-}
-
-void CGameControler::GuideResume(cocos2d::CCObject *pSender)
-{
-	m_bGuidePause = false;
-	removeChildByTag(196);
-	if ( getChildByTag(193) )
-		getChildByTag(193)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(194) )
-		getChildByTag(194)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(195) )
-		getChildByTag(195)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(197) )
-		getChildByTag(197)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(198) )
-		getChildByTag(198)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(199) )
-		getChildByTag(199)->removeFromParentAndCleanup(true);
-	resumeSchedulerAndActions();
-	m_pHero->ResumeAction();
-}
-
-void CGameControler::GuideVIP()
-{
-	if ( getChildByTag(195) )
-		getChildByTag(195)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(197) )
-		getChildByTag(197)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(198) )
-		getChildByTag(198)->removeFromParentAndCleanup(true);
-	if ( getChildByTag(199) )
-		getChildByTag(199)->removeFromParentAndCleanup(true);
-
-#ifdef Plat_MM
-	GuideBack();
-	return;
-#else
-#ifdef Plat_Telecom_Demo
-	GuideBuy();
-	return;
-#endif
-	{
-		m_bGuidePause = true;
-		m_bSellOpen = true;
-
-		CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-		//pCCLayerColor->setPosition(ccp(0,0));
-		//SetScale(pCCLayerColor);
-		addChild(pCCLayerColor, 29, 195);
-
-		CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::GuideBack));
-		pItem2->setPosition(ccp(673,411));
-		pItem2->setScale(0.8f);
-		CCMenu* pMenu1 = CCMenu::create(pItem2, NULL);
-		pMenu1->setPosition(ccp(0,0));
-		addChild(pMenu1, 31, 196);
-
-		CCSprite* pSprite1 = CCSprite::create("sell/di2.png");
-		pSprite1->setPosition(ccp(400, 240));
-		addChild(pSprite1, 31, 199);
-		CCSprite* pSprite2 = CCSprite::create("sell/guide/tu.png");
-		pSprite2->setPosition(ccp(400, 240));
-		addChild(pSprite2, 31, 198);
-
-		CCMenuItem* pItem1 = CCMenuItemImage::create("sell/huode3-1.png", "sell/huode3-2.png", this, menu_selector(CGameControler::GuideBuy));
-		pItem1->setPosition(ccp(400,64));
-		CCMenu* pMenu = CCMenu::create(pItem1, NULL);
-		pMenu->setPosition(ccp(0,0));
-		addChild(pMenu, 32, 197);
-	}
-#endif
-}
-
-void CGameControler::GuideBuy( cocos2d::CCObject *pSender /*= NULL*/ )
-{
-	if ( pSender )
-	{
-		//PayService::pay(1);
-	}
-	else
-	{
-#ifdef Plat_Telecom_Demo
-		AppDelegate::m_Sell1		= 1;
-		AppDelegate::s_WeaponOwn[6] = 1;
-		AppDelegate::s_WeaponOwn[9] = 1;
-		if ( AppDelegate::s_HeroType == 0 )
-		{
-			AppDelegate::s_WeaponUse[0] = 6;
-			AppDelegate::s_WeaponUse[1] = 9;
-		}
-		AppDelegate::s_BulletNum[9] += 100;
-		if ( AppDelegate::s_BulletNum[9] > 999 )
-			AppDelegate::s_BulletNum[9] = 999;
-		AppDelegate::s_Healbox = 3;
-		AppDelegate::s_GrenadeNum = 10;
-		AppDelegate::s_Money += 1000;
-		AppDelegate::SaveStatus();
-#endif
-		GuideBack();
-	}
-}
-
-void CGameControler::GuideBack( cocos2d::CCObject *pSender /*= NULL*/ )
-{
-	m_bSellOpen = false;
-	m_iWeaponDamage[0] = 500;
-	m_iWeaponDamage[1] = 200;
-	m_iWeaponUse[0] = 6;
-	m_iWeaponUse[1] = 9;
-	m_sCutSound = "MS4/5Cut.mp3";
-	m_iWeaponSpeed[1] = AppDelegate::WeaponSpeed(9);
-	m_iFireIndex[0] = 1;
-	m_iFireX[0] = g_fFireX[9];
-	m_iFireY[0] = g_fFireY[9];
-	m_iActionType1[0] = 19;
-	m_iActionType2[0] = 21;
-	for ( int i = 0; i < 7; i++ )
-	{
-		m_iKnifeAction[i] = 22 + i;
-	}
-	//m_ptBullet[0]->release();
-	char bulletName[255];
-	sprintf(bulletName, "bullet/%d/3.png", 9);
-	//m_ptBullet[0] = CCTextureCache::sharedTextureCache()->addImage(bulletName);
-	//m_ptBullet[0]->retain();
-	m_sBulletPath = bulletName;
-	if ( m_ewtNowWeapon != eWT_Knife && ( m_iHeroJumps < 2 || m_fHeroSpeedY < 2.0f ))
-	{
-		m_pHero->ChangeWeapon(m_iWeaponUse[0]);
-		m_pHero->ChangeWeapon(m_iWeaponUse[1]);
-		if ( m_iWeaponUse[1] == 12 && !m_bBossWin )
-			m_iFireTime = 1;
-	}
-	{
-		//GuideResume();
-
-		m_bGuidePause = false;
-		removeChildByTag(196);
-		if ( getChildByTag(193) )
-			getChildByTag(193)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(194) )
-			getChildByTag(194)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(195) )
-			getChildByTag(195)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(197) )
-			getChildByTag(197)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(198) )
-			getChildByTag(198)->removeFromParentAndCleanup(true);
-		if ( getChildByTag(199) )
-			getChildByTag(199)->removeFromParentAndCleanup(true);
-	}
-}
-
-void CGameControler::Sell2()
-{
-#ifdef Plat_Telecom_Demo
-	return;
-#endif
-	m_bSellOpen = true;
-
-	CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	//pCCLayerColor->setPosition(ccp(0,0));
-	//SetScale(pCCLayerColor);
-	addChild(pCCLayerColor, 29, 194);
-
-	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::Sell2Back));
-	pItem2->setPosition(ccp(680,411));
-	pItem2->setScale(0.8f);
-	CCMenu* pMenu1 = CCMenu::create(pItem2, NULL);
-	pMenu1->setPosition(ccp(0,0));
-	addChild(pMenu1, 31, 196);
-
-	CCSprite* pSprite1 = CCSprite::create("sell/di2.png");
+	/*CCSprite* pSprite1 = CCSprite::create("sell/di2.png");
 	pSprite1->setPosition(ccp(400, 240));
 	addChild(pSprite1, 31, 199);
 	CCSprite* pSprite2 = CCSprite::create("sell/supply/tu.png");
@@ -11700,41 +11700,41 @@ void CGameControler::Sell2()
 	pItem1->setPosition(ccp(400,60));
 	CCMenu* pMenu = CCMenu::create(pItem1, NULL);
 	pMenu->setPosition(ccp(0,0));
-	addChild(pMenu, 32, 197);
-}
-
-void CGameControler::Sell2Resume( cocos2d::CCObject *pSender /*= NULL*/ )
-{
-	if ( pSender )
-	{
-		//PayService::pay(2);
-	}
-	else
-	{
-		m_iHealBox = 3;
-		m_iBulletNum[0] += 10*g_iWeaponBulletOnce[AppDelegate::s_WeaponUse[1]];
-		if ( m_iBulletNum[0] > 999 )
-			m_iBulletNum[0] = 999;
-		m_iGrenadeNum = 10;
-		m_iSkillCanUse = 5;
-		if ( m_iStateSkill[0] < 100 )
-		{
-			m_iSkillCanUse = 4;
-			m_iStateSkill[0] = 100;
-		}
-		//AppDelegate::m_Sell1 = 1;
-		//AppDelegate::m_Sell2 = m_iSkillCanUse;
-		//AppDelegate::s_GrenadeNum = 10;
-		//AppDelegate::s_Healbox = 3;
-		//AppDelegate::s_Money += 2000;
-		//AppDelegate::SaveStatus();
-		SkillFullCheck();
-		ShowHealBox();
-		ShowScore();
-		//DeadCheck();
-		Sell2Back();
-	}
-}
+	addChild(pMenu, 32, 197);*/
+//}
+//
+//void CGameControler::Sell2Resume( cocos2d::CCObject *pSender /*= NULL*/ )
+//{
+//	if ( pSender )
+//	{
+//		//PayService::pay(2);
+//	}
+//	else
+//	{
+//		m_iHealBox = 3;
+//		m_iBulletNum[0] += 10*g_iWeaponBulletOnce[AppDelegate::s_WeaponUse[1]];
+//		if ( m_iBulletNum[0] > 999 )
+//			m_iBulletNum[0] = 999;
+//		m_iGrenadeNum = 10;
+//		m_iSkillCanUse = 5;
+//		if ( m_iStateSkill[0] < 100 )
+//		{
+//			m_iSkillCanUse = 4;
+//			m_iStateSkill[0] = 100;
+//		}
+//		//AppDelegate::m_Sell1 = 1;
+//		//AppDelegate::m_Sell2 = m_iSkillCanUse;
+//		//AppDelegate::s_GrenadeNum = 10;
+//		//AppDelegate::s_Healbox = 3;
+//		//AppDelegate::s_Money += 2000;
+//		//AppDelegate::SaveStatus();
+//		SkillFullCheck();
+//		ShowHealBox();
+//		ShowScore();
+//		//DeadCheck();
+//		Sell2Back();
+//	}
+//}
 
 void CGameControler::Sell2Back( cocos2d::CCObject *pSender /*= NULL*/ )
 {
@@ -11782,38 +11782,38 @@ void CGameControler::Sell3()
 #ifndef PayGOCTwo
 	if ( AppDelegate::m_Sell1 == 0 )
 	{
-		CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-		//pCCLayerColor->setPosition(ccp(0,0));
-		//SetScale(pCCLayerColor);
-		addChild(pCCLayerColor, 29, 194);
+		//CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
+		////pCCLayerColor->setPosition(ccp(0,0));
+		////SetScale(pCCLayerColor);
+		//addChild(pCCLayerColor, 29, 194);
 
-		CCMenuItem* pItem1 = CCMenuItemImage::create("sell/huode2-1.png", "sell/huode2-2.png", this, menu_selector(CGameControler::Sell3Resume));
-		CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::Sell3Back));
-		pItem1->setPosition(ccp(725,195));
-		pItem2->setPosition(ccp(728,437));
-		CCMenu* pMenu = CCMenu::create(pItem1, pItem2, NULL);
-		pMenu->setPosition(ccp(0,0));
-		addChild(pMenu, 31, 197);
+		////CCMenuItem* pItem1 = CCMenuItemImage::create("sell/huode2-1.png", "sell/huode2-2.png", this, menu_selector(CGameControler::Sell3Resume));
+		//CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::Sell3Back));
+		//pItem1->setPosition(ccp(725,195));
+		//pItem2->setPosition(ccp(728,437));
+		//CCMenu* pMenu = CCMenu::create(/*pItem1,*/ pItem2, NULL);
+		//pMenu->setPosition(ccp(0,0));
+		//addChild(pMenu, 31, 197);
 
-		CCSprite* pSprite1 = CCSprite::create("sell/di1.png");
-		pSprite1->setPosition(ccp(400, 240));
-		addChild(pSprite1, 31, 199);
-		CCSprite* pSprite4 = CCSprite::create("sell/7/tu.png");
+		//CCSprite* pSprite1 = CCSprite::create("sell/di1.png");
+		//pSprite1->setPosition(ccp(400, 240));
+		//addChild(pSprite1, 31, 199);
+		/*CCSprite* pSprite4 = CCSprite::create("sell/7/tu.png");
 		pSprite4->setPosition(ccp(400, 240));
-		addChild(pSprite4, 31, 198);
-		CCSprite* pSprite2 = common::CreateAnimation("sell/vip/meizi1.png", ccp(245, 185), ccp(0.5f, 0.5f),
+		addChild(pSprite4, 31, 198);*/
+		/*CCSprite* pSprite2 = common::CreateAnimation("sell/vip/meizi1.png", ccp(245, 185), ccp(0.5f, 0.5f),
 			"sell/vip/meizi", 2, CCRect(0,0,282,284), true);
 		addChild(pSprite2, 31, 196);
 		CCSprite* pSprite3 = CCSprite::create("sell/vip/dang.png");
 		pSprite3->setPosition(ccp(283, 66));
-		addChild(pSprite3, 31, 195);
+		addChild(pSprite3, 31, 195);*/
 	}
 	else
 #endif
 #ifndef Pay_GOC_Can
 	if ( AppDelegate::m_Sell1 )
 #endif
-	{
+	{//不可以删除
 		CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
 		addChild(pCCLayerColor, 29, 194);
 
@@ -11849,27 +11849,27 @@ void CGameControler::Sell3()
 
 void CGameControler::Sell3Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 {
-	if ( pSender )
-	{
-		//PayService::pay(3);
-	}
-	else
-	{
-		m_iBulletNum[0] += 10*g_iWeaponBulletOnce[AppDelegate::s_WeaponUse[1]];
-		if ( m_iBulletNum[0] > 999 )
-			m_iBulletNum[0] = 999;
-		m_iGrenadeNum = 10;
-		//AppDelegate::m_Sell1 = 1;
-		//AppDelegate::s_Healbox = 3;
-		//AppDelegate::s_GrenadeNum = 10;
-		//AppDelegate::s_Money += 1000;
-		//AppDelegate::SaveStatus();
-		Relife();
-		ShowHealBox();
-		ShowScore();
-		DeadCheck();
-		Sell2Back();
-	}
+	//if ( pSender )
+	//{
+	//	//PayService::pay(3);
+	//}
+	//else
+	//{
+	//	m_iBulletNum[0] += 10*g_iWeaponBulletOnce[AppDelegate::s_WeaponUse[1]];
+	//	if ( m_iBulletNum[0] > 999 )
+	//		m_iBulletNum[0] = 999;
+	//	m_iGrenadeNum = 10;
+	//	//AppDelegate::m_Sell1 = 1;
+	//	//AppDelegate::s_Healbox = 3;
+	//	//AppDelegate::s_GrenadeNum = 10;
+	//	//AppDelegate::s_Money += 1000;
+	//	//AppDelegate::SaveStatus();
+	//	Relife();
+	//	ShowHealBox();
+	//	ShowScore();
+	//	DeadCheck();
+	//	Sell2Back();
+	//}
 }
 
 void CGameControler::Sell3Back( cocos2d::CCObject *pSender /*= NULL*/ )
@@ -12064,75 +12064,75 @@ void CGameControler::CallBackRemoveSelfAction( cocos2d::CCNode* _pNode, void* da
 	*((CCSprite**)data) = NULL;
 }
 
-void CGameControler::Sell5()
-{
-#ifdef Plat_Telecom_Demo
-	return;
-#endif
-	m_bSellOpen = true;
-	CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	//pCCLayerColor->setPosition(ccp(0,0));
-	//SetScale(pCCLayerColor);
-	addChild(pCCLayerColor, 29, 194);
+//void CGameControler::Sell5()
+//{
+//#ifdef Plat_Telecom_Demo
+//	return;
+//#endif
+//	m_bSellOpen = true;
+	//CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
+	////pCCLayerColor->setPosition(ccp(0,0));
+	////SetScale(pCCLayerColor);
+	//addChild(pCCLayerColor, 29, 194);
 
-	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::Sell2Back));
-	pItem2->setPosition(ccp(630,370));
-	pItem2->setScale(0.8f);
-	CCMenu* pMenu1 = CCMenu::create(pItem2, NULL);
-	pMenu1->setPosition(ccp(0,0));
-	addChild(pMenu1, 31, 196);
+	//CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::Sell2Back));
+	//pItem2->setPosition(ccp(630,370));
+	//pItem2->setScale(0.8f);
+	//CCMenu* pMenu1 = CCMenu::create(pItem2, NULL);
+	//pMenu1->setPosition(ccp(0,0));
+	//addChild(pMenu1, 31, 196);
 
-	CCSprite* pSprite1 = CCSprite::create("sell/di3.png");
-	pSprite1->setPosition(ccp(400, 240));
-	addChild(pSprite1, 31, 199);
-	CCSprite* pSprite2 = CCSprite::create("sell/6/tu.png");
-	pSprite2->setPosition(ccp(400, 240));
-	addChild(pSprite2, 31, 198);
+	//CCSprite* pSprite1 = CCSprite::create("sell/di3.png");
+	//pSprite1->setPosition(ccp(400, 240));
+	//addChild(pSprite1, 31, 199);
+	//CCSprite* pSprite2 = CCSprite::create("sell/6/tu.png");
+	//pSprite2->setPosition(ccp(400, 240));
+	//addChild(pSprite2, 31, 198);
 
-	CCMenuItem* pItem1 = CCMenuItemImage::create("sell/10/queding.png", "sell/10/queding2.png", this, menu_selector(CGameControler::Sell5Resume));
-	pItem1->setPosition(ccp(400,100));
-	CCMenu* pMenu = CCMenu::create(pItem1, NULL);
-	pMenu->setPosition(ccp(0,0));
-	addChild(pMenu, 32, 197);
-}
+	//CCMenuItem* pItem1 = CCMenuItemImage::create("sell/10/queding.png", "sell/10/queding2.png", this, menu_selector(CGameControler::Sell5Resume));
+	//pItem1->setPosition(ccp(400,100));
+	//CCMenu* pMenu = CCMenu::create(pItem1, NULL);
+	//pMenu->setPosition(ccp(0,0));
+	//addChild(pMenu, 32, 197);
+//}
 
-void CGameControler::Sell5Resume( cocos2d::CCObject *pSender /*= NULL*/ )
-{
-	if ( pSender )
-	{
-		//PayService::pay(9);
-	}
-	else
-	{
-		m_iSkillCanUse = 5;
-		if ( m_iStateSkill[0] < 100 )
-		{
-			m_iSkillCanUse = 4;
-			m_iStateSkill[0] = 100;
-		}
-		//AppDelegate::m_Sell2 = m_iSkillCanUse;
-		//AppDelegate::SaveStatus();
-		SkillFullCheck();
-		Sell2Back();
-	}
-}
+//void CGameControler::Sell5Resume( cocos2d::CCObject *pSender /*= NULL*/ )
+//{
+//	if ( pSender )
+//	{
+//		//PayService::pay(9);
+//	}
+//	else
+//	{
+//		m_iSkillCanUse = 5;
+//		if ( m_iStateSkill[0] < 100 )
+//		{
+//			m_iSkillCanUse = 4;
+//			m_iStateSkill[0] = 100;
+//		}
+//		//AppDelegate::m_Sell2 = m_iSkillCanUse;
+//		//AppDelegate::SaveStatus();
+//		SkillFullCheck();
+//		Sell2Back();
+//	}
+//}
 
-void CGameControler::GuideGoToChoseHero(float _t)
-{
-	//if ( 6 == m_iLevelType )
-	//{
-	//	if ( AppDelegate::m_Sell1 )
-	//		AppDelegate::s_GrenadeNum = 10;
-	//	else
-	//		AppDelegate::s_GrenadeNum = 0;
-	//	AppDelegate::s_BulletNum[3] = 140;
-	//	AppDelegate::s_FirstLogin = 2;
-	//	//AppDelegate::SaveGuide();
-	//	AppDelegate::SaveStatus();
-	//	//AppDelegate::ChangeScene( ccbChoseHero::CreateScene() );
-	//	return;
-	//}
-}
+//void CGameControler::GuideGoToChoseHero(float _t)
+//{
+//	//if ( 6 == m_iLevelType )
+//	//{
+//	//	if ( AppDelegate::m_Sell1 )
+//	//		AppDelegate::s_GrenadeNum = 10;
+//	//	else
+//	//		AppDelegate::s_GrenadeNum = 0;
+//	//	AppDelegate::s_BulletNum[3] = 140;
+//	//	AppDelegate::s_FirstLogin = 2;
+//	//	//AppDelegate::SaveGuide();
+//	//	AppDelegate::SaveStatus();
+//	//	//AppDelegate::ChangeScene( ccbChoseHero::CreateScene() );
+//	//	return;
+//	//}
+//}
 
 CGameControler* CGameControler::GetGameControler()
 {
@@ -12163,61 +12163,61 @@ void CGameControler::SupplyCheck()
 	m_pSullpyHealbox->setPosition(ccp(770-30*(int)show2, 281+20*(int)show2));
 }
 
-void CGameControler::GetMedal( cocos2d::CCObject* sender )
-{
-#ifdef NoGetMoney
-	return;
-#endif
-	if ( m_bBuyMedal )
-		return;
-	m_bBuyMedal = true;
-	m_bSellSure = false;
-	CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	addChild(pCCLayerColor, 69, 1195);
+//void CGameControler::GetMedal( cocos2d::CCObject* sender )
+//{
+//#ifdef NoGetMoney
+//	return;
+//#endif
+//	if ( m_bBuyMedal )
+//		return;
+//	m_bBuyMedal = true;
+//	m_bSellSure = false;
+	//CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
+	//addChild(pCCLayerColor, 69, 1195);
 
-	CCMenuItem* pItem = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::GetRemove));
-	pItem->setPosition(ccp(723,351));
-	CCMenu* pMenu = CCMenu::create(pItem, NULL);
-	pMenu->setPosition(ccp(0,0));
-	addChild(pMenu, 71, 1196);
+	//CCMenuItem* pItem = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(CGameControler::GetRemove));
+	//pItem->setPosition(ccp(723,351));
+	//CCMenu* pMenu = CCMenu::create(pItem, NULL);
+	//pMenu->setPosition(ccp(0,0));
+	//addChild(pMenu, 71, 1196);
 
-	CCSprite* pSprite1 = CCSprite::create("sell/money/di.png");
-	pSprite1->setPosition(ccp(400, 240));
-	addChild(pSprite1, 71, 1199);
-	CCSprite* pSprite2 = CCSprite::create("sell/money/1.png");
-	pSprite2->setPosition(ccp(400, 240));
-	addChild(pSprite2, 73, 1198);
+	//CCSprite* pSprite1 = CCSprite::create("sell/money/di.png");
+	//pSprite1->setPosition(ccp(400, 240));
+	//addChild(pSprite1, 71, 1199);
+	//CCSprite* pSprite2 = CCSprite::create("sell/money/1.png");
+	//pSprite2->setPosition(ccp(400, 240));
+	//addChild(pSprite2, 73, 1198);
 
-	//CCMenuItem* pItem1 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(CGameControler::GetMedalBtn));
-	//pItem1->setPosition(ccp(219,282));
-	//pItem1->setTag(1);
-	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(CGameControler::GetMedalBtn));
-	pItem2->setPosition(ccp(243,199));
-	pItem2->setTag(2);
-	CCMenuItem* pItem3 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(CGameControler::GetMedalBtn));
-	pItem3->setPosition(ccp(556,199));
-	pItem3->setTag(3);
-	//CCMenuItem* pItem4 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbShopMenu::GetMedalBtn));
-	//pItem4->setPosition(ccp(283,96));
-	//pItem4->setTag(4);
-	//CCMenuItem* pItem5 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbShopMenu::GetMedalBtn));
-	//pItem5->setPosition(ccp(512,96));
-	//pItem5->setTag(5);
-	CCMenu* pMenu1 = CCMenu::create(/*pItem1, */pItem2, pItem3, /*pItem4, pItem5, */NULL);
-	pMenu1->setPosition(ccp(0,0));
-	addChild(pMenu1, 72, 1197);
-}
+	////CCMenuItem* pItem1 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(CGameControler::GetMedalBtn));
+	////pItem1->setPosition(ccp(219,282));
+	////pItem1->setTag(1);
+	//CCMenuItem* pItem2 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(CGameControler::GetMedalBtn));
+	//pItem2->setPosition(ccp(243,199));
+	//pItem2->setTag(2);
+	//CCMenuItem* pItem3 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(CGameControler::GetMedalBtn));
+	//pItem3->setPosition(ccp(556,199));
+	//pItem3->setTag(3);
+	////CCMenuItem* pItem4 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbShopMenu::GetMedalBtn));
+	////pItem4->setPosition(ccp(283,96));
+	////pItem4->setTag(4);
+	////CCMenuItem* pItem5 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbShopMenu::GetMedalBtn));
+	////pItem5->setPosition(ccp(512,96));
+	////pItem5->setTag(5);
+	//CCMenu* pMenu1 = CCMenu::create(/*pItem1, */pItem2, pItem3, /*pItem4, pItem5, */NULL);
+	//pMenu1->setPosition(ccp(0,0));
+	//addChild(pMenu1, 72, 1197);
+//}
 
-void CGameControler::GetMedalBtn( cocos2d::CCObject* _pNode )
-{
-	if ( m_bSellSure )
-		return;
-	m_bSellSure = true;
-	if ( _pNode )
-	{
-		int numAdd = 0;
-		int numMid = 0;
-		int index = ((CCNode*)_pNode)->getTag();
+//void CGameControler::GetMedalBtn( cocos2d::CCObject* _pNode )
+//{
+//	if ( m_bSellSure )
+//		return;
+//	m_bSellSure = true;
+//	if ( _pNode )
+//	{
+//		int numAdd = 0;
+//		int numMid = 0;
+//		int index = ((CCNode*)_pNode)->getTag();
 		//PayService::pay(11+index);
 
 		//switch ( index )
@@ -12245,8 +12245,8 @@ void CGameControler::GetMedalBtn( cocos2d::CCObject* _pNode )
 		//}
 		//AppDelegate::s_Medal += numAdd;
 		//AppDelegate::SaveMedal();
-	}
-}
+//	}
+//}
 
 void CGameControler::GetRemove(cocos2d::CCObject* _pNode)
 {

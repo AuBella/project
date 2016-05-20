@@ -2547,25 +2547,25 @@ void ccbShopMenu::GuideTalk( int _index , int _type )
 	if ( m_pBulletNode->getChildByTag(490) )
 		m_pBulletNode->getChildByTag(490)->removeFromParentAndCleanup(true);
 	m_iGuideTalk = _index;
-	CCSprite* pTipBoard = CCSprite::create("guide/dikuang2.png");
-	pTipBoard->setAnchorPoint(ccp(0,0));
-	pTipBoard->setPosition(ccp(400, 290+yfix));
-	m_pBulletNode->addChild(pTipBoard, 30, 490);
+	//CCSprite* pTipBoard = CCSprite::create("guide/dikuang2.png");
+	//pTipBoard->setAnchorPoint(ccp(0,0));
+	//pTipBoard->setPosition(ccp(400, 290+yfix));
+	//m_pBulletNode->addChild(pTipBoard, 30, 490);
 
 	if ( m_pBulletNode->getChildByTag(491) )
 		m_pBulletNode->getChildByTag(491)->removeFromParentAndCleanup(true);
-	CCSprite* pNPC = common::CreateAnimation("guide/zhihui1.png", ccp(660, 300+yfix), ccp(0.0f, 0.0f),
-		"guide/zhihui", 4, CCRect(0,0,138,158), false);
-	m_pBulletNode->addChild(pNPC, 30, 491);
+	//CCSprite* pNPC = common::CreateAnimation("guide/zhihui1.png", ccp(660, 300+yfix), ccp(0.0f, 0.0f),
+	//	"guide/zhihui", 4, CCRect(0,0,138,158), false);
+	//m_pBulletNode->addChild(pNPC, 30, 491);
 
 	if ( m_pBulletNode->getChildByTag(492) )
 		m_pBulletNode->getChildByTag(492)->removeFromParentAndCleanup(true);
-	char buffer[255];
-	sprintf(buffer, "guide/shop/%d.png", _index);
+	//char buffer[255];
+	/*sprintf(buffer, "guide/shop/%d.png", _index);
 	CCSprite* pTip = CCSprite::create(buffer);
 	pTip->setAnchorPoint(ccp(0,0));
 	pTip->setPosition(ccp(420, 310+yfix));
-	m_pBulletNode->addChild(pTip, 30, 492);
+	m_pBulletNode->addChild(pTip, 30, 492);*/
 
 	schedule(schedule_selector(ccbShopMenu::GuideTalkNext), 2.0f);
 }
@@ -2574,9 +2574,9 @@ void ccbShopMenu::GuideFingerCreate( int _x, int _y )
 {
 	if ( m_pBulletNode->getChildByTag(493) )
 		m_pBulletNode->getChildByTag(493)->removeFromParentAndCleanup(true);
-	CCSprite* pSprite = common::CreateAnimation("guide/shop/shou1.png", ccp(_x,_y), ccp(0.9f,0.95f),
+	/*CCSprite* pSprite = common::CreateAnimation("guide/shop/shou1.png", ccp(_x,_y), ccp(0.9f,0.95f),
 		"guide/shop/shou", 2, CCRect(0,0,94,125), true);
-	m_pBulletNode->addChild(pSprite, 50, 493);
+	m_pBulletNode->addChild(pSprite, 50, 493);*/
 }
 
 void ccbShopMenu::GuideFingerClear()
@@ -2619,14 +2619,14 @@ void ccbShopMenu::GuideCheck()
 		break;
 	case 2:
 		{
-			CCSprite* pSprite = CCSprite::create("guide/shop/shou2.png");
+			/*CCSprite* pSprite = CCSprite::create("guide/shop/shou2.png");
 			pSprite->setPosition(ccp(372, 260));
 			pSprite->setAnchorPoint(ccp(0.9f,0.95f));
 			m_pBulletNode->addChild(pSprite, 50, 493);
 			CCSprite* pSprite1 = CCSprite::create("guide/shop/fangxiang.png");
 			pSprite1->setPosition(ccp(345, 270));
 			pSprite1->setAnchorPoint(ccp(1.0f,0.5f));
-			m_pBulletNode->addChild(pSprite1, 49, 494);
+			m_pBulletNode->addChild(pSprite1, 49, 494);*/
 			m_iGuideTalk = 1;
 			GuideFingerMove();
 			m_iGuideIndex = 3;
@@ -2668,28 +2668,28 @@ void ccbShopMenu::GuideCheck()
 
 void ccbShopMenu::GuideTalkNext( float _t /*= 0*/ )
 {
-	unschedule(schedule_selector(ccbShopMenu::GuideTalkNext));
-	switch( m_iGuideTalk )
-	{
-	case 0:
-		GuideFingerClear();
-		m_iGuideIndex = 2;
-		break;
-	case 1:
-		{
-			GuideFingerClear();
-			CCSprite* pSprite = common::CreateAnimation("guide/shop/xianshi1.png", ccp(0,0), ccp(0,0),
-				"guide/shop/xianshi", 2, CCRect(0,0,800,480), true);
-			m_pBulletNode->addChild(pSprite, 50, 493);
-			m_iGuideTalk = 0;
-			schedule(schedule_selector(ccbShopMenu::GuideTalkNext), 4.0f);
-		}
-		break;
-	//case 2:
-		//GuideFingerClear();
-		//m_iGuideIndex = 2;
-		//break;
-	}
+	//unschedule(schedule_selector(ccbShopMenu::GuideTalkNext));
+	//switch( m_iGuideTalk )
+	//{
+	//case 0:
+	//	GuideFingerClear();
+	//	m_iGuideIndex = 2;
+	//	break;
+	//case 1:
+	//	{
+	//		GuideFingerClear();
+	//		CCSprite* pSprite = common::CreateAnimation("guide/shop/xianshi1.png", ccp(0,0), ccp(0,0),
+	//			"guide/shop/xianshi", 2, CCRect(0,0,800,480), true);
+	//		m_pBulletNode->addChild(pSprite, 50, 493);
+	//		m_iGuideTalk = 0;
+	//		schedule(schedule_selector(ccbShopMenu::GuideTalkNext), 4.0f);
+	//	}
+	//	break;
+	////case 2:
+	//	//GuideFingerClear();
+	//	//m_iGuideIndex = 2;
+	//	//break;
+	//}
 }
 
 void ccbShopMenu::GuideShow()
@@ -2873,33 +2873,6 @@ void ccbShopMenu::GetMoneyBtn( cocos2d::CCObject* _pNode )
 		int numAdd = 0;
 		int numMid = 0;
 		int index = ((CCNode*)_pNode)->getTag();
-		//PayService::pay(14+index);
-
-		//switch ( index )
-		//{
-		//case 1:
-		//	numAdd = 1080;
-		//	numMid = 2;
-		//	break;
-		//case 2:
-		//	numAdd = 6480;
-		//	numMid = 14;
-		//	break;
-		//case 3:
-		//	numAdd = 35280;
-		//	numMid = 49;
-		//	break;
-		//case 4:
-		//	numAdd = 80190;
-		//	numMid = 99;
-		//	break;
-		//case 5:
-		//	numAdd = 181440;
-		//	numMid = 168;
-		//	break;
-		//}
-		//AppDelegate::s_Money += numAdd;
-		//AppDelegate::SaveMoney();
 	}
 	else
 	{
@@ -2915,33 +2888,6 @@ void ccbShopMenu::GetMedalBtn( cocos2d::CCObject* _pNode )
 		int numAdd = 0;
 		int numMid = 0;
 		int index = ((CCNode*)_pNode)->getTag();
-		//PayService::pay(11+index);
-
-		//switch ( index )
-		//{
-		//case 1:
-		//	numAdd = 108;
-		//	numMid = 2;
-		//	break;
-		//case 2:
-		//	numAdd = 648;
-		//	numMid = 14;
-		//	break;
-		//case 3:
-		//	numAdd = 3528;
-		//	numMid = 49;
-		//	break;
-		//case 4:
-		//	numAdd = 8019;
-		//	numMid = 99;
-		//	break;
-		//case 5:
-		//	numAdd = 18144;
-		//	numMid = 168;
-		//	break;
-		//}
-		//AppDelegate::s_Medal += numAdd;
-		//AppDelegate::SaveMedal();
 	}
 	else
 	{

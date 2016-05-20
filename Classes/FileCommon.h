@@ -98,9 +98,8 @@ namespace common
 
 		return ret;
 	}
-
-	void SaveData(const char* key, int status)
-	{
+	//本地保存
+	void SaveData(const char* key, int status){
 		char tempString[50] = {0};
 		sprintf(tempString, "%d", status);
 		std::string sValue = tempString;
@@ -108,15 +107,13 @@ namespace common
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
 
-	void SaveData(const char* key, const char* status)
-	{
+	void SaveData(const char* key, const char* status){
 		std::string sValue = status;
 		cocos2d::CCUserDefault::sharedUserDefault()->setStringForKey(key, sValue);
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
 
-	void SaveData(const char* key, int* status, int num)
-	{
+	void SaveData(const char* key, int* status, int num){
 		std::string str = key;
 		char buffer[20];
 		sprintf(buffer, "%d", num);
@@ -129,8 +126,7 @@ namespace common
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
 
-	void SaveData(const char* key, int status, int num)
-	{
+	void SaveData(const char* key, int status, int num){
 		std::string str = key;
 		char buffer[20];
 		sprintf(buffer, "%d", num);
@@ -143,8 +139,7 @@ namespace common
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
 
-	void SaveData(const char* key, const char* status, int num)
-	{
+	void SaveData(const char* key, const char* status, int num){
 		std::string str = key;
 		char buffer[20];
 		sprintf(buffer, "%d", num);
@@ -155,50 +150,42 @@ namespace common
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
 
-	void SaveUpdate()
-	{
+	void SaveUpdate(){
 		cocos2d::CCUserDefault::sharedUserDefault()->flush();
 	}
-
-	void LoadData(const char* key, int& status)
-	{
+	//数据读取
+	void LoadData(const char* key, int& status){
 		std::string s = cocos2d::CCUserDefault::sharedUserDefault()->getStringForKey(key);
-		if ( s != "" )
-		{
+		if ( s != "" ){
 			status = atoi(s.c_str());
 		}
 		else
 			status = 0;
 	}
 
-	void LoadData(const char* key, int& status, int num)
-	{
+	void LoadData(const char* key, int& status, int num){
 		std::string str = key;
 		char buffer[20];
 		sprintf(buffer, "%d", num);
 		str += buffer;
 
 		std::string s = cocos2d::CCUserDefault::sharedUserDefault()->getStringForKey(key);
-		if ( s != "" )
-		{
+		if ( s != "" ){
 			status = atoi(s.c_str());
 		}
 		else
 			status = 0;
 	}
 
-	void LoadData(const char* key, std::string& status)
-	{
+	void LoadData(const char* key, std::string& status){
 		status = cocos2d::CCUserDefault::sharedUserDefault()->getStringForKey(key);
 	}
 
-	void LoadData(const char* key, std::string& status, int num)
-	{
+	void LoadData(const char* key, std::string& status, int num){
 		std::string str = key;
 		char buffer[20];
 		sprintf(buffer, "%d", num);
 		str += buffer;
-
 		status = cocos2d::CCUserDefault::sharedUserDefault()->getStringForKey(key);
 	}
 

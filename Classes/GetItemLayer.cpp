@@ -398,29 +398,29 @@ void ccbGetItemLayer::GetMoney( cocos2d::CCObject* sender )
 #endif
 	if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->m_bOnSell )
 		return;
-	CCMenuItem* pItem = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbGetItemLayer::GetRemove));
+	/*CCMenuItem* pItem = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbGetItemLayer::GetRemove));
 	pItem->setPosition(ccp(723,351));
 	CCMenu* pMenu = CCMenu::create(pItem, NULL);
 	pMenu->setPosition(ccp(0,0));
-	addChild(pMenu, 31, 1196);
+	addChild(pMenu, 31, 1196);*/
 
-	CCSprite* pSprite1 = CCSprite::create("sell/money/di.png");
-	pSprite1->setPosition(ccp(400, 240));
-	addChild(pSprite1, 31, 1199);
-	CCSprite* pSprite2 = CCSprite::create("sell/money/2.png");
-	pSprite2->setPosition(ccp(400, 240));
-	addChild(pSprite2, 33, 1198);
+	//CCSprite* pSprite1 = CCSprite::create("sell/money/di.png");
+	//pSprite1->setPosition(ccp(400, 240));
+	//addChild(pSprite1, 31, 1199);
+	//CCSprite* pSprite2 = CCSprite::create("sell/money/2.png");
+	//pSprite2->setPosition(ccp(400, 240));
+	//addChild(pSprite2, 33, 1198);
 
-	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
-	pItem2->setPosition(ccp(243,199));
-	pItem2->setTag(2);
-	CCMenuItem* pItem3 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
-	pItem3->setPosition(ccp(556,199));
-	pItem3->setTag(3);
+	//CCMenuItem* pItem2 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
+	//pItem2->setPosition(ccp(243,199));
+	//pItem2->setTag(2);
+	//CCMenuItem* pItem3 = CCMenuItemImage::create("sell/money/goumia.png", "sell/money/goumia2.png", this, menu_selector(ccbGetItemLayer::GetMoneyBtn));
+	//pItem3->setPosition(ccp(556,199));
+	//pItem3->setTag(3);
 
-	CCMenu* pMenu1 = CCMenu::create(/*pItem1, */pItem2, pItem3, /*pItem4, pItem5, */NULL);
-	pMenu1->setPosition(ccp(0,0));
-	addChild(pMenu1, 32, 1197);
+	//CCMenu* pMenu1 = CCMenu::create(/*pItem1, */pItem2, pItem3, /*pItem4, pItem5, */NULL);
+	//pMenu1->setPosition(ccp(0,0));
+	//addChild(pMenu1, 32, 1197);
 }
 
 void ccbGetItemLayer::GetMedal( cocos2d::CCObject* sender ){

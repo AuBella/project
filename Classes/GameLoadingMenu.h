@@ -5,15 +5,9 @@
 #include "cocos-ext.h"
 #include "GameControler.h"
 
-class ccbGameLoadingMenu
-	: public cocos2d::CCLayer
-	, public cocos2d::extension::CCBSelectorResolver
-	, public cocos2d::extension::CCBMemberVariableAssigner
-	, public cocos2d::extension::CCNodeLoaderListener
-{
+class ccbGameLoadingMenu : public cocos2d::CCLayer, public cocos2d::extension::CCBSelectorResolver, public cocos2d::extension::CCBMemberVariableAssigner, public cocos2d::extension::CCNodeLoaderListener{
 public:
 	CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(ccbGameLoadingMenu, create);
-
 	ccbGameLoadingMenu();
 	virtual ~ccbGameLoadingMenu();
 

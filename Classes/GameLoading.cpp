@@ -41,16 +41,10 @@ CGameLoading::CGameLoading()
 	scheduleOnce(schedule_selector(CGameLoading::Movie1), 0.90f);
 }
 
-CGameLoading::~CGameLoading()
-{
+CGameLoading::~CGameLoading(){}
 
-}
-
-void CGameLoading::Movie1( float _t )
-{
-	//AppDelegate::AudioPlayEffect("MS/Sound/BGMLoadingLoad.mp3");
+void CGameLoading::Movie1( float _t ){
 	((ccbGameLoadingMenu*)m_pNode)->Loading();
-	//AppDelegate::AudioInit3();
 	scheduleOnce(schedule_selector(CGameLoading::Loading1), 0.80f);
 }
 
@@ -60,18 +54,14 @@ void CGameLoading::Loading1( float _t )
 	scheduleOnce(schedule_selector(CGameLoading::Loading2), 1.20f);
 }
 
-void CGameLoading::Loading2( float _t )
-{
-	//AppDelegate::AudioPlayEffect("MS/Sound/BGMLoadingLoad.mp3");
+void CGameLoading::Loading2( float _t ){
 	((ccbGameLoadingMenu*)m_pNode)->Loading();
 	m_pLayer->GameLoadingSecond();
 	scheduleOnce(schedule_selector(CGameLoading::LoadingOver), 2.35f);
 }
 
-void CGameLoading::LoadingOver( float _t )
-{
+void CGameLoading::LoadingOver( float _t ){
 	((ccbGameLoadingMenu*)m_pNode)->Disappear();
-	//AppDelegate::AudioPlayEffect("MS/Sound/EfLoadingClose.mp3");
 	scheduleOnce(schedule_selector(CGameLoading::Start), 0.80f);
 	m_pScene->removeChildByTag(2);
 	if ( m_iLevel > 29 )
@@ -80,8 +70,7 @@ void CGameLoading::LoadingOver( float _t )
 		m_pLayer->PlaneFly();
 }
 
-void CGameLoading::Start( float _t )
-{
+void CGameLoading::Start( float _t ){
 	m_pScene->removeChildByTag(4);
 	m_pScene->removeChildByTag(3);
 }

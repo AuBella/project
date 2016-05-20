@@ -394,18 +394,18 @@ public:
 	void WinCheck();
 	void Win(float _dt);
 
-	void GuideCheck();
-	void GuideTalk(int _index,int _type = 0);
-	void GuideTalkLogic(float _t = 0);
-	void GuideShield(int _index);
+	//void GuideCheck();
+	//void GuideTalk(int _index,int _type = 0);
+	//void GuideTalkLogic(float _t = 0);
+	/*void GuideShield(int _index);
 	void GuideResume(cocos2d::CCObject *pSender = NULL);
-	void GuideVIP();
-	void GuideBuy(cocos2d::CCObject *pSender = NULL);
-	void GuideBack(cocos2d::CCObject *pSender = NULL);
-	void GuideGoToChoseHero(float _t);
+	void GuideVIP();*/
+	//void GuideBuy(cocos2d::CCObject *pSender = NULL);
+	//void GuideBack(cocos2d::CCObject *pSender = NULL);
+	//void GuideGoToChoseHero(float _t);
 
-	void Sell2();
-	void Sell2Resume(cocos2d::CCObject *pSender = NULL);
+	//void Sell2();
+	//void Sell2Resume(cocos2d::CCObject *pSender = NULL);
 	void Sell2Back(cocos2d::CCObject *pSender = NULL);
 	void Sell3();
 	void Sell3Resume(cocos2d::CCObject *pSender = NULL);
@@ -415,14 +415,14 @@ public:
 	void Sell4_1(cocos2d::CCObject *pSender);
 	void Sell4(cocos2d::CCObject *pSender = NULL);
 	void Sell4Resume(cocos2d::CCObject *pSender = NULL);
-	void Sell5();
-	void Sell5Resume(cocos2d::CCObject *pSender = NULL);
+	/*void Sell5();
+	void Sell5Resume(cocos2d::CCObject *pSender = NULL);*/
 
 	void OnExitGame(cocos2d::CCObject* sender = NULL);
 	void ExitYes(cocos2d::CCObject* sender);
 	void ExitNo(cocos2d::CCObject* sender);
-	void GetMedal( cocos2d::CCObject* sender = NULL );
-	void GetMedalBtn( cocos2d::CCObject* _pNode );
+	/*void GetMedal( cocos2d::CCObject* sender = NULL );
+	void GetMedalBtn( cocos2d::CCObject* _pNode );*/
 	void GetRemove( cocos2d::CCObject* _pNode = NULL );
 
 	int		m_iSkillCanUse;

@@ -28,17 +28,8 @@
     <Filter Include="Main\Source">
       <UniqueIdentifier>{73fc0f06-e6ce-4728-9124-798f85b283bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="View\Login">
-      <UniqueIdentifier>{ba52ce29-4e0b-4888-ae14-d048c56dacb6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="View\Menu">
       <UniqueIdentifier>{6a6a6087-2a5f-4f05-9201-4b495a2d772a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="View\Login\Include">
-      <UniqueIdentifier>{73c7d9c4-8600-4dbc-9d7b-fd748ac9b7bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="View\Login\Source">
-      <UniqueIdentifier>{4dbd7218-1b7d-4246-96dd-6a9bbfdf8a97}</UniqueIdentifier>
     </Filter>
     <Filter Include="View\Menu\Include">
       <UniqueIdentifier>{9784d93a-b557-442a-a6dd-041d0fcff07c}</UniqueIdentifier>
@@ -46,14 +37,23 @@
     <Filter Include="View\Menu\Source">
       <UniqueIdentifier>{8cf8a3e2-9447-4b6f-8f90-438300fd5ab7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="View\Login\Sprite">
+    <Filter Include="Main\Sprite">
       <UniqueIdentifier>{7d007cdd-1148-4fd2-9ac9-fa3e5717dbff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="View\Login\Sprite\Include">
+    <Filter Include="Main\Sprite\Include">
       <UniqueIdentifier>{6f91ecb0-b3e2-44ee-856f-6259886127d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="View\Login\Sprite\Source">
+    <Filter Include="Main\Sprite\Source">
       <UniqueIdentifier>{3f5b4063-2fd3-472a-9841-a4e3914c36fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login">
+      <UniqueIdentifier>{ba52ce29-4e0b-4888-ae14-d048c56dacb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login\Include">
+      <UniqueIdentifier>{73c7d9c4-8600-4dbc-9d7b-fd748ac9b7bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login\Source">
+      <UniqueIdentifier>{4dbd7218-1b7d-4246-96dd-6a9bbfdf8a97}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -244,19 +244,19 @@
       <Filter>Main\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ChoseHero.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\FirstLogin.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HelpLayer.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LoginEDLayer.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LoginMenu.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ccb.h">
       <Filter>View\Menu\Include</Filter>
@@ -274,28 +274,28 @@
       <Filter>View\Menu\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Background.h">
-      <Filter>View\Login\Sprite\Include</Filter>
+      <Filter>Main\Sprite\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Flash.h">
-      <Filter>View\Login\Sprite\Include</Filter>
+      <Filter>Main\Sprite\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Frontground.h">
-      <Filter>View\Login\Sprite\Include</Filter>
+      <Filter>Main\Sprite\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Hero.h">
-      <Filter>View\Login\Sprite\Include</Filter>
+      <Filter>Main\Sprite\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AchieveAdd.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\PayService.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GetPrize.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HttpHandle.h">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -453,46 +453,46 @@
       <Filter>View\Menu\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Background.cpp">
-      <Filter>View\Login\Sprite\Source</Filter>
+      <Filter>Main\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Flash.cpp">
-      <Filter>View\Login\Sprite\Source</Filter>
+      <Filter>Main\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Frontground.cpp">
-      <Filter>View\Login\Sprite\Source</Filter>
+      <Filter>Main\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Hero.cpp">
-      <Filter>View\Login\Sprite\Source</Filter>
+      <Filter>Main\Sprite\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameLoading.cpp">
       <Filter>Game\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ChoseHero.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\FirstLogin.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HelpLayer.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LoginEDLayer.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LoginMenu.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AchieveAdd.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\PayService.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GetPrize.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HttpHandle.cpp">
-      <Filter>View\Login\Include</Filter>
+      <Filter>Login\Include</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

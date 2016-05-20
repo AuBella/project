@@ -41,7 +41,7 @@ ccbLayer::ccbLayer()
 	: m_AnimationManager(NULL)
 {
 	s_pccbLayer = this;
-	m_iGuideIndex = 0;
+	//m_iGuideIndex = 0;
 	m_iPress	= 0;
 	m_iToward	= 0;
 	m_iLevel	= 0;
@@ -628,11 +628,11 @@ void ccbLayer::ccTouchesEnded( cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
 	}
 	ObjectShow();
 }
-
+//控制主关卡显隐
 void ccbLayer::SetSpriteDisable(bool m_bVisible){
 	for ( int i = 0; i < d_iLevelNum+1; i++ ){
-		m_pFSprite[i].setVisible(m_bVisible);
-		m_pSSprite[i].setVisible(m_bVisible);
+		m_pFSprite[i].setVisible(m_bVisible);//bg
+		m_pSSprite[i].setVisible(m_bVisible);//文言框+bg框
 	}
 	m_bEnd = !m_bVisible;
 	m_iPress = m_bVisible - 1;

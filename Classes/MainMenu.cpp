@@ -22,16 +22,14 @@ CCNode*	CMainMenu::m_pNodeShop		= NULL;
 CCScene* CMainMenu::m_pScene		= NULL;
 int CMainMenu::m_iArmatureDigit = 2;
 
-CMainMenu::CMainMenu()
-{
+CMainMenu::CMainMenu(){
 }
 
 CMainMenu::~CMainMenu()
 {
 }
 
-bool CMainMenu::init()
-{
+bool CMainMenu::init(){
 	m_iStatus			= 0;
 	m_iDifficult		= 0;
 	m_bOnSell			= false;
@@ -52,8 +50,8 @@ CCScene* CMainMenu::StartMenu(int _level, int _difficult, bool _bShop){
 	return pScene;
 }
 
-CCScene* CMainMenu::StartGame(int _level, int _difficult)
-{
+CCScene* CMainMenu::StartGame(int _level, int _difficult){
+	CCLOG("--------------->>>>>>>>>>>>>>>%d%d", _level, _difficult);
 	CCScene* pScene = CCScene::create();
 	CGameLoading::GetGameLoadingLayer(pScene, _level, _difficult);
 	return pScene;
@@ -63,7 +61,6 @@ void CMainMenu::AllAdd( cocos2d::CCScene* _pScene ){
 	m_pScene = _pScene;
 	CMainMenu::m_iArmatureDigit = 2;
 	CMainMenu* pLayer = CMainMenu::create();
-	//SetScale(pLayer);
 	_pScene->addChild(pLayer);
 	m_pNodeMain			= NULL;
 	m_pNodeLevel		= NULL;
@@ -73,20 +70,19 @@ void CMainMenu::AllAdd( cocos2d::CCScene* _pScene ){
 	SetScale(pNode1);
 	_pScene->addChild(pNode1);
 	((ccbLayer*)pNode1)->m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline", 0.0f);
-
+	
 	CCNode* pNode3 = CreateMenuLevel();
 	SetScale(pNode3);
 	_pScene->addChild(pNode3);
 	((ccbLevelMenu*)pNode3)->m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline copy", 0.0f);
-
+	
 	CCNode* pNode4 = CreateMenuShop();
 	SetScale(pNode4);
 	_pScene->addChild(pNode4);
 	((ccbShopMenu*)pNode4)->m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("fanhui", 0.0f);
 }
 
-void CMainMenu::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
-{
+void CMainMenu::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent){
 	CCSetIterator iter = pTouches->begin();
 	int location = (int)((CCTouch*)(*iter))->getLocation().x;
 	int i = (location - 60)/80;
@@ -95,9 +91,6 @@ void CMainMenu::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
 
 void CMainMenu::keyBackClicked()
 {
-	//AppDelegate::SaveAll();
-	//CCDirector::sharedDirector()->end();
-	//exit(0);
 	if ( m_bShop )
 	{
 		if ( ((ccbShopMenu*)m_pNodeShop)->m_iStatus == 0 )
@@ -124,8 +117,7 @@ CCNode* CMainMenu::CreateMenuMain(){
 	return m_pNodeMain;
 }
 //创建关卡副菜单
-cocos2d::CCNode* CMainMenu::CreateMenuLevel()
-{
+cocos2d::CCNode* CMainMenu::CreateMenuLevel(){
 	if ( !m_pNodeLevel ){
 		CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
 		ccNodeLoaderLibrary->registerCCNodeLoader("ccbLevelMenu", ccbLevelMenuLoader::loader());//详细
@@ -137,11 +129,9 @@ cocos2d::CCNode* CMainMenu::CreateMenuLevel()
 	}
 	return m_pNodeLevel;
 }
-
-cocos2d::CCNode* CMainMenu::CreateMenuShop()
-{
-	if ( !m_pNodeShop )
-	{
+//商店
+cocos2d::CCNode* CMainMenu::CreateMenuShop(){
+	if ( !m_pNodeShop ){
 		//CCBAnimationManager* actionManager = NULL;
 		CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
 		ccNodeLoaderLibrary->registerCCNodeLoader("ccbShopMenu", ccbShopMenuLoader::loader());
@@ -154,18 +144,15 @@ cocos2d::CCNode* CMainMenu::CreateMenuShop()
 	return m_pNodeShop;
 }
 
-cocos2d::CCNode* CMainMenu::GetMenuMain()
-{
+cocos2d::CCNode* CMainMenu::GetMenuMain(){
 	return m_pNodeMain;
 }
 
-cocos2d::CCNode* CMainMenu::GetMenuLevel()
-{
+cocos2d::CCNode* CMainMenu::GetMenuLevel(){
 	return m_pNodeLevel;
 }
 
-cocos2d::CCNode* CMainMenu::GetMenuShop()
-{
+cocos2d::CCNode* CMainMenu::GetMenuShop(){
 	return m_pNodeShop;
 }
 
@@ -177,21 +164,17 @@ int CMainMenu::GetStatus(){
 	return m_iStatus;
 }
 
-void CMainMenu::SetDifficult( int _difficult )
-{
+void CMainMenu::SetDifficult( int _difficult ){
 	m_iDifficult = _difficult;
 }
 
-int CMainMenu::GetDifficult()
-{
+int CMainMenu::GetDifficult(){
 	return m_iDifficult;
 }
-
-void CMainMenu::ReleaseArmatureData()
-{
+//释放资源
+void CMainMenu::ReleaseArmatureData(){
 	CMainMenu::m_iArmatureDigit --;
-	if ( CMainMenu::m_iArmatureDigit == 0 )
-	{
+	if ( CMainMenu::m_iArmatureDigit == 0 ){
 		cs::ArmatureDataManager::sharedArmatureDataManager()->removeAll();
 		cs::ArmatureDataManager::sharedArmatureDataManager()->purgeArmatureSystem();
 		CCTextureCache::sharedTextureCache()->removeAllTextures();

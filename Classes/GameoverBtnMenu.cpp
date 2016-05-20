@@ -2,10 +2,7 @@
 #include "MainMenu.h"
 #include "AppDelegate.h"
 #include "Common.h"
-//#include "AchieveAdd.h"
 #include "ChoseHero.h"
-//#include "FirstLogin.h"
-//#include "PayService.h"
 
 using namespace cocos2d;
 using namespace cocos2d::extension;

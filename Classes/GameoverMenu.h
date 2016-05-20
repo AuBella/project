@@ -32,16 +32,10 @@ public:
 	void OnReplay(cocos2d::CCObject *pSender);
 	void OnReturn(cocos2d::CCObject *pSender);
 	void OnRechoseHero(cocos2d::CCObject *pSender = NULL);
-	//void InitBtn();
-	//void OnBuy1(cocos2d::CCObject *pSender);
-	//void OnBuy2(cocos2d::CCObject *pSender);
-	//void OnBuy3(cocos2d::CCObject *pSender);
-	//void OnBuy4(cocos2d::CCObject *pSender);
 
 	void Win(int _complate);
 	void Lose(int _complate);
 
-	//void LosePlay(float _t);
 	void StartDigit(float _t);
 	void Timer(float _t);
 	void StartBtn();

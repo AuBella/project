@@ -152,10 +152,10 @@ void ccbStartGame::Repeat( cocos2d::CCNode* sender )
 		{
 			unschedule(schedule_selector(ccbStartGame::Timer));
 			CCMoveBy* pAction1 = CCMoveBy::create(1.0f, ccp(0, -155));
-			CCAnimate* pAction2 = CCAnimate::create(common::CreateAnimationFrame("guide/box/", 2, CCRect(0,0,106,108)));
+			//CCAnimate* pAction2 = CCAnimate::create(common::CreateAnimationFrame("guide/box/", 2, CCRect(0,0,106,108)));
 			CCDelayTime* pDelay = CCDelayTime::create(0.5f);
 			CCCallFunc* pCallfunc = CCCallFunc::create(this, callfunc_selector(ccbStartGame::GuideBox));
-			m_pGuideBox->runAction(CCSequence::create(pAction1, pAction2, pDelay, pCallfunc, NULL));
+			//m_pGuideBox->runAction(CCSequence::create(pAction1, /*pAction2*/, pDelay, pCallfunc, NULL));
 			m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline2", 0.0f);
 		}
 		else if ( m_iStayTimes == 2 )
@@ -212,7 +212,7 @@ void ccbStartGame::Appear( cocos2d::CCPoint _StartPoint, cocos2d::CCPoint _EndPo
 	}
 	else
 	{
-		m_pGuideHolder = CCSprite::create("guide/box/ganzi.png");
+	/*	m_pGuideHolder = CCSprite::create("guide/box/ganzi.png");
 		m_pGuideHolder->setPosition(ccp(_StartPoint.x, _StartPoint.y-20));
 		m_pGuideHolder->setAnchorPoint(ccp(0.5f, 1.0f));
 		getParent()->addChild(m_pGuideHolder, getZOrder()-1);
@@ -220,7 +220,7 @@ void ccbStartGame::Appear( cocos2d::CCPoint _StartPoint, cocos2d::CCPoint _EndPo
 		m_pGuideBox = CCSprite::create("guide/box/1.png");
 		m_pGuideBox->setPosition(ccp(_StartPoint.x, _StartPoint.y-115));
 		m_pGuideBox->setAnchorPoint(ccp(0.5f, 0.2f));
-		m_pGameControler->m_pHero->GetArmature()->getParent()->addChild(m_pGuideBox, m_pGameControler->m_pHero->GetArmature()->getZOrder()+1);
+		m_pGameControler->m_pHero->GetArmature()->getParent()->addChild(m_pGuideBox, m_pGameControler->m_pHero->GetArmature()->getZOrder()+1);*/
 	}
 
 	schedule(schedule_selector(ccbStartGame::Timer), 1.0f/90.0f);
@@ -249,14 +249,14 @@ void ccbStartGame::Timer( float _t )
 	{
 		float x = m_pNode->getPositionX()+getPositionX();
 		float y = m_pNode->getPositionY()+getPositionY();
-		m_pGuideHolder->setPosition(ccp(x+50, y));
-		m_pGuideBox->setPosition(ccp(x+40, y-105));
+	/*	m_pGuideHolder->setPosition(ccp(x+50, y));
+		m_pGuideBox->setPosition(ccp(x+40, y-105));*/
 	}
 }
 
 void ccbStartGame::GuideBox()
 {
-	m_pGuideHolder->removeFromParentAndCleanup(true);
-	m_pGuideBox->removeFromParentAndCleanup(true);
-	m_pGameControler->GuideVIP();
+	//m_pGuideHolder->removeFromParentAndCleanup(true);
+	//m_pGuideBox->removeFromParentAndCleanup(true);
+	//m_pGameControler->GuideVIP();
 }

@@ -77,24 +77,14 @@ AppDelegate::AppDelegate()
 		s_LevelStar[i] = 0;//每一关获得星星数
 	}
 #ifdef Plat_Telecom_Demo
-	s_Money = 100;
-	s_Medal = 30;
+	s_Money = 10000;
+	s_Medal = 3000;
 #endif
 }
 
 AppDelegate::~AppDelegate(){
 	SimpleAudioEngine::end();
 }
-
-//void AppDelegate::SaveTencent()
-//{
-//	common::SaveData("_st", 1);
-//}
-//
-//void AppDelegate::LoadTencent()
-//{
-//	common::LoadData("_st", s_Tencent);
-//}
 
 void AppDelegate::SaveOnSale(){
 	common::SaveData("_a", s_OnSaleNum);//s_Money
@@ -113,18 +103,15 @@ void AppDelegate::LoadOnSale()
 	LoadArray("y", s_ShopOnSell, 4);//s_LevelStar
 }
 
-void AppDelegate::SaveMoney()
-{
+void AppDelegate::SaveMoney(){
 	common::SaveData("a", s_Money);//s_Money
 }
 
-void AppDelegate::SaveMedal()
-{
+void AppDelegate::SaveMedal(){
 	common::SaveData("b", s_Medal);//s_Medal
 }
 
-void AppDelegate::SaveStatus()
-{
+void AppDelegate::SaveStatus(){
 	common::SaveData("a", s_Money);//s_Money
 	common::SaveData("b", s_Medal);//s_Medal
 	common::SaveData("c", s_GrenadeNum);//s_GrenadeNum
@@ -150,8 +137,7 @@ void AppDelegate::SaveBody(){
 	SaveArray("bc", s_Hero3Array, 6);//s_LevelStar
 }
 
-void AppDelegate::SaveLevel( int _level )
-{
+void AppDelegate::SaveLevel( int _level ){
 	common::SaveData("g", s_LevelOpen, _level);//s_LevelOpen
 	common::SaveData("g", s_LevelOpen, _level+1);//s_LevelOpen
 	common::SaveData("h", s_LevelStar, _level);//s_LevelStar
@@ -222,8 +208,7 @@ void AppDelegate::SaveGuide(){
 	common::SaveData("f", s_FirstLogin);//s_FirstLogin
 }
 
-void AppDelegate::LoadAll()
-{
+void AppDelegate::LoadAll(){
 	common::LoadData("a", s_Money);
 	common::LoadData("b", s_Medal);
 	common::LoadData("c", s_GrenadeNum);
@@ -236,12 +221,6 @@ void AppDelegate::LoadAll()
 	LoadArray("k", s_WeaponOwn, 18);
 	LoadArray("l", s_WeaponUse, 3);
 	LoadArray("o", s_SkillEnergy, 1);
-	//common::LoadData("p", s_DateYear);//
-	//common::LoadData("q", s_DateMonth);//
-	//common::LoadData("r", s_DateDay);//
-	//LoadArray("s", s_PrizeSave, 10);//
-	//common::LoadData("t", s_PrizeFree);//
-	//common::LoadData("u", s_PrizeDayNum);//
 	LoadArray("x", s_LevelKey, LevelOpenNum);//s_LevelStar
 	common::LoadData("z", s_KillMonster);//s_Healbox
 	common::SaveData("aa", s_imei);//s_Healbox
@@ -253,9 +232,6 @@ void AppDelegate::LoadAll()
 	LoadArray("be", s_LevelHero3, LevelOpenNum);//s_LevelStar
 	common::LoadData("_s1", m_Sell1);//s_Money
 	common::LoadData("_s2", m_Sell2);//s_Money
-	//common::LoadData("_s3", m_Share);//s_Money
-	//common::LoadData("_fa", m_iPayInfoIndex);//s_Money
-	//common::LoadData("_fb", m_iPayInfoMax);//s_Money
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
@@ -330,10 +306,8 @@ void AppDelegate::AudioBackResume()
 	}
 }
 
-void AppDelegate::AudioBackPause()
-{
+void AppDelegate::AudioBackPause(){
 	CCTextureCache::sharedTextureCache()->removeAllTextures();
-	//PayService::getInstance()->setCheckTrue();
 	SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 	SimpleAudioEngine::sharedEngine()->pauseAllEffects();
 	m_voice = SimpleAudioEngine::sharedEngine()->getEffectsVolume();
@@ -347,8 +321,7 @@ void AppDelegate::ChangeScene(cocos2d::CCScene* _pScene, eTransition _transition
 	CCDirector::sharedDirector()->getRunningScene()->stopAllActions();
 	CCDirector::sharedDirector()->getRunningScene()->pauseSchedulerAndActions();
 	CCScene* pScene = NULL;
-	switch ( _transition )
-	{
+	switch ( _transition ){
 	case etHorizontal:
 		pScene = CCTransitionProgressHorizontal::create(_time, _pScene);
 		break;
@@ -364,8 +337,7 @@ void AppDelegate::ChangeScene(cocos2d::CCScene* _pScene, eTransition _transition
 	default:
 		break;
 	}
-	if ( pScene )
-	{
+	if ( pScene ){
 		CCDirector::sharedDirector()->replaceScene(_pScene);
 	}
 }
@@ -391,64 +363,50 @@ void AppDelegate::AudioInit1(){
 #endif
 }
 
-void AppDelegate::AudioInit2()
-{
+void AppDelegate::AudioInit2(){
 	SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("MS/Music/level2/1.mp3");
 }
 
-void AppDelegate::AudioInit3()
-{
-}
+void AppDelegate::AudioInit3(){}
 
-void AppDelegate::AudioPlayBgm(const char* _path, bool _Repeat)
-{
-	if ( s_VoiceOpen )
-	{
+void AppDelegate::AudioPlayBgm(const char* _path, bool _Repeat){
+	if ( s_VoiceOpen ){
 		SimpleAudioEngine::sharedEngine()->setEffectsVolume(100);
 		SimpleAudioEngine::sharedEngine()->playBackgroundMusic(_path, _Repeat);
 	}
 }
 
-void AppDelegate::AudioStopBgm()
-{
+void AppDelegate::AudioStopBgm(){
 	SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
 	SimpleAudioEngine::sharedEngine()->stopAllEffects();
 	SimpleAudioEngine::sharedEngine()->setEffectsVolume(0);
 }
 
-void AppDelegate::AudioStopB()
-{
+void AppDelegate::AudioStopB(){
 	SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
 }
 
-void AppDelegate::AudioPause()
-{
+void AppDelegate::AudioPause(){
 	SimpleAudioEngine::sharedEngine()->pauseAllEffects();
 	SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
-void AppDelegate::AudioResume()
-{
-	if ( AppDelegate::s_VoiceOpen )
-	{
+void AppDelegate::AudioResume(){
+	if ( AppDelegate::s_VoiceOpen ){
 		SimpleAudioEngine::sharedEngine()->resumeAllEffects();
 		SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 	}
 }
 
-int AppDelegate::AudioPlayEffect(const char* _path)
-{
+int AppDelegate::AudioPlayEffect(const char* _path){
 	int id = -1;
-	if ( s_VoiceOpen )
-	{
+	if ( s_VoiceOpen ){
 		id = SimpleAudioEngine::sharedEngine()->playEffect(_path);
 	}
 	return id;
 }
 
-void AppDelegate::AudioStopEffect( int _id )
-{
-}
+void AppDelegate::AudioStopEffect( int _id ){}
 
 int AppDelegate::WeaponIndex( int _num )
 {
@@ -576,8 +534,8 @@ void AppDelegate::GetPayContent( int _type )
 			AppDelegate::s_GrenadeNum = 10;
 			AppDelegate::s_Money += 1000;
 			AppDelegate::SaveStatus();
-			if ( CGameControler::GetGameControler() )
-				CGameControler::GetGameControler()->GuideBuy();
+			/*if ( CGameControler::GetGameControler() )
+				CGameControler::GetGameControler()->GuideBuy();*/
 		}
 		break;
 	case 2:
@@ -597,8 +555,8 @@ void AppDelegate::GetPayContent( int _type )
 			AppDelegate::s_Healbox = 3;
 			AppDelegate::s_Money += 2000;
 			AppDelegate::SaveStatus();
-			if ( CGameControler::GetGameControler() )
-				CGameControler::GetGameControler()->Sell2Resume();
+			/*if ( CGameControler::GetGameControler() )
+				CGameControler::GetGameControler()->Sell2Resume();*/
 		}
 		break;
 	case 3:
@@ -632,8 +590,8 @@ void AppDelegate::GetPayContent( int _type )
 			AppDelegate::s_GrenadeNum = 10;
 			AppDelegate::s_Money += 1000;
 			AppDelegate::SaveStatus();
-			if ( ccbLevelMenu::s_pccbLevelMenu )
-				ccbLevelMenu::s_pccbLevelMenu->Sell1Resume();
+			/*if ( ccbLevelMenu::s_pccbLevelMenu )
+				ccbLevelMenu::s_pccbLevelMenu->Sell1Resume();*/
 			if ( ccbGameoverBtnMenu::s_pccbGameoverBtnMenu )
 				ccbGameoverBtnMenu::s_pccbGameoverBtnMenu->Sell1Resume();
 		}
@@ -694,8 +652,8 @@ void AppDelegate::GetPayContent( int _type )
 			}
 			AppDelegate::m_Sell2 = iSkillCanUse;
 			AppDelegate::SaveStatus();
-			if ( CGameControler::GetGameControler() )
-				CGameControler::GetGameControler()->Sell5Resume();
+			/*if ( CGameControler::GetGameControler() )
+				CGameControler::GetGameControler()->Sell5Resume();*/
 		}
 		break;
 	case 10:

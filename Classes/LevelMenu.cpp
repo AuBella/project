@@ -5,7 +5,6 @@
 #include "ChoseMenu.h"
 #include "AppDelegate.h"
 #include "Common.h"
-//#include "PayService.h"
 #include "ShopMenu.h"
 
 using namespace cocos2d;
@@ -108,17 +107,17 @@ void ccbLevelMenu::ccTouchesEnded( cocos2d::CCSet *pTouches, cocos2d::CCEvent *p
 						AppDelegate::s_FirstLogin = 5;
 						AppDelegate::SaveGuide();
 					}
-#ifdef Plat_MM
-					else if ( m_iChose+ m_iLevel*6 > 4 && AppDelegate::m_Sell1 == 0 )
-#else
-					else if ( m_iChose+ m_iLevel*6 > 0 && AppDelegate::m_Sell1 == 0 )
-#endif
-					{
-#ifndef GameTypeC
-						Sell1();
-						return;
-#endif
-					}
+//#ifdef Plat_MM
+//					else if ( m_iChose+ m_iLevel*6 > 4 && AppDelegate::m_Sell1 == 0 )
+//#else
+//					else if ( m_iChose+ m_iLevel*6 > 0 && AppDelegate::m_Sell1 == 0 )
+//#endif
+//					{
+//#ifndef GameTypeC
+//						Sell1();
+//						return;
+//#endif
+//					}
 					if ( m_iChose + m_iLevel*6 >= LevelLimit*6 )
 					{
 						if ( getChildByTag(410) )
@@ -153,9 +152,7 @@ void ccbLevelMenu::tipdisappear()
 	removeChildByTag(410);
 }
 
-void ccbLevelMenu::Appear()
-{
-	//AppDelegate::AudioPlayBgm("MS/Music/mainmenu/LevelChose.mp3");
+void ccbLevelMenu::Appear(){
 	m_iLevel = ((ccbLayer*)CMainMenu::GetMenuMain())->GetLevel();
 	((ccbLayer*)CMainMenu::GetMenuMain())->SetSpriteDisable(false);
 	for ( int i = 0; i < 6; i ++ )
@@ -232,18 +229,6 @@ void ccbLevelMenu::Appear()
 
 		if ( AppDelegate::s_LevelOpen[i+m_iLevel*6] && i < 5 )
 		{
-			/*if ( AppDelegate::s_LevelPerfect[i+m_iLevel*6] )
-			{
-				CCSprite* pMark = CCSprite::create("tu2/1.png");
-				pMark->setPosition(ccp(-70,-6));
-				m_pNode[i]->addChild(pMark, 2, 8);
-			}
-			if ( AppDelegate::s_LevelUnfire[i+m_iLevel*6] )*/
-			/*{
-				CCSprite* pMark = CCSprite::create("tu2/2.png");
-				pMark->setPosition(ccp(-37,-26));
-				m_pNode[i]->addChild(pMark, 2, 7);
-			}*/
 			for ( int j = 0; j < AppDelegate::s_LevelStar[i+m_iLevel*6]; j++ )
 			{
 				m_pNode[i]->removeChildByTag(11+j);
@@ -255,10 +240,8 @@ void ccbLevelMenu::Appear()
 	}
 
 	m_iChose = -1;
-	//((ccbLayer*)CMainMenu::GetMenuMain())->ShowDifficultName();
 	m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline", 0.0f);
 	scheduleOnce(schedule_selector(ccbLevelMenu::SetTouch), 0.7f);
-	//AppDelegate::AudioPlayEffect("MS/Sound/EfLoadingOpen.mp3");
 }
 
 void ccbLevelMenu::Return()
@@ -287,39 +270,39 @@ void ccbLevelMenu::SetTouch( float _t )
 	setTouchEnabled(true);
 }
 
-void ccbLevelMenu::Sell1()
-{
-#ifdef Plat_Telecom_Demo
-	Sell1Resume();
-	return;
-#endif
-	CMainMenu::m_bOnSell = true;
-
-	CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
-	//pCCLayerColor->setPosition(ccp(0,0));
-	//SetScale(pCCLayerColor);
-	addChild(pCCLayerColor, 29, 194);
-	CCMenuItem* pItem1 = CCMenuItemImage::create("sell/huode2-1.png", "sell/huode2-2.png", this, menu_selector(ccbLevelMenu::Sell1Resume));
-	CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbLevelMenu::Sell1Back));
-	pItem1->setPosition(ccp(725,195));
-	pItem2->setPosition(ccp(728,437));
-	CCMenu* pMenu = CCMenu::create(pItem1, pItem2, NULL);
-	pMenu->setPosition(ccp(0,0));
-	addChild(pMenu, 30, 197);
-
-	CCSprite* pSprite1 = CCSprite::create("sell/di1.png");
-	pSprite1->setPosition(ccp(400, 240));
-	addChild(pSprite1, 31, 199);
-	CCSprite* pSprite4 = CCSprite::create("sell/vip/tu.png");
-	pSprite4->setPosition(ccp(400, 240));
-	addChild(pSprite4, 31, 198);
-	CCSprite* pSprite2 = common::CreateAnimation("sell/vip/meizi1.png", ccp(265, 190), ccp(0.5f, 0.5f),
-		"sell/vip/meizi", 2, CCRect(0,0,282,284), true);
-	addChild(pSprite2, 31, 196);
-	CCSprite* pSprite3 = CCSprite::create("sell/vip/dang.png");
-	pSprite3->setPosition(ccp(265, 50));
-	addChild(pSprite3, 31, 195);
-}
+//void ccbLevelMenu::Sell1()
+//{
+//#ifdef Plat_Telecom_Demo
+//	Sell1Resume();
+//	return;
+//#endif
+//	CMainMenu::m_bOnSell = true;
+//
+//	//CCLayerColor* pCCLayerColor = CCLayerColor::create(ccc4(20,20,20,230), 800, 480);
+//	////pCCLayerColor->setPosition(ccp(0,0));
+//	////SetScale(pCCLayerColor);
+//	//addChild(pCCLayerColor, 29, 194);
+//	////CCMenuItem* pItem1 = CCMenuItemImage::create("sell/huode2-1.png", "sell/huode2-2.png", this, menu_selector(ccbLevelMenu::Sell1Resume));
+//	//CCMenuItem* pItem2 = CCMenuItemImage::create("sell/guan.png", "sell/guan.png", this, menu_selector(ccbLevelMenu::Sell1Back));
+//	////pItem1->setPosition(ccp(725,195));
+//	//pItem2->setPosition(ccp(728,437));
+//	//CCMenu* pMenu = CCMenu::create(/*pItem1, */pItem2, NULL);
+//	//pMenu->setPosition(ccp(0,0));
+//	//addChild(pMenu, 30, 197);
+//
+//	/*CCSprite* pSprite1 = CCSprite::create("sell/di1.png");
+//	pSprite1->setPosition(ccp(400, 240));
+//	addChild(pSprite1, 31, 199);
+//	CCSprite* pSprite4 = CCSprite::create("sell/vip/tu.png");
+//	pSprite4->setPosition(ccp(400, 240));
+//	addChild(pSprite4, 31, 198);
+//	CCSprite* pSprite2 = common::CreateAnimation("sell/vip/meizi1.png", ccp(265, 190), ccp(0.5f, 0.5f),
+//		"sell/vip/meizi", 2, CCRect(0,0,282,284), true);
+//	addChild(pSprite2, 31, 196);
+//	CCSprite* pSprite3 = CCSprite::create("sell/vip/dang.png");
+//	pSprite3->setPosition(ccp(265, 50));
+//	addChild(pSprite3, 31, 195);*/
+//}
 
 void ccbLevelMenu::Sell1Resume( cocos2d::CCObject *pSender /*= NULL*/ )
 {

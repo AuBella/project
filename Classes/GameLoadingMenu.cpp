@@ -61,18 +61,18 @@ void ccbGameLoadingMenu::setAnimationManager(CCBAnimationManager *pAnimationMana
 	m_AnimationManager = pAnimationManager;
 	CC_SAFE_RETAIN(m_AnimationManager);
 }
-
+//初始动画
 void ccbGameLoadingMenu::Appear()
 {
 	m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline fanhui", 0.0f);
 	return;
 }
-
+//转盘动画
 void ccbGameLoadingMenu::Loading(){
 	m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline zhuan", 0.0f);
 	return;
 }
-
+//分离
 void ccbGameLoadingMenu::Disappear(){
 	m_AnimationManager->runAnimationsForSequenceNamedTweenDuration("Default Timeline", 0.0f);
 	return;

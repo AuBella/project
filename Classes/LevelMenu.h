@@ -34,7 +34,7 @@ public:
 	void ReturnCallBack(float _t);
 	void SetTouch(float _t);
 
-	void Sell1();
+	//void Sell1();
 	void Sell1Resume(cocos2d::CCObject *pSender = NULL);
 	void Sell1Back(cocos2d::CCObject *pSender = NULL);
 	void tipdisappear();
